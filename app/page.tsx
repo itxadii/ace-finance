@@ -1,18 +1,23 @@
+import HeroSection from "@/components/HeroSection";
+import ServicesSection from "@/components/ServicesSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import WhyChooseSection from "@/components/WhyChooseSection";
+import CTASection from "@/components/CTASection";
+
 export const metadata = {
-  title: "Loan Services in Nashik | ACE Finance",
-  description: "Apply for home, personal and business loans in Nashik with fast approval.",
+  title: "ACE Finance — Loans in Nashik | Home, Personal & Business Loans",
+  description:
+    "Apply for home, personal, and business loans in Nashik with fast 24-hour approval, competitive interest rates, and minimal documentation. Trusted by 10,000+ clients.",
 };
 
 export default function Home() {
   return (
-    <div className="p-6">
-      <h1 className="text-3xl font-bold">
-        Loan Services in Nashik
-      </h1>
-
-      <p className="mt-4">
-        We provide home loans, personal loans, and business loans with quick approval and low interest rates.
-      </p>
-    </div>
+    <>
+      <HeroSection />
+      <ServicesSection />
+      <WhyChooseSection />
+      <TestimonialsSection />
+      <CTASection />
+    </>
   );
 }

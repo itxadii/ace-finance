@@ -1,21 +1,27 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Lato } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const lato = Lato({
+  variable: "--font-lato",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["300", "400", "700", "900"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "ACE Finance - Loans in Nashik",
-  description: "Get home, personal and business loans with fast approval in Nashik.",
+  title: "ACE Finance — Home, Personal & Business Loans in Nashik",
+  description:
+    "Get fast loan approvals in Nashik. ACE Finance offers home loans, personal loans, business loans, loan against property, and used car loans at competitive rates with minimal documentation.",
+  keywords: "home loan Nashik, personal loan Nashik, business loan Nashik, ACE Finance, loan approval",
+  openGraph: {
+    title: "ACE Finance — Loans in Nashik",
+    description:
+      "Turn your dream home into reality with ACE Finance. Quick approval, low rates, expert guidance.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -24,13 +30,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable}`}
-    >
+    <html lang="en" className={lato.variable}>
       <body>
         <Navbar />
-        {children}
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
