@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 const loanServices = [
   {
     id: "personal-loan",
@@ -7,8 +9,6 @@ const loanServices = [
     title: "Personal Loans",
     description:
       "Get quick, hassle-free personal loans with flexible repayment options and minimal paperwork.",
-    color: "#6366f1",
-    bgColor: "rgba(99,102,241,0.08)",
     href: "/personal-loan",
   },
   {
@@ -17,8 +17,6 @@ const loanServices = [
     title: "Business Loans",
     description:
       "Boost your business growth with affordable business loans tailored to your goals.",
-    color: "#0ea5e9",
-    bgColor: "rgba(14,165,233,0.08)",
     href: "/business-loan",
   },
   {
@@ -27,8 +25,6 @@ const loanServices = [
     title: "Home Loans",
     description:
       "Turn your dream home into reality with our easy home loan process and expert guidance.",
-    color: "#1a56db",
-    bgColor: "rgba(26,86,219,0.08)",
     href: "/home-loan",
     featured: true,
   },
@@ -37,30 +33,24 @@ const loanServices = [
     icon: "🏗️",
     title: "Loan Against Property",
     description:
-      "Unlock the value of your property and secure funds whenever you need them. High-value loans at low interest rates, with simple documentation and quick disbursal.",
-    color: "#f59e0b",
-    bgColor: "rgba(245,158,11,0.08)",
-    href: "#",
+      "Unlock the value of your property and secure high-value loans at low interest rates, with simple documentation and quick disbursal.",
+    href: "#contact",
   },
   {
     id: "used-car-loan",
     icon: "🚗",
-    title: "Used Car Loan",
+    title: "Used Car Loans",
     description:
-      "Own the car you want with our easy used car loans. Fast approvals, competitive interest rates, and flexible repayment plans for pre-owned vehicles.",
-    color: "#10b981",
-    bgColor: "rgba(16,185,129,0.08)",
-    href: "#",
+      "Own the pre-owned vehicle you want with our fast-approval used car loans and competitive rates.",
+    href: "#contact",
   },
   {
     id: "credit-cards",
     icon: "💳",
     title: "Credit Cards",
     description:
-      "Enjoy financial freedom with our wide range of credit card options, designed to suit every lifestyle and spending habit.",
-    color: "#ef4444",
-    bgColor: "rgba(239,68,68,0.08)",
-    href: "#",
+      "Enjoy financial freedom with our wide range of credit card options designed to suit every lifestyle.",
+    href: "#contact",
   },
 ];
 
@@ -69,38 +59,51 @@ export default function ServicesSection() {
     <section
       id="services"
       style={{
-        background: "#f8fafc",
+        background: "#ffffff",
         padding: "100px 24px",
+        position: "relative",
       }}
     >
+      {/* Decorative side gradient */}
+      <div
+        style={{
+          position: "absolute",
+          top: "10%",
+          left: 0,
+          width: "300px",
+          height: "300px",
+          background: "radial-gradient(circle, rgba(191,221,240,0.1) 0%, transparent 70%)",
+          borderRadius: "50%",
+          pointerEvents: "none",
+        }}
+      />
+
       <div className="container-max">
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: "64px" }}>
           <div className="section-label">Our Loan Services</div>
           <h2
             style={{
-              fontSize: "clamp(32px, 4vw, 48px)",
-              fontWeight: "800",
-              color: "#0f172a",
+              fontSize: "clamp(32px, 4vw, 46px)",
+              fontWeight: "900",
+              color: "#000000",
               letterSpacing: "-1.5px",
               lineHeight: "1.15",
               marginBottom: "16px",
-              fontFamily: "Lato, sans-serif",
             }}
           >
             Comprehensive Financial Solutions
           </h2>
           <p
             style={{
-              fontSize: "18px",
-              color: "#64748b",
+              fontSize: "17px",
+              color: "#4b5563",
               maxWidth: "520px",
               margin: "0 auto",
               lineHeight: "1.7",
             }}
           >
-            Tailored to meet your every need — from home loans to business
-            financing and beyond.
+            Partnering with multiple banks to compare rates, terms, and eligibility — bringing you the best packages.
           </p>
         </div>
 
@@ -109,46 +112,49 @@ export default function ServicesSection() {
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))",
-            gap: "24px",
+            gap: "28px",
           }}
         >
           {loanServices.map((service, i) => (
-            <a
+            <Link
               key={service.id}
               href={service.href}
               id={`service-card-${service.id}`}
               style={{
-                background: "white",
-                borderRadius: "20px",
-                padding: "32px",
+                background: "#ffffff",
+                borderRadius: "24px",
+                padding: "36px",
                 textDecoration: "none",
                 display: "block",
                 border: service.featured
-                  ? `2px solid ${service.color}`
-                  : "2px solid transparent",
+                  ? "2px solid #000000"
+                  : "1px solid rgba(0, 0, 0, 0.08)",
                 boxShadow: service.featured
-                  ? `0 8px 32px rgba(26,86,219,0.15)`
-                  : "0 2px 12px rgba(0,0,0,0.06)",
-                transition: "all 0.3s ease",
+                  ? "0 10px 30px rgba(0, 0, 0, 0.05)"
+                  : "0 4px 20px rgba(0, 0, 0, 0.02)",
+                transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
                 position: "relative",
                 overflow: "hidden",
-                animationDelay: `${i * 0.1}s`,
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget;
                 el.style.transform = "translateY(-6px)";
-                el.style.boxShadow = `0 16px 48px rgba(0,0,0,0.12)`;
-                el.style.borderColor = service.color;
+                el.style.boxShadow = "0 16px 40px rgba(191, 221, 240, 0.35)";
+                el.style.borderColor = "#BFDDF0";
+                const line = el.querySelector(".card-accent-line") as HTMLElement;
+                if (line) line.style.opacity = "1";
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget;
                 el.style.transform = "translateY(0)";
                 el.style.boxShadow = service.featured
-                  ? "0 8px 32px rgba(26,86,219,0.15)"
-                  : "0 2px 12px rgba(0,0,0,0.06)";
+                  ? "0 10px 30px rgba(0, 0, 0, 0.05)"
+                  : "0 4px 20px rgba(0, 0, 0, 0.02)";
                 el.style.borderColor = service.featured
-                  ? service.color
-                  : "transparent";
+                  ? "#000000"
+                  : "rgba(0, 0, 0, 0.08)";
+                const line = el.querySelector(".card-accent-line") as HTMLElement;
+                if (line) line.style.opacity = "0";
               }}
             >
               {/* Featured badge */}
@@ -156,14 +162,14 @@ export default function ServicesSection() {
                 <div
                   style={{
                     position: "absolute",
-                    top: "16px",
-                    right: "16px",
-                    background: service.color,
-                    color: "white",
+                    top: "18px",
+                    right: "18px",
+                    background: "#000000",
+                    color: "#BFDDF0",
                     fontSize: "11px",
-                    fontWeight: "700",
+                    fontWeight: "800",
                     letterSpacing: "0.1em",
-                    padding: "4px 12px",
+                    padding: "4px 14px",
                     borderRadius: "50px",
                     textTransform: "uppercase",
                   }}
@@ -175,15 +181,16 @@ export default function ServicesSection() {
               {/* Icon */}
               <div
                 style={{
-                  width: "60px",
-                  height: "60px",
-                  background: service.bgColor,
-                  borderRadius: "16px",
+                  width: "56px",
+                  height: "56px",
+                  background: "rgba(191, 221, 240, 0.25)",
+                  borderRadius: "14px",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  fontSize: "28px",
-                  marginBottom: "20px",
+                  fontSize: "26px",
+                  marginBottom: "24px",
+                  border: "1px solid rgba(191, 221, 240, 0.4)",
                 }}
               >
                 {service.icon}
@@ -192,9 +199,9 @@ export default function ServicesSection() {
               <h3
                 style={{
                   fontSize: "20px",
-                  fontWeight: "700",
-                  color: "#0f172a",
-                  marginBottom: "10px",
+                  fontWeight: "800",
+                  color: "#000000",
+                  marginBottom: "12px",
                   letterSpacing: "-0.3px",
                 }}
               >
@@ -204,9 +211,9 @@ export default function ServicesSection() {
               <p
                 style={{
                   fontSize: "15px",
-                  color: "#64748b",
+                  color: "#4b5563",
                   lineHeight: "1.7",
-                  marginBottom: "20px",
+                  marginBottom: "24px",
                 }}
               >
                 {service.description}
@@ -218,11 +225,11 @@ export default function ServicesSection() {
                   alignItems: "center",
                   gap: "6px",
                   fontSize: "14px",
-                  fontWeight: "600",
-                  color: service.color,
+                  fontWeight: "700",
+                  color: "#000000",
                 }}
               >
-                Learn More <span>→</span>
+                Learn More <span style={{ color: "#a5cce5" }}>→</span>
               </div>
 
               {/* Bottom accent line */}
@@ -232,18 +239,17 @@ export default function ServicesSection() {
                   bottom: 0,
                   left: 0,
                   right: 0,
-                  height: "3px",
-                  background: service.color,
+                  height: "4px",
+                  background: "#BFDDF0",
                   opacity: 0,
                   transition: "opacity 0.3s ease",
                 }}
                 className="card-accent-line"
               />
-            </a>
+            </Link>
           ))}
         </div>
       </div>
     </section>
   );
 }
-

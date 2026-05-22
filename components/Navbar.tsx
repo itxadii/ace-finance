@@ -18,6 +18,7 @@ export default function Navbar() {
     { label: "Personal Loan", href: "/personal-loan" },
     { label: "Business Loan", href: "/business-loan" },
     { label: "EMI Calculator", href: "/emicalculator" },
+    { label: "About Us", href: "/about" },
   ];
 
   return (
@@ -28,15 +29,15 @@ export default function Navbar() {
         left: 0,
         right: 0,
         zIndex: 1000,
-        transition: "all 0.4s ease",
+        transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
         background: isScrolled
-          ? "rgba(15, 23, 42, 0.95)"
-          : "transparent",
-        backdropFilter: isScrolled ? "blur(20px)" : "none",
+          ? "rgba(255, 255, 255, 0.95)"
+          : "rgba(255, 255, 255, 0.8)",
+        backdropFilter: "blur(20px)",
         borderBottom: isScrolled
-          ? "1px solid rgba(255,255,255,0.08)"
-          : "none",
-        boxShadow: isScrolled ? "0 4px 24px rgba(0,0,0,0.3)" : "none",
+          ? "1px solid rgba(30, 58, 95, 0.08)"
+          : "1px solid rgba(30, 58, 95, 0.04)",
+        boxShadow: isScrolled ? "0 10px 30px -10px rgba(30, 58, 95, 0.12)" : "none",
       }}
     >
       <nav
@@ -47,7 +48,7 @@ export default function Navbar() {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          height: "72px",
+          height: "76px",
         }}
       >
         {/* Logo */}
@@ -57,23 +58,24 @@ export default function Navbar() {
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "10px",
+            gap: "12px",
             textDecoration: "none",
           }}
         >
           <div
             style={{
-              width: "40px",
-              height: "40px",
-              background: "linear-gradient(135deg, #1a56db, #f59e0b)",
-              borderRadius: "10px",
+              width: "38px",
+              height: "38px",
+              background: "#ffffff",
+              borderRadius: "8px",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               fontWeight: "900",
               fontSize: "18px",
-              color: "white",
-              letterSpacing: "-1px",
+              color: "#1e3a5f",
+              border: "2px solid #BFDDF0",
+              boxShadow: "0 0 15px rgba(191, 221, 240, 0.25)",
             }}
           >
             A
@@ -82,11 +84,11 @@ export default function Navbar() {
             style={{
               fontSize: "20px",
               fontWeight: "800",
-              color: "white",
+              color: "#1e3a5f",
               letterSpacing: "-0.5px",
             }}
           >
-            ACE <span style={{ color: "#f59e0b" }}>Finance</span>
+            ACE <span style={{ color: "#334e68" }}>Finance</span>
           </span>
         </Link>
 
@@ -95,7 +97,7 @@ export default function Navbar() {
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "8px",
+            gap: "6px",
           }}
           className="hidden-mobile"
         >
@@ -105,21 +107,21 @@ export default function Navbar() {
               href={link.href}
               id={`nav-link-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
               style={{
-                color: "rgba(255,255,255,0.85)",
+                color: "rgba(30, 58, 95, 0.9)",
                 textDecoration: "none",
-                fontSize: "15px",
-                fontWeight: "500",
+                fontSize: "14px",
+                fontWeight: "600",
                 padding: "8px 16px",
-                borderRadius: "8px",
+                borderRadius: "20px",
                 transition: "all 0.2s ease",
               }}
               onMouseEnter={(e) => {
-                (e.target as HTMLElement).style.background = "rgba(255,255,255,0.1)";
-                (e.target as HTMLElement).style.color = "white";
+                (e.target as HTMLElement).style.background = "rgba(191, 221, 240, 0.25)";
+                (e.target as HTMLElement).style.color = "#1e3a5f";
               }}
               onMouseLeave={(e) => {
                 (e.target as HTMLElement).style.background = "transparent";
-                (e.target as HTMLElement).style.color = "rgba(255,255,255,0.85)";
+                (e.target as HTMLElement).style.color = "rgba(30, 58, 95, 0.9)";
               }}
             >
               {link.label}
@@ -129,23 +131,25 @@ export default function Navbar() {
             href="#contact"
             id="nav-cta"
             style={{
-              background: "#1a56db",
-              color: "white",
+              background: "#1e3a5f",
+              color: "#ffffff",
               padding: "10px 22px",
               borderRadius: "50px",
               fontSize: "14px",
-              fontWeight: "600",
+              fontWeight: "700",
               textDecoration: "none",
-              marginLeft: "8px",
+              marginLeft: "12px",
               transition: "all 0.3s ease",
-              boxShadow: "0 4px 12px rgba(26,86,219,0.4)",
+              boxShadow: "0 4px 12px rgba(30, 58, 95, 0.18)",
             }}
             onMouseEnter={(e) => {
-              (e.target as HTMLElement).style.background = "#1e40af";
+              (e.target as HTMLElement).style.background = "#334e68";
+              (e.target as HTMLElement).style.boxShadow = "0 8px 20px rgba(30, 58, 95, 0.25)";
               (e.target as HTMLElement).style.transform = "translateY(-1px)";
             }}
             onMouseLeave={(e) => {
-              (e.target as HTMLElement).style.background = "#1a56db";
+              (e.target as HTMLElement).style.background = "#1e3a5f";
+              (e.target as HTMLElement).style.boxShadow = "0 4px 12px rgba(30, 58, 95, 0.18)";
               (e.target as HTMLElement).style.transform = "translateY(0)";
             }}
           >
@@ -164,7 +168,7 @@ export default function Navbar() {
             border: "none",
             cursor: "pointer",
             padding: "8px",
-            color: "white",
+            color: "#ffffff",
             fontSize: "24px",
           }}
           className="show-mobile"
@@ -177,10 +181,11 @@ export default function Navbar() {
       {isMobileOpen && (
         <div
           style={{
-            background: "rgba(15, 23, 42, 0.98)",
+            background: "rgba(255, 255, 255, 0.98)",
             backdropFilter: "blur(20px)",
-            borderTop: "1px solid rgba(255,255,255,0.08)",
-            padding: "16px 24px 24px",
+            borderTop: "1px solid rgba(30, 58, 95, 0.08)",
+            padding: "16px 24px 28px",
+            animation: "fadeInUp 0.3s ease",
           }}
         >
           {navLinks.map((link) => (
@@ -190,12 +195,19 @@ export default function Navbar() {
               onClick={() => setIsMobileOpen(false)}
               style={{
                 display: "block",
-                color: "rgba(255,255,255,0.85)",
+                color: "rgba(30, 58, 95, 0.9)",
                 textDecoration: "none",
-                fontSize: "16px",
-                fontWeight: "500",
+                fontSize: "15px",
+                fontWeight: "600",
                 padding: "12px 0",
-                borderBottom: "1px solid rgba(255,255,255,0.06)",
+                borderBottom: "1px solid rgba(30, 58, 95, 0.08)",
+                transition: "color 0.2s",
+              }}
+              onMouseEnter={(e) => {
+                (e.target as HTMLElement).style.color = "#1e3a5f";
+              }}
+              onMouseLeave={(e) => {
+                (e.target as HTMLElement).style.color = "rgba(30, 58, 95, 0.9)";
               }}
             >
               {link.label}
@@ -206,15 +218,16 @@ export default function Navbar() {
             onClick={() => setIsMobileOpen(false)}
             style={{
               display: "block",
-              background: "#1a56db",
-              color: "white",
+              background: "#BFDDF0",
+              color: "#000000",
               padding: "14px 24px",
               borderRadius: "50px",
               fontSize: "15px",
-              fontWeight: "600",
+              fontWeight: "700",
               textDecoration: "none",
               textAlign: "center",
-              marginTop: "16px",
+              marginTop: "20px",
+              boxShadow: "0 4px 12px rgba(191, 221, 240, 0.25)",
             }}
           >
             Apply Now

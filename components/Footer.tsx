@@ -6,25 +6,26 @@ const loanLinks = [
   { label: "Home Loan", href: "/home-loan" },
   { label: "Personal Loan", href: "/personal-loan" },
   { label: "Business Loan", href: "/business-loan" },
-  { label: "Loan Against Property", href: "#" },
-  { label: "Used Car Loan", href: "#" },
-  { label: "Credit Cards", href: "#" },
+  { label: "Loan Against Property", href: "/#services" },
+  { label: "Used Car Loan", href: "/#services" },
+  { label: "Credit Cards", href: "/#services" },
 ];
 
 const companyLinks = [
-  { label: "About Us", href: "#" },
-  { label: "Why Choose Us", href: "#why-choose" },
-  { label: "Testimonials", href: "#testimonials" },
-  { label: "Contact", href: "#contact" },
+  { label: "About Us", href: "/about" },
+  { label: "Why Choose Us", href: "/#why-choose" },
+  { label: "Testimonials", href: "/#testimonials" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Footer() {
   return (
     <footer
       style={{
-        background: "#0f172a",
-        color: "rgba(255,255,255,0.7)",
-        padding: "72px 24px 32px",
+        background: "#000000",
+        color: "rgba(255, 255, 255, 0.82)",
+        padding: "80px 24px 36px",
+        borderTop: "1px solid rgba(191, 221, 240, 0.1)",
       }}
     >
       <div className="container-max">
@@ -36,6 +37,7 @@ export default function Footer() {
             gap: "48px",
             marginBottom: "56px",
           }}
+          className="footer-grid"
         >
           {/* Brand column */}
           <div>
@@ -45,23 +47,24 @@ export default function Footer() {
               style={{
                 display: "inline-flex",
                 alignItems: "center",
-                gap: "10px",
+                gap: "12px",
                 textDecoration: "none",
-                marginBottom: "20px",
+                marginBottom: "24px",
               }}
             >
               <div
                 style={{
-                  width: "40px",
-                  height: "40px",
-                  background: "linear-gradient(135deg, #1a56db, #f59e0b)",
-                  borderRadius: "10px",
+                  width: "36px",
+                  height: "36px",
+                  background: "#ffffff",
+                  borderRadius: "8px",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   fontWeight: "900",
-                  fontSize: "18px",
-                  color: "white",
+                  fontSize: "17px",
+                  color: "#000000",
+                  border: "1px solid #BFDDF0",
                 }}
               >
                 A
@@ -70,23 +73,23 @@ export default function Footer() {
                 style={{
                   fontSize: "20px",
                   fontWeight: "800",
-                  color: "white",
+                  color: "#ffffff",
                   letterSpacing: "-0.5px",
                 }}
               >
-                ACE <span style={{ color: "#f59e0b" }}>Finance</span>
+                ACE <span style={{ color: "#BFDDF0" }}>Finance</span>
               </span>
             </Link>
             <p
               style={{
-                fontSize: "15px",
-                lineHeight: "1.8",
+                fontSize: "14px",
+                lineHeight: "1.75",
                 maxWidth: "280px",
-                marginBottom: "24px",
+                marginBottom: "28px",
+                color: "rgba(255, 255, 255, 0.6)",
               }}
             >
-              Your trusted financial partner in Nashik. We make loans simple,
-              fast, and transparent.
+              Your premier direct selling loan agent in Nashik. We partner with India's leading banks to secure the best loan rates for you at zero service charge.
             </p>
             {/* Social icons */}
             <div style={{ display: "flex", gap: "12px" }}>
@@ -101,30 +104,29 @@ export default function Footer() {
                   id={s.id}
                   aria-label={s.label}
                   style={{
-                    width: "40px",
-                    height: "40px",
-                    background: "rgba(255,255,255,0.08)",
-                    borderRadius: "10px",
+                    width: "38px",
+                    height: "38px",
+                    background: "rgba(255, 255, 255, 0.05)",
+                    borderRadius: "8px",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     fontSize: "14px",
                     fontWeight: "700",
-                    color: "rgba(255,255,255,0.6)",
+                    color: "rgba(255, 255, 255, 0.78)",
                     textDecoration: "none",
-                    transition: "all 0.2s ease",
-                    border: "1px solid rgba(255,255,255,0.08)",
+                    transition: "all 0.25s ease",
+                    border: "1px solid rgba(255, 255, 255, 0.08)",
                   }}
                   onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.background =
-                      "#1a56db";
-                    (e.currentTarget as HTMLElement).style.color = "white";
+                    (e.currentTarget as HTMLElement).style.background = "#BFDDF0";
+                    (e.currentTarget as HTMLElement).style.color = "#000000";
+                    (e.currentTarget as HTMLElement).style.borderColor = "#BFDDF0";
                   }}
                   onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.background =
-                      "rgba(255,255,255,0.08)";
-                    (e.currentTarget as HTMLElement).style.color =
-                      "rgba(255,255,255,0.6)";
+                    (e.currentTarget as HTMLElement).style.background = "rgba(255, 255, 255, 0.05)";
+                    (e.currentTarget as HTMLElement).style.color = "rgba(255, 255, 255, 0.6)";
+                    (e.currentTarget as HTMLElement).style.borderColor = "rgba(255, 255, 255, 0.08)";
                   }}
                 >
                   {s.icon}
@@ -137,10 +139,10 @@ export default function Footer() {
           <div>
             <h4
               style={{
-                fontSize: "14px",
+                fontSize: "13px",
                 fontWeight: "700",
-                color: "white",
-                letterSpacing: "0.08em",
+                color: "#ffffff",
+                letterSpacing: "0.1em",
                 textTransform: "uppercase",
                 marginBottom: "20px",
               }}
@@ -153,20 +155,18 @@ export default function Footer() {
                   <Link
                     href={link.href}
                     style={{
-                      color: "rgba(255,255,255,0.6)",
+                      color: "rgba(255, 255, 255, 0.82)",
                       textDecoration: "none",
-                      fontSize: "15px",
+                      fontSize: "14px",
                       transition: "color 0.2s ease",
                       display: "inline-flex",
                       alignItems: "center",
-                      gap: "6px",
                     }}
                     onMouseEnter={(e) => {
-                      (e.target as HTMLElement).style.color = "#fcd34d";
+                      (e.target as HTMLElement).style.color = "#BFDDF0";
                     }}
                     onMouseLeave={(e) => {
-                      (e.target as HTMLElement).style.color =
-                        "rgba(255,255,255,0.6)";
+                      (e.target as HTMLElement).style.color = "rgba(255, 255, 255, 0.6)";
                     }}
                   >
                     {link.label}
@@ -180,10 +180,10 @@ export default function Footer() {
           <div>
             <h4
               style={{
-                fontSize: "14px",
+                fontSize: "13px",
                 fontWeight: "700",
-                color: "white",
-                letterSpacing: "0.08em",
+                color: "#ffffff",
+                letterSpacing: "0.1em",
                 textTransform: "uppercase",
                 marginBottom: "20px",
               }}
@@ -193,24 +193,23 @@ export default function Footer() {
             <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "12px" }}>
               {companyLinks.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
                     style={{
-                      color: "rgba(255,255,255,0.6)",
+                      color: "rgba(255, 255, 255, 0.82)",
                       textDecoration: "none",
-                      fontSize: "15px",
+                      fontSize: "14px",
                       transition: "color 0.2s ease",
                     }}
                     onMouseEnter={(e) => {
-                      (e.target as HTMLElement).style.color = "#fcd34d";
+                      (e.target as HTMLElement).style.color = "#BFDDF0";
                     }}
                     onMouseLeave={(e) => {
-                      (e.target as HTMLElement).style.color =
-                        "rgba(255,255,255,0.6)";
+                      (e.target as HTMLElement).style.color = "rgba(255, 255, 255, 0.6)";
                     }}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -220,10 +219,10 @@ export default function Footer() {
           <div>
             <h4
               style={{
-                fontSize: "14px",
+                fontSize: "13px",
                 fontWeight: "700",
-                color: "white",
-                letterSpacing: "0.08em",
+                color: "#ffffff",
+                letterSpacing: "0.1em",
                 textTransform: "uppercase",
                 marginBottom: "20px",
               }}
@@ -241,30 +240,29 @@ export default function Footer() {
                   key={item.text}
                   style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}
                 >
-                  <span style={{ fontSize: "18px", flexShrink: 0 }}>
+                  <span style={{ fontSize: "16px", flexShrink: 0 }}>
                     {item.icon}
                   </span>
                   {item.href ? (
                     <a
                       href={item.href}
                       style={{
-                        fontSize: "15px",
-                        color: "rgba(255,255,255,0.6)",
+                        fontSize: "14px",
+                        color: "rgba(255, 255, 255, 0.6)",
                         textDecoration: "none",
                         transition: "color 0.2s",
                       }}
                       onMouseEnter={(e) => {
-                        (e.target as HTMLElement).style.color = "#fcd34d";
+                        (e.target as HTMLElement).style.color = "#BFDDF0";
                       }}
                       onMouseLeave={(e) => {
-                        (e.target as HTMLElement).style.color =
-                          "rgba(255,255,255,0.6)";
+                        (e.target as HTMLElement).style.color = "rgba(255, 255, 255, 0.82)";
                       }}
                     >
                       {item.text}
                     </a>
                   ) : (
-                    <span style={{ fontSize: "15px" }}>{item.text}</span>
+                    <span style={{ fontSize: "14px", color: "rgba(255, 255, 255, 0.6)" }}>{item.text}</span>
                   )}
                 </div>
               ))}
@@ -284,7 +282,7 @@ export default function Footer() {
             gap: "16px",
           }}
         >
-          <p style={{ fontSize: "14px" }}>
+          <p style={{ fontSize: "13px", color: "rgba(255, 255, 255, 0.72)" }}>
             © {new Date().getFullYear()} ACE Finance. All rights reserved.
           </p>
           <div style={{ display: "flex", gap: "24px" }}>
@@ -293,16 +291,16 @@ export default function Footer() {
                 key={item}
                 href="#"
                 style={{
-                  fontSize: "14px",
-                  color: "rgba(255,255,255,0.5)",
+                  fontSize: "13px",
+                  color: "rgba(255, 255, 255, 0.72)",
                   textDecoration: "none",
                   transition: "color 0.2s",
                 }}
                 onMouseEnter={(e) => {
-                  (e.target as HTMLElement).style.color = "#fcd34d";
+                  (e.target as HTMLElement).style.color = "#BFDDF0";
                 }}
                 onMouseLeave={(e) => {
-                  (e.target as HTMLElement).style.color = "rgba(255,255,255,0.5)";
+                  (e.target as HTMLElement).style.color = "rgba(255, 255, 255, 0.72)";
                 }}
               >
                 {item}
@@ -314,12 +312,12 @@ export default function Footer() {
 
       <style>{`
         @media (max-width: 900px) {
-          footer > div > div:first-child {
+          .footer-grid {
             grid-template-columns: 1fr 1fr !important;
           }
         }
         @media (max-width: 600px) {
-          footer > div > div:first-child {
+          .footer-grid {
             grid-template-columns: 1fr !important;
           }
         }
@@ -327,4 +325,3 @@ export default function Footer() {
     </footer>
   );
 }
-

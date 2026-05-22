@@ -13,9 +13,9 @@ const data: LoanPageData = {
   heroHighlight: "Zero Hassle",
   heroDesc:
     "Get quick, hassle-free personal loans with flexible repayment options and minimal paperwork. Whether it's a medical emergency, wedding, travel, or education — we've got you covered.",
-  primaryColor: "#6366f1",
-  gradientFrom: "#312e81",
-  gradientTo: "#6366f1",
+  primaryColor: "#BFDDF0",
+  gradientFrom: "#000000",
+  gradientTo: "#0a0d14",
   stats: [
     { value: "10.5%*", label: "Starting Interest Rate" },
     { value: "5 Yrs", label: "Max Tenure" },
