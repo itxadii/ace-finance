@@ -1,8 +1,8 @@
-import HeroSection from "@/components/HeroSection";
-import ServicesSection from "@/components/ServicesSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import WhyChooseSection from "@/components/WhyChooseSection";
-import CTASection from "@/components/CTASection";
+import HeroSection from "@/components/home/HeroSection";
+import ServicesSection from "@/components/home/ServicesSection";
+import TestimonialsSection from "@/components/home/TestimonialsSection";
+import WhyChooseSection from "@/components/home/WhyChooseSection";
+import CTASection from "@/components/home/CTASection";
 
 export const metadata = {
   title: "ACE Finance — Loans in Nashik | Home, Personal & Business Loans",

@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
-import { Lato } from "next/font/google";
+import { Lato, Geist } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const lato = Lato({
   variable: "--font-lato",
@@ -30,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={lato.variable}>
+    <html lang="en" className={cn("font-sans", geist.variable, lato.variable)}>
       <body>
         <Navbar />
         <main>{children}</main>

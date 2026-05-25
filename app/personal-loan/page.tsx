@@ -1,4 +1,4 @@
-import LoanPageLayout, { LoanPageData } from "@/components/LoanPageLayout";
+import LoanPageLayout, { LoanPageData } from "@/components/layout/LoanPageLayout";
 
 export const metadata = {
   title: "Personal Loan in Nashik | ACE Finance — Instant Approval",
