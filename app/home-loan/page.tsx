@@ -14,9 +14,12 @@ const data: LoanPageData = {
   heroTitleEnd: "Into Reality",
   heroDesc:
     "Own the home you've always wanted with our easy home loan solutions. Attractive interest rates, simple documentation, and personalized support every step of the way.",
-  primaryColor: "#BFDDF0",
-  gradientFrom: "#000000",
-  gradientTo: "#0a0d14",
+
+  // UPDATED TO EMERALD THEME
+  primaryColor: "#10b981", // Emerald 500
+  gradientFrom: "#ecfdf5", // Emerald 50
+  gradientTo: "#ffffff",   // Pure White
+
   stats: [
     { value: "8.5%*", label: "Starting Interest Rate" },
     { value: "30 Yrs", label: "Max Tenure" },

@@ -13,9 +13,12 @@ const data: LoanPageData = {
   heroHighlight: "Business Growth",
   heroDesc:
     "Boost your business with affordable business loans tailored to your unique goals. From working capital to expansion funding — we provide the financial muscle your business deserves.",
-  primaryColor: "#BFDDF0",
-  gradientFrom: "#000000",
-  gradientTo: "#0a0d14",
+
+  // UPDATED TO EMERALD THEME
+  primaryColor: "#10b981", // Emerald 500
+  gradientFrom: "#ecfdf5", // Emerald 50 (Very light green)
+  gradientTo: "#ffffff",   // Pure White
+
   stats: [
     { value: "11%*", label: "Starting Interest Rate" },
     { value: "7 Yrs", label: "Max Tenure" },

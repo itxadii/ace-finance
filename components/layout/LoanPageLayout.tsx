@@ -47,65 +47,35 @@ export interface LoanPageData {
 function FAQAccordion({ faqs }: { faqs: FAQItem[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+    <div className="flex flex-col gap-3">
       {faqs.map((faq, i) => (
         <div
           key={i}
-          style={{
-            background: "#ffffff",
-            borderRadius: "16px",
-            border: `1px solid ${openIndex === i ? "#BFDDF0" : "#e5e7eb"}`,
-            overflow: "hidden",
-            transition: "all 0.2s ease",
-            boxShadow: openIndex === i ? "0 8px 24px rgba(191, 221, 240, 0.15)" : "0 2px 8px rgba(0,0,0,0.01)",
-          }}
+          className={`bg-white rounded-2xl overflow-hidden transition-all duration-300 border ${openIndex === i
+            ? "border-emerald-300 shadow-[0_8px_24px_rgba(16,185,129,0.1)]"
+            : "border-slate-200 shadow-sm"
+            }`}
         >
           <button
-            id={`faq-btn-${i}`}
             onClick={() => setOpenIndex(openIndex === i ? null : i)}
-            style={{
-              width: "100%",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              padding: "20px 24px",
-              background: "none",
-              border: "none",
-              cursor: "pointer",
-              textAlign: "left",
-              gap: "16px",
-            }}
+            className="w-full flex justify-between items-center px-6 py-5 text-left bg-transparent border-none cursor-pointer gap-4"
           >
-            <span style={{ fontSize: "16px", fontWeight: "700", color: "#000000", flex: 1 }}>
+            <span className="text-base font-bold text-slate-900 flex-1">
               {faq.q}
             </span>
             <span
-              style={{
-                fontSize: "22px",
-                color: "#BFDDF0",
-                fontWeight: "800",
-                flexShrink: 0,
-                transition: "transform 0.3s ease",
-                transform: openIndex === i ? "rotate(45deg)" : "rotate(0deg)",
-              }}
+              className={`text-2xl font-black text-emerald-500 flex-shrink-0 transition-transform duration-300 ${openIndex === i ? "rotate-45" : "rotate-0"
+                }`}
             >
               +
             </span>
           </button>
-          {openIndex === i && (
-            <div
-              style={{
-                padding: "0 24px 20px",
-                fontSize: "15px",
-                color: "#4b5563",
-                lineHeight: "1.75",
-                borderTop: "1px solid #f3f4f6",
-                paddingTop: "16px",
-              }}
-            >
-              {faq.a}
-            </div>
-          )}
+          <div
+            className={`transition-all duration-300 ease-in-out px-6 text-sm text-slate-600 leading-relaxed overflow-hidden ${openIndex === i ? "max-h-[500px] pb-5 opacity-100" : "max-h-0 opacity-0"
+              }`}
+          >
+            <div className="pt-4 border-t border-slate-100">{faq.a}</div>
+          </div>
         </div>
       ))}
     </div>
@@ -114,198 +84,67 @@ function FAQAccordion({ faqs }: { faqs: FAQItem[] }) {
 
 export default function LoanPageLayout({ data }: { data: LoanPageData }) {
   return (
-    <main style={{ minHeight: "100vh", background: "#ffffff" }}>
-      {/* ── HERO SECTION ───────────────────────────────────── */}
-      <section
-        style={{
-          background: "var(--surface-dark)",
-          minHeight: "75vh",
-          display: "flex",
-          alignItems: "center",
-          position: "relative",
-          overflow: "hidden",
-          padding: "140px 24px 80px",
-        }}
-      >
-        {/* Glow Effects */}
-        <div
-          style={{
-            position: "absolute",
-            top: "50%",
-            right: "-10%",
-            transform: "translateY(-50%)",
-            width: "600px",
-            height: "600px",
-            background: "radial-gradient(circle, rgba(191, 221, 240, 0.12) 0%, transparent 70%)",
-            borderRadius: "50%",
-            pointerEvents: "none",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage: "radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px)",
-            backgroundSize: "40px 40px",
-            pointerEvents: "none",
-          }}
-        />
+    <main className="min-h-screen bg-white">
 
-        <div className="container-max" style={{ position: "relative", zIndex: 2, width: "100%" }}>
+      {/* ── HERO SECTION ───────────────────────────────────── */}
+      <section className="relative min-h-[75vh] flex items-center pt-36 pb-20 overflow-hidden bg-gradient-to-br from-emerald-50 via-white to-slate-50">
+
+        {/* Glow Effects */}
+        <div className="absolute top-1/2 -right-[10%] -translate-y-1/2 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(16,185,129,0.06)_0%,transparent_70%)] rounded-full pointer-events-none" />
+        <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#0f172a_1px,transparent_1px)] [background-size:40px_40px] pointer-events-none" />
+
+        <div className="container mx-auto max-w-[1200px] px-6 relative z-10 w-full">
+
           {/* Breadcrumb */}
-          <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "24px" }}>
-            <Link
-              href="/"
-              style={{ color: "rgba(255, 255, 255, 0.75)", fontSize: "14px", textDecoration: "none", transition: "color 0.2s" }}
-              onMouseEnter={(e) => { (e.target as HTMLElement).style.color = "#BFDDF0"; }}
-              onMouseLeave={(e) => { (e.target as HTMLElement).style.color = "rgba(255, 255, 255, 0.75)"; }}
-            >
+          <div className="flex items-center gap-2 mb-6">
+            <Link href="/" className="text-sm text-slate-500 hover:text-emerald-600 transition-colors">
               Home
             </Link>
-            <span style={{ color: "rgba(255, 255, 255, 0.75)", fontSize: "14px" }}>›</span>
-            <span style={{ color: "#BFDDF0", fontSize: "14px", fontWeight: "600" }}>{data.badge}</span>
+            <span className="text-sm text-slate-400">›</span>
+            <span className="text-sm font-bold text-emerald-600">{data.badge}</span>
           </div>
 
           {/* Badge */}
-          <div
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "8px",
-              background: "rgba(191, 221, 240, 0.08)",
-              border: "1px solid rgba(191, 221, 240, 0.15)",
-              borderRadius: "50px",
-              padding: "6px 18px",
-              marginBottom: "24px",
-            }}
-          >
-            <span style={{ fontSize: "16px" }}>{data.badgeIcon}</span>
-            <span
-              style={{
-                fontSize: "12px",
-                fontWeight: "700",
-                color: "#BFDDF0",
-                letterSpacing: "0.08em",
-                textTransform: "uppercase",
-              }}
-            >
+          <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-5 py-1.5 mb-6">
+            <span className="text-base">{data.badgeIcon}</span>
+            <span className="text-xs font-bold text-emerald-600 tracking-widest uppercase">
               {data.badge}
             </span>
           </div>
 
-          <h1
-            style={{
-              fontSize: "clamp(38px, 5.5vw, 64px)",
-              fontWeight: "900",
-              color: "#ffffff",
-              lineHeight: "1.1",
-              letterSpacing: "-2.5px",
-              marginBottom: "20px",
-              maxWidth: "800px",
-            }}
-          >
+          <h1 className="text-[clamp(38px,5.5vw,64px)] font-black text-slate-900 leading-[1.1] tracking-tight mb-5 max-w-[800px]">
             {data.heroTitle}{" "}
-            <span style={{ color: "#BFDDF0" }}>
-              {data.heroHighlight}
-            </span>
+            <span className="text-emerald-500">{data.heroHighlight}</span>
             {data.heroTitleEnd ? ` ${data.heroTitleEnd}` : ""}
           </h1>
 
-          <p
-            style={{
-              fontSize: "18px",
-              color: "rgba(255, 255, 255, 0.92)",
-              lineHeight: "1.75",
-              maxWidth: "600px",
-              marginBottom: "40px",
-            }}
-          >
+          <p className="text-lg text-slate-600 leading-relaxed max-w-[600px] mb-10">
             {data.heroDesc}
           </p>
 
-          <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", marginBottom: "64px" }}>
+          <div className="flex flex-wrap items-center gap-4 mb-16">
             <a
               href="#apply"
-              id="loan-hero-apply"
-              style={{
-                background: "#BFDDF0",
-                color: "#000000",
-                padding: "14px 32px",
-                borderRadius: "50px",
-                fontWeight: "800",
-                fontSize: "16px",
-                textDecoration: "none",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                boxShadow: "0 6px 20px rgba(191, 221, 240, 0.25)",
-                transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.background = "#ffffff";
-                (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
-                (e.currentTarget as HTMLElement).style.boxShadow = "0 10px 25px rgba(191, 221, 240, 0.4)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.background = "#BFDDF0";
-                (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
-                (e.currentTarget as HTMLElement).style.boxShadow = "0 6px 20px rgba(191, 221, 240, 0.25)";
-              }}
+              className="inline-flex items-center gap-2 bg-emerald-600 text-white px-8 py-3.5 rounded-full font-bold text-base shadow-[0_6px_20px_rgba(16,185,129,0.25)] hover:bg-emerald-700 hover:-translate-y-0.5 transition-all duration-300"
             >
               Apply Now →
             </a>
             <Link
               href="/emicalculator"
-              style={{
-                background: "transparent",
-                color: "#ffffff",
-                padding: "14px 32px",
-                borderRadius: "50px",
-                fontWeight: "700",
-                fontSize: "16px",
-                border: "2px solid rgba(255, 255, 255, 0.2)",
-                textDecoration: "none",
-                transition: "all 0.3s ease",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.background = "rgba(255, 255, 255, 0.05)";
-                (e.currentTarget as HTMLElement).style.borderColor = "rgba(255, 255, 255, 0.4)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.background = "transparent";
-                (e.currentTarget as HTMLElement).style.borderColor = "rgba(255, 255, 255, 0.2)";
-              }}
+              className="inline-flex items-center gap-2 bg-white text-slate-700 px-8 py-3.5 rounded-full font-bold text-base border-2 border-slate-200 hover:border-emerald-300 hover:bg-emerald-50 transition-all duration-300"
             >
               📊 EMI Calculator
             </Link>
           </div>
 
           {/* Stats Bar */}
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
-              gap: "32px",
-              borderTop: "1px solid rgba(255, 255, 255, 0.08)",
-              paddingTop: "40px",
-              maxWidth: "800px",
-            }}
-          >
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-emerald-100 pt-10 max-w-[900px]">
             {data.stats.map((s, idx) => (
               <div key={idx}>
-                <div style={{ fontSize: "32px", fontWeight: "900", color: "#BFDDF0", letterSpacing: "-1px" }}>
+                <div className="text-[clamp(24px,3vw,32px)] font-black text-emerald-600 tracking-tight">
                   {s.value}
                 </div>
-                <div
-                  style={{
-                    fontSize: "13px",
-                    color: "rgba(255, 255, 255, 0.75)",
-                    marginTop: "6px",
-                    fontWeight: "700",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.05em",
-                  }}
-                >
+                <div className="text-[11px] text-slate-500 mt-1.5 font-bold uppercase tracking-widest">
                   {s.label}
                 </div>
               </div>
@@ -315,78 +154,33 @@ export default function LoanPageLayout({ data }: { data: LoanPageData }) {
       </section>
 
       {/* ── FEATURES SECTION ────────────────────────────────── */}
-      <section style={{ background: "#f9fafb", padding: "100px 24px", borderBottom: "1px solid #e5e7eb" }}>
-        <div className="container-max">
-          <div style={{ textAlign: "center", marginBottom: "64px" }}>
-            <span
-              style={{
-                fontSize: "13px",
-                fontWeight: "800",
-                color: "#6b7280",
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                display: "block",
-                marginBottom: "12px",
-              }}
-            >
+      <section className="bg-slate-50 py-24 px-6 border-b border-slate-200/60">
+        <div className="container mx-auto max-w-[1200px]">
+          <div className="text-center mb-16">
+            <span className="text-xs font-extrabold text-emerald-600 tracking-widest uppercase block mb-4">
               DSA Advantages
             </span>
-            <h2
-              style={{
-                fontSize: "clamp(30px, 3.5vw, 42px)",
-                fontWeight: "900",
-                color: "#000000",
-                letterSpacing: "-1.5px",
-                marginBottom: "16px",
-              }}
-            >
+            <h2 className="text-[clamp(30px,3.5vw,42px)] font-black text-slate-900 tracking-tight mb-4">
               Loan Features & Benefits
             </h2>
-            <p style={{ fontSize: "16px", color: "#4b5563", maxWidth: "520px", margin: "0 auto", lineHeight: "1.7" }}>
+            <p className="text-base text-slate-600 max-w-[520px] mx-auto leading-relaxed">
               Work with us to access customized features from India's leading banks under one roof.
             </p>
           </div>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-              gap: "28px",
-            }}
-          >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {data.features.map((f, i) => (
               <div
                 key={i}
-                style={{
-                  background: "#ffffff",
-                  borderRadius: "20px",
-                  padding: "36px 32px",
-                  border: "1px solid #e5e7eb",
-                  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.01)",
-                  transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-                }}
-                className="feature-card"
+                className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:-translate-y-1.5 hover:border-emerald-300 hover:shadow-xl transition-all duration-300"
               >
-                <div
-                  style={{
-                    width: "50px",
-                    height: "50px",
-                    background: "rgba(191, 221, 240, 0.25)",
-                    border: "1px solid rgba(191, 221, 240, 0.3)",
-                    borderRadius: "12px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: "24px",
-                    marginBottom: "20px",
-                  }}
-                >
+                <div className="w-12 h-12 bg-emerald-50 border border-emerald-100 rounded-xl flex items-center justify-center text-2xl mb-6 text-emerald-600">
                   {f.icon}
                 </div>
-                <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#000000", marginBottom: "10px" }}>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   {f.title}
                 </h3>
-                <p style={{ fontSize: "14px", color: "#4b5563", lineHeight: "1.65" }}>{f.desc}</p>
+                <p className="text-sm text-slate-600 leading-relaxed">{f.desc}</p>
               </div>
             ))}
           </div>
@@ -394,64 +188,30 @@ export default function LoanPageLayout({ data }: { data: LoanPageData }) {
       </section>
 
       {/* ── ELIGIBILITY & PROCESS SECTION ───────────────────── */}
-      <section style={{ background: "#ffffff", padding: "100px 24px" }}>
-        <div className="container-max">
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: "64px",
-            }}
-            className="eligibility-grid"
-          >
+      <section className="bg-white py-24 px-6">
+        <div className="container mx-auto max-w-[1200px]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+
             {/* Eligibility Column */}
             <div>
-              <span
-                style={{
-                  fontSize: "13px",
-                  fontWeight: "800",
-                  color: "#6b7280",
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                  display: "block",
-                  marginBottom: "12px",
-                }}
-              >
+              <span className="text-xs font-extrabold text-emerald-600 tracking-widest uppercase block mb-4">
                 Requirements
               </span>
-              <h2
-                style={{
-                  fontSize: "clamp(28px, 3.5vw, 38px)",
-                  fontWeight: "900",
-                  color: "#000000",
-                  letterSpacing: "-1.5px",
-                  marginBottom: "20px",
-                }}
-              >
+              <h2 className="text-[clamp(28px,3.5vw,38px)] font-black text-slate-900 tracking-tight mb-5">
                 Who Can Apply?
               </h2>
-              <p style={{ fontSize: "16px", color: "#4b5563", lineHeight: "1.7", marginBottom: "36px" }}>
+              <p className="text-base text-slate-600 leading-relaxed mb-8">
                 As a DSA, we evaluate profiles across multiple banks. Even if one lender rejects you, we can align your profile to other matching institutions.
               </p>
 
-              <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+              <div className="flex flex-col gap-3">
                 {data.eligibility.map((item, i) => (
                   <div
                     key={i}
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "16px",
-                      padding: "16px 20px",
-                      background: "#f9fafb",
-                      border: "1px solid #e5e7eb",
-                      borderRadius: "14px",
-                      transition: "all 0.2s ease",
-                    }}
-                    className="eligibility-item"
+                    className="flex items-center gap-4 px-5 py-4 bg-slate-50 border border-slate-100 rounded-xl hover:bg-emerald-50 hover:border-emerald-200 hover:translate-x-1 transition-all duration-200"
                   >
-                    <span style={{ fontSize: "20px" }}>{item.icon}</span>
-                    <span style={{ fontSize: "15px", color: "#1f2937", fontWeight: "600" }}>{item.text}</span>
+                    <span className="text-xl">{item.icon}</span>
+                    <span className="text-sm text-slate-800 font-bold">{item.text}</span>
                   </div>
                 ))}
               </div>
@@ -459,81 +219,33 @@ export default function LoanPageLayout({ data }: { data: LoanPageData }) {
 
             {/* Steps Column */}
             <div>
-              <span
-                style={{
-                  fontSize: "13px",
-                  fontWeight: "800",
-                  color: "#6b7280",
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                  display: "block",
-                  marginBottom: "12px",
-                }}
-              >
+              <span className="text-xs font-extrabold text-emerald-600 tracking-widest uppercase block mb-4">
                 DSA Journey
               </span>
-              <h2
-                style={{
-                  fontSize: "clamp(28px, 3.5vw, 38px)",
-                  fontWeight: "900",
-                  color: "#000000",
-                  letterSpacing: "-1.5px",
-                  marginBottom: "36px",
-                }}
-              >
+              <h2 className="text-[clamp(28px,3.5vw,38px)] font-black text-slate-900 tracking-tight mb-8">
                 Our Simple Process
               </h2>
 
-              <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
+              <div className="flex flex-col">
                 {data.steps.map((step, i) => (
                   <div
                     key={i}
-                    style={{
-                      display: "flex",
-                      gap: "20px",
-                      paddingBottom: i < data.steps.length - 1 ? "32px" : "0",
-                      position: "relative",
-                    }}
+                    className={`flex gap-5 relative ${i < data.steps.length - 1 ? "pb-8" : ""}`}
                   >
                     {/* Line Connector */}
                     {i < data.steps.length - 1 && (
-                      <div
-                        style={{
-                          position: "absolute",
-                          left: "22px",
-                          top: "44px",
-                          width: "2px",
-                          bottom: 0,
-                          background: "linear-gradient(to bottom, #BFDDF0 50%, transparent)",
-                        }}
-                      />
+                      <div className="absolute left-[22px] top-[44px] w-[2px] bottom-0 bg-gradient-to-b from-emerald-200 to-transparent" />
                     )}
 
-                    <div
-                      style={{
-                        width: "46px",
-                        height: "46px",
-                        background: "#000000",
-                        border: "2px solid #BFDDF0",
-                        borderRadius: "50%",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        fontWeight: "800",
-                        fontSize: "15px",
-                        color: "#BFDDF0",
-                        flexShrink: 0,
-                        zIndex: 1,
-                      }}
-                    >
+                    <div className="w-11 h-11 bg-white border-2 border-emerald-500 rounded-full flex items-center justify-center font-black text-emerald-600 z-10 relative flex-shrink-0 shadow-sm">
                       {step.num}
                     </div>
 
-                    <div style={{ paddingTop: "2px" }}>
-                      <h3 style={{ fontSize: "17px", fontWeight: "700", color: "#000000", marginBottom: "6px" }}>
+                    <div className="pt-2">
+                      <h3 className="text-base font-bold text-slate-900 mb-2">
                         {step.title}
                       </h3>
-                      <p style={{ fontSize: "14px", color: "#4b5563", lineHeight: "1.6" }}>
+                      <p className="text-sm text-slate-600 leading-relaxed">
                         {step.desc}
                       </p>
                     </div>
@@ -546,30 +258,13 @@ export default function LoanPageLayout({ data }: { data: LoanPageData }) {
       </section>
 
       {/* ── FAQ SECTION ─────────────────────────────────────── */}
-      <section style={{ background: "#f9fafb", padding: "100px 24px", borderTop: "1px solid #e5e7eb", borderBottom: "1px solid #e5e7eb" }}>
-        <div className="container-max" style={{ maxWidth: "800px" }}>
-          <div style={{ textAlign: "center", marginBottom: "56px" }}>
-            <span
-              style={{
-                fontSize: "13px",
-                fontWeight: "800",
-                color: "#6b7280",
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                display: "block",
-                marginBottom: "12px",
-              }}
-            >
+      <section className="bg-slate-50 py-24 px-6 border-y border-slate-200/60">
+        <div className="container mx-auto max-w-[800px]">
+          <div className="text-center mb-14">
+            <span className="text-xs font-extrabold text-emerald-600 tracking-widest uppercase block mb-4">
               FAQ
             </span>
-            <h2
-              style={{
-                fontSize: "clamp(30px, 3.5vw, 42px)",
-                fontWeight: "900",
-                color: "#000000",
-                letterSpacing: "-1.5px",
-              }}
-            >
+            <h2 className="text-[clamp(30px,3.5vw,42px)] font-black text-slate-900 tracking-tight">
               Frequently Asked Questions
             </h2>
           </div>
@@ -579,85 +274,27 @@ export default function LoanPageLayout({ data }: { data: LoanPageData }) {
       </section>
 
       {/* ── CTA QUICK APPLY SECTION ─────────────────────────── */}
-      <section
-        id="apply"
-        style={{
-          background: "var(--surface-dark)",
-          padding: "100px 24px",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            width: "500px",
-            height: "500px",
-            background: "radial-gradient(circle, rgba(191, 221, 240, 0.08) 0%, transparent 70%)",
-            borderRadius: "50%",
-            pointerEvents: "none",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage: "radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px)",
-            backgroundSize: "40px 40px",
-            pointerEvents: "none",
-          }}
-        />
+      <section id="apply" className="relative py-24 px-6 bg-white overflow-hidden">
 
-        <div className="container-max" style={{ position: "relative", zIndex: 2, textAlign: "center" }}>
-          <h2
-            style={{
-              fontSize: "clamp(32px, 4vw, 48px)",
-              fontWeight: "900",
-              color: "#ffffff",
-              letterSpacing: "-2px",
-              marginBottom: "16px",
-            }}
-          >
+        {/* Glow Effects */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(16,185,129,0.06)_0%,transparent_70%)] rounded-full pointer-events-none" />
+        <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#0f172a_1px,transparent_1px)] [background-size:40px_40px] pointer-events-none" />
+
+        <div className="container mx-auto max-w-[1200px] relative z-10 text-center">
+          <h2 className="text-[clamp(32px,4vw,48px)] font-black text-slate-900 tracking-tight mb-4">
             {data.ctaTitle}
           </h2>
-          <p
-            style={{
-              fontSize: "17px",
-              color: "rgba(255, 255, 255, 0.7)",
-              maxWidth: "540px",
-              margin: "0 auto 44px",
-              lineHeight: "1.7",
-            }}
-          >
+          <p className="text-lg text-slate-600 max-w-[540px] mx-auto leading-relaxed mb-12">
             {data.ctaDesc}
           </p>
 
           {/* Quick Apply Form */}
-          <div
-            style={{
-              background: "rgba(255, 255, 255, 0.03)",
-              backdropFilter: "blur(20px)",
-              border: "1px solid rgba(255, 255, 255, 0.08)",
-              borderRadius: "24px",
-              padding: "40px",
-              maxWidth: "520px",
-              margin: "0 auto",
-            }}
-          >
+          <div className="bg-white border border-emerald-100 shadow-[0_20px_50px_rgba(16,185,129,0.05)] rounded-[24px] p-8 md:p-10 max-w-[520px] mx-auto text-left relative z-20">
             {["Full Name", "Phone Number", "Expected Loan Amount (₹)"].map((placeholder, i) => (
-              <div key={i} style={{ marginBottom: "16px", textAlign: "left" }}>
+              <div key={i} className="mb-4">
                 <label
                   htmlFor={`apply-field-${i}`}
-                  style={{
-                    display: "block",
-                    fontSize: "13px",
-                    fontWeight: "600",
-                    color: "rgba(255, 255, 255, 0.7)",
-                    marginBottom: "8px",
-                  }}
+                  className="block text-[13px] font-bold text-slate-700 mb-2"
                 >
                   {placeholder}
                 </label>
@@ -665,26 +302,7 @@ export default function LoanPageLayout({ data }: { data: LoanPageData }) {
                   id={`apply-field-${i}`}
                   type={i === 1 ? "tel" : i === 2 ? "number" : "text"}
                   placeholder={placeholder}
-                  style={{
-                    width: "100%",
-                    background: "rgba(255, 255, 255, 0.05)",
-                    border: "1px solid rgba(255, 255, 255, 0.12)",
-                    borderRadius: "10px",
-                    padding: "13px 16px",
-                    color: "#ffffff",
-                    fontSize: "15px",
-                    outline: "none",
-                    fontFamily: "inherit",
-                    transition: "border-color 0.2s, box-shadow 0.2s",
-                  }}
-                  onFocus={(e) => {
-                    e.target.style.borderColor = "#BFDDF0";
-                    e.target.style.boxShadow = "0 0 10px rgba(191, 221, 240, 0.15)";
-                  }}
-                  onBlur={(e) => {
-                    e.target.style.borderColor = "rgba(255, 255, 255, 0.12)";
-                    e.target.style.boxShadow = "none";
-                  }}
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 text-[15px] outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all"
                 />
               </div>
             ))}
@@ -692,58 +310,18 @@ export default function LoanPageLayout({ data }: { data: LoanPageData }) {
             <button
               id="apply-submit-btn"
               type="button"
-              style={{
-                width: "100%",
-                background: "#BFDDF0",
-                color: "#000000",
-                padding: "15px 24px",
-                borderRadius: "50px",
-                fontWeight: "800",
-                fontSize: "16px",
-                border: "none",
-                cursor: "pointer",
-                transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-                marginTop: "8px",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.background = "#ffffff";
-                (e.currentTarget as HTMLElement).style.boxShadow = "0 12px 30px rgba(191, 221, 240, 0.35)";
-                (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.background = "#BFDDF0";
-                (e.currentTarget as HTMLElement).style.boxShadow = "none";
-                (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
-              }}
+              className="w-full bg-emerald-600 text-white py-4 rounded-xl font-bold text-base shadow-lg shadow-emerald-600/20 hover:bg-emerald-700 hover:-translate-y-0.5 transition-all duration-300 mt-2"
             >
               Get Free Consultation
             </button>
 
-            <p style={{ fontSize: "12px", color: "rgba(255, 255, 255, 0.72)", marginTop: "14px" }}>
+            <p className="text-xs text-slate-400 mt-4 text-center">
               🔒 100% Secure & confidential process. We never share details.
             </p>
           </div>
         </div>
       </section>
 
-      <style>{`
-        .feature-card:hover {
-          transform: translateY(-6px);
-          border-color: #BFDDF0 !important;
-          box-shadow: 0 12px 28px rgba(191, 221, 240, 0.2) !important;
-        }
-        .eligibility-item:hover {
-          background: rgba(191, 221, 240, 0.12) !important;
-          border-color: rgba(191, 221, 240, 0.4) !important;
-          transform: translateX(4px);
-        }
-        @media (max-width: 992px) {
-          .eligibility-grid {
-            grid-template-columns: 1fr !important;
-            gap: 48px !important;
-          }
-        }
-      `}</style>
     </main>
   );
 }

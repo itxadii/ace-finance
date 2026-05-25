@@ -38,376 +38,180 @@ export default function EMICalculatorPage() {
   const totalInterest = totalPayment - amount;
 
   return (
-    <main style={{ minHeight: "100vh", background: "#ffffff" }}>
-      {/* HERO SECTION */}
-      <section
-        style={{
-          background: "var(--surface-dark)",
-          padding: "160px 24px 96px",
-          position: "relative",
-          overflow: "hidden",
-          textAlign: "center",
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            width: "500px",
-            height: "500px",
-            background: "radial-gradient(circle, rgba(191, 221, 240, 0.15) 0%, transparent 70%)",
-            borderRadius: "50%",
-            pointerEvents: "none",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage: "radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px)",
-            backgroundSize: "40px 40px",
-            pointerEvents: "none",
-          }}
-        />
+    <main className="min-h-screen bg-white">
 
-        <div className="container-max" style={{ position: "relative", zIndex: 2 }}>
+      {/* HERO SECTION */}
+      <section className="relative pt-40 pb-20 px-6 overflow-hidden bg-gradient-to-br from-emerald-50 via-white to-slate-50 text-center">
+        {/* Glowing backdrop elements */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(16,185,129,0.08)_0%,transparent_70%)] rounded-full pointer-events-none" />
+        <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#0f172a_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none" />
+
+        <div className="container mx-auto max-w-[1200px] relative z-10">
+
           {/* Breadcrumb */}
-          <div style={{ display: "flex", justifyContent: "center", gap: "8px", marginBottom: "20px" }}>
-            <Link
-              href="/"
-              style={{ color: "rgba(255, 255, 255, 0.75)", fontSize: "14px", textDecoration: "none", transition: "color 0.2s" }}
-              onMouseEnter={(e) => { (e.target as HTMLElement).style.color = "#BFDDF0"; }}
-              onMouseLeave={(e) => { (e.target as HTMLElement).style.color = "rgba(255, 255, 255, 0.75)"; }}
-            >
+          <div className="flex justify-center gap-2 mb-6">
+            <Link href="/" className="text-sm text-slate-500 hover:text-emerald-600 transition-colors">
               Home
             </Link>
-            <span style={{ color: "rgba(255, 255, 255, 0.75)", fontSize: "14px" }}>›</span>
-            <span style={{ color: "#BFDDF0", fontSize: "14px", fontWeight: "600" }}>EMI Calculator</span>
+            <span className="text-sm text-slate-400">›</span>
+            <span className="text-sm font-bold text-emerald-600">EMI Calculator</span>
           </div>
 
-          <div
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "8px",
-              background: "rgba(191, 221, 240, 0.08)",
-              border: "1px solid rgba(191, 221, 240, 0.15)",
-              borderRadius: "50px",
-              padding: "6px 18px",
-              marginBottom: "24px",
-            }}
-          >
+          <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-5 py-1.5 mb-6">
             <span>📊</span>
-            <span
-              style={{
-                fontSize: "12px",
-                fontWeight: "700",
-                color: "#BFDDF0",
-                letterSpacing: "0.08em",
-                textTransform: "uppercase",
-              }}
-            >
+            <span className="text-xs font-bold text-emerald-600 tracking-widest uppercase">
               Free Assessment Tool
             </span>
           </div>
 
-          <h1
-            style={{
-              fontSize: "clamp(38px, 5.5vw, 64px)",
-              fontWeight: "900",
-              color: "#ffffff",
-              letterSpacing: "-2.5px",
-              lineHeight: "1.1",
-              marginBottom: "20px",
-              maxWidth: "800px",
-              margin: "0 auto 24px",
-            }}
-          >
-            Calculate Your <span style={{ color: "#BFDDF0" }}>Monthly EMI</span>
+          <h1 className="text-[clamp(38px,5.5vw,64px)] font-black text-slate-900 tracking-tight leading-[1.1] max-w-[800px] mx-auto mb-6">
+            Calculate Your <span className="text-emerald-500">Monthly EMI</span>
           </h1>
-          <p
-            style={{
-              fontSize: "18px",
-              color: "rgba(255, 255, 255, 0.92)",
-              maxWidth: "560px",
-              margin: "0 auto",
-              lineHeight: "1.75",
-            }}
-          >
+
+          <p className="text-lg text-slate-600 max-w-[560px] mx-auto leading-relaxed">
             Plan your loan path. Select your loan type, input details, and instantly analyze your interest breakdown and repayment schedule.
           </p>
         </div>
       </section>
 
       {/* CALCULATOR INTERACTION SECTION */}
-      <section style={{ background: "#f9fafb", padding: "80px 24px 100px", borderBottom: "1px solid #e5e7eb" }}>
-        <div className="container-max">
+      <section className="bg-white py-16 px-6 border-b border-slate-100">
+        <div className="container mx-auto max-w-[1200px]">
+
           {/* Loan type tabs */}
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", justifyContent: "center", marginBottom: "48px" }}>
+          <div className="flex flex-wrap gap-3 justify-center mb-12">
             {LOAN_TYPES.map((lt) => (
               <button
                 key={lt.id}
-                id={`tab-${lt.id}`}
                 onClick={() => handleLoanTypeChange(lt)}
-                style={{
-                  padding: "12px 24px",
-                  borderRadius: "50px",
-                  border: activeLoanType.id === lt.id ? "2px solid #BFDDF0" : "2px solid #e5e7eb",
-                  background: activeLoanType.id === lt.id ? "#BFDDF0" : "#ffffff",
-                  color: activeLoanType.id === lt.id ? "#000000" : "#4b5563",
-                  fontWeight: "800",
-                  fontSize: "14px",
-                  cursor: "pointer",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  transition: "all 0.25s cubic-bezier(0.16, 1, 0.3, 1)",
-                  boxShadow: activeLoanType.id === lt.id ? "0 4px 12px rgba(191, 221, 240, 0.25)" : "none",
-                }}
+                className={`px-6 py-3 rounded-full font-bold text-sm flex items-center gap-2 transition-all duration-300 ${activeLoanType.id === lt.id
+                    ? "bg-emerald-500 text-white border-2 border-emerald-500 shadow-[0_4px_12px_rgba(16,185,129,0.25)]"
+                    : "bg-white text-slate-600 border-2 border-slate-200 hover:border-emerald-300 hover:bg-emerald-50"
+                  }`}
               >
                 <span>{lt.icon}</span> {lt.label}
               </button>
             ))}
           </div>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: "40px",
-              alignItems: "start",
-            }}
-            className="calc-grid"
-          >
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+
             {/* Input Panel */}
-            <div
-              style={{
-                background: "#ffffff",
-                borderRadius: "24px",
-                padding: "40px",
-                border: "1px solid #e5e7eb",
-                boxShadow: "0 4px 20px rgba(0, 0, 0, 0.02)",
-              }}
-            >
-              <h2
-                style={{
-                  fontSize: "20px",
-                  fontWeight: "900",
-                  color: "#000000",
-                  marginBottom: "32px",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "10px",
-                  borderBottom: "1px solid #f3f4f6",
-                  paddingBottom: "16px",
-                }}
-              >
+            <div className="bg-white rounded-3xl p-8 md:p-10 border border-slate-200 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
+              <h2 className="text-xl font-black text-slate-900 mb-8 flex items-center gap-3 border-b border-slate-100 pb-4">
                 <span>{activeLoanType.icon}</span> {activeLoanType.label} Inputs
               </h2>
 
-              <Slider
-                id="amount"
-                label="Required Amount"
-                value={amount}
-                min={50000}
-                max={activeLoanType.maxAmount}
-                step={50000}
-                onChange={setAmount}
-                displayValue={formatINR(amount)}
-              />
-              <Slider
-                id="rate"
-                label="Interest Rate (% p.a.)"
-                value={rate}
-                min={6}
-                max={24}
-                step={0.25}
-                onChange={setRate}
-                displayValue={`${rate.toFixed(2)}%`}
-              />
-              <Slider
-                id="tenure"
-                label="Repayment Tenure"
-                value={tenure}
-                min={6}
-                max={activeLoanType.maxTenure}
-                step={6}
-                onChange={setTenure}
-                displayValue={
-                  tenure >= 12
-                    ? `${Math.floor(tenure / 12)} yr${Math.floor(tenure / 12) > 1 ? "s" : ""} ${
-                        tenure % 12 > 0 ? `${tenure % 12} mo` : ""
-                      }`.trim()
-                    : `${tenure} mo`
-                }
-              />
+              <div className="flex flex-col gap-6">
+                <Slider
+                  id="amount"
+                  label="Required Amount"
+                  value={amount}
+                  min={50000}
+                  max={activeLoanType.maxAmount}
+                  step={50000}
+                  onChange={setAmount}
+                  displayValue={formatINR(amount)}
+                />
+                <Slider
+                  id="rate"
+                  label="Interest Rate (% p.a.)"
+                  value={rate}
+                  min={6}
+                  max={24}
+                  step={0.25}
+                  onChange={setRate}
+                  displayValue={`${rate.toFixed(2)}%`}
+                />
+                <Slider
+                  id="tenure"
+                  label="Repayment Tenure"
+                  value={tenure}
+                  min={6}
+                  max={activeLoanType.maxTenure}
+                  step={6}
+                  onChange={setTenure}
+                  displayValue={
+                    tenure >= 12
+                      ? `${Math.floor(tenure / 12)} yr${Math.floor(tenure / 12) > 1 ? "s" : ""} ${tenure % 12 > 0 ? `${tenure % 12} mo` : ""
+                        }`.trim()
+                      : `${tenure} mo`
+                  }
+                />
+              </div>
 
               {/* Apply link dynamic */}
               <Link
-                href={`/${
-                  activeLoanType.id === "home"
+                href={`/${activeLoanType.id === "home"
                     ? "home-loan"
                     : activeLoanType.id === "personal"
-                    ? "personal-loan"
-                    : activeLoanType.id === "business"
-                    ? "business-loan"
-                    : "home-loan"
-                }#apply`}
-                id="emi-apply-link"
-                style={{
-                  display: "block",
-                  textAlign: "center",
-                  background: "#BFDDF0",
-                  color: "#000000",
-                  padding: "15px",
-                  borderRadius: "50px",
-                  fontWeight: "800",
-                  fontSize: "15px",
-                  textDecoration: "none",
-                  marginTop: "16px",
-                  transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-                  boxShadow: "0 4px 12px rgba(191, 221, 240, 0.25)",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.background = "#000000";
-                  (e.currentTarget as HTMLElement).style.color = "#ffffff";
-                  (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.background = "#BFDDF0";
-                  (e.currentTarget as HTMLElement).style.color = "#000000";
-                  (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
-                }}
+                      ? "personal-loan"
+                      : activeLoanType.id === "business"
+                        ? "business-loan"
+                        : "home-loan"
+                  }#apply`}
+                className="block text-center mt-10 bg-emerald-600 text-white font-bold text-base py-4 rounded-full shadow-lg shadow-emerald-600/20 hover:bg-emerald-700 hover:-translate-y-0.5 transition-all duration-300"
               >
                 Apply for {activeLoanType.label} →
               </Link>
             </div>
 
             {/* Results Panel */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+            <div className="flex flex-col gap-6">
+
               {/* Output Display Card */}
-              <div
-                style={{
-                  background: "var(--gradient-card)",
-                  borderRadius: "24px",
-                  padding: "44px 36px",
-                  position: "relative",
-                  overflow: "hidden",
-                  border: "1px solid rgba(191, 221, 240, 0.12)",
-                  boxShadow: "0 12px 30px rgba(0, 0, 0, 0.15)",
-                }}
-              >
-                <div
-                  style={{
-                    position: "absolute",
-                    top: "-50px",
-                    right: "-50px",
-                    width: "200px",
-                    height: "200px",
-                    background: "radial-gradient(circle, rgba(191, 221, 240, 0.08) 0%, transparent 70%)",
-                    borderRadius: "50%",
-                    pointerEvents: "none",
-                  }}
-                />
-                <div style={{ position: "relative", zIndex: 1, textAlign: "center" }}>
-                  <p
-                    style={{
-                      fontSize: "13px",
-                      color: "rgba(255, 255, 255, 0.75)",
-                      fontWeight: "700",
-                      letterSpacing: "0.08em",
-                      textTransform: "uppercase",
-                      marginBottom: "12px",
-                    }}
-                  >
+              <div className="bg-emerald-50 rounded-3xl p-10 relative overflow-hidden border border-emerald-100 shadow-[0_12px_30px_rgba(16,185,129,0.08)]">
+                <div className="absolute -top-12 -right-12 w-48 h-48 bg-[radial-gradient(circle,rgba(16,185,129,0.1)_0%,transparent_70%)] rounded-full pointer-events-none" />
+                <div className="relative z-10 text-center">
+                  <p className="text-xs font-bold text-emerald-700 tracking-widest uppercase mb-3">
                     Your Estimated Monthly EMI
                   </p>
-                  <div
-                    style={{
-                      fontSize: "clamp(38px, 6.5vw, 54px)",
-                      fontWeight: "900",
-                      color: "#BFDDF0",
-                      letterSpacing: "-2px",
-                      marginBottom: "6px",
-                    }}
-                  >
+                  <div className="text-[clamp(38px,6.5vw,54px)] font-black text-emerald-600 tracking-tight mb-2">
                     {isFinite(emi) ? `₹${Math.round(emi).toLocaleString("en-IN")}` : "—"}
                   </div>
-                  <p style={{ fontSize: "14px", color: "rgba(255, 255, 255, 0.72)", fontWeight: "500" }}>
+                  <p className="text-sm font-semibold text-slate-500">
                     payable monthly for {tenure} months
                   </p>
                 </div>
               </div>
 
               {/* Breakdown Details */}
-              <div
-                style={{
-                  background: "#ffffff",
-                  borderRadius: "24px",
-                  padding: "36px",
-                  border: "1px solid #e5e7eb",
-                  boxShadow: "0 4px 20px rgba(0, 0, 0, 0.02)",
-                }}
-              >
-                <h3
-                  style={{
-                    fontSize: "16px",
-                    fontWeight: "900",
-                    color: "#000000",
-                    marginBottom: "28px",
-                    textAlign: "center",
-                  }}
-                >
+              <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
+                <h3 className="text-base font-black text-slate-900 mb-8 text-center">
                   Repayment Split
                 </h3>
 
                 <DonutChart principal={amount} interest={isFinite(totalInterest) ? totalInterest : 0} />
 
                 {/* Legend list */}
-                <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                <div className="flex flex-col gap-3 mt-8">
                   {[
-                    { label: "Principal Amount", value: formatINR(amount), color: "#000000", dot: "#BFDDF0" },
+                    { label: "Principal Amount", value: formatINR(amount), color: "text-slate-900", dot: "#10b981" },
                     {
                       label: "Total Interest",
                       value: isFinite(totalInterest) ? formatINR(totalInterest) : "—",
-                      color: "#000000",
-                      dot: "#000000",
+                      color: "text-slate-900",
+                      dot: "#0f172a",
                     },
                     {
                       label: "Total Repayment",
                       value: isFinite(totalPayment) ? formatINR(totalPayment) : "—",
-                      color: "#000000",
-                      dot: "rgba(0,0,0,0.15)",
+                      color: "text-slate-900",
+                      dot: "#e2e8f0",
                     },
                   ].map((item, idx) => (
                     <div
                       key={idx}
-                      style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                        padding: "14px 18px",
-                        background: "#f9fafb",
-                        border: "1px solid #f3f4f6",
-                        borderRadius: "12px",
-                      }}
+                      className="flex justify-between items-center p-4 bg-slate-50 border border-slate-100 rounded-xl"
                     >
-                      <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                      <div className="flex items-center gap-3">
                         <div
-                          style={{
-                            width: "12px",
-                            height: "12px",
-                            borderRadius: "50%",
-                            background: item.dot,
-                            border: idx === 1 ? "1px solid #000000" : "none",
-                            flexShrink: 0,
-                          }}
+                          className="w-3 h-3 rounded-full flex-shrink-0"
+                          style={{ background: item.dot }}
                         />
-                        <span style={{ fontSize: "14px", color: "#4b5563", fontWeight: "600" }}>{item.label}</span>
+                        <span className="text-sm font-bold text-slate-600">{item.label}</span>
                       </div>
-                      <span style={{ fontSize: "15px", fontWeight: "900", color: item.color }}>{item.value}</span>
+                      <span className={`text-base font-black ${item.color}`}>{item.value}</span>
                     </div>
                   ))}
                 </div>
@@ -416,21 +220,10 @@ export default function EMICalculatorPage() {
           </div>
 
           {/* Calculator Disclaimer */}
-          <div
-            style={{
-              marginTop: "40px",
-              background: "#ffffff",
-              borderRadius: "16px",
-              padding: "24px",
-              border: "1px solid #e5e7eb",
-              display: "flex",
-              alignItems: "flex-start",
-              gap: "16px",
-            }}
-          >
-            <span style={{ fontSize: "20px", flexShrink: 0 }}>ℹ️</span>
-            <p style={{ fontSize: "14px", color: "#4b5563", lineHeight: "1.7", margin: 0 }}>
-              <strong style={{ color: "#000000" }}>Important Information:</strong> The outputs generated by this
+          <div className="mt-10 bg-slate-50 rounded-2xl p-6 border border-slate-200 flex items-start gap-4">
+            <span className="text-xl flex-shrink-0">ℹ️</span>
+            <p className="text-sm text-slate-600 leading-relaxed m-0">
+              <strong className="text-slate-900">Important Information:</strong> The outputs generated by this
               calculator are estimates for planning purposes only. DSAs compare multiple lenders to procure exact
               quotes. Your physical loan terms may vary depending on CIBIL verification, processing fees, insurance charges,
               and banking policy constraints.
@@ -440,51 +233,21 @@ export default function EMICalculatorPage() {
       </section>
 
       {/* VALUE SECTION */}
-      <section style={{ background: "var(--surface-dark)", padding: "100px 24px", color: "#ffffff" }}>
-        <div className="container-max">
-          <div style={{ textAlign: "center", marginBottom: "60px" }}>
-            <span
-              style={{
-                fontSize: "13px",
-                fontWeight: "800",
-                color: "#BFDDF0",
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                display: "block",
-                marginBottom: "12px",
-              }}
-            >
+      <section className="bg-slate-50 py-24 px-6 border-t border-slate-200">
+        <div className="container mx-auto max-w-[1200px]">
+          <div className="text-center mb-16">
+            <span className="text-xs font-extrabold text-emerald-600 tracking-widest uppercase block mb-4">
               Why ACE Finance
             </span>
-            <h2
-              style={{
-                fontSize: "clamp(30px, 4vw, 42px)",
-                fontWeight: "900",
-                color: "#ffffff",
-                letterSpacing: "-1.5px",
-              }}
-            >
+            <h2 className="text-[clamp(30px,4vw,42px)] font-black text-slate-900 tracking-tight mb-4">
               Beyond the Numbers
             </h2>
-            <p
-              style={{
-                fontSize: "16px",
-                color: "rgba(255, 255, 255, 0.82)",
-                maxWidth: "500px",
-                margin: "12px auto 0",
-              }}
-            >
+            <p className="text-base text-slate-600 max-w-[500px] mx-auto">
               Our direct selling agent process offers clear benefits that simple calculators can't capture.
             </p>
           </div>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-              gap: "24px",
-            }}
-          >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
                 icon: "⚡",
@@ -509,21 +272,13 @@ export default function EMICalculatorPage() {
             ].map((item, index) => (
               <div
                 key={index}
-                style={{
-                  background: "rgba(255, 255, 255, 0.03)",
-                  border: "1px solid rgba(255, 255, 255, 0.08)",
-                  borderRadius: "20px",
-                  padding: "32px 28px",
-                  textAlign: "center",
-                  transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-                }}
-                className="benefit-card"
+                className="bg-white border border-slate-200 rounded-2xl p-8 text-center hover:-translate-y-1 hover:border-emerald-300 hover:shadow-xl transition-all duration-300"
               >
-                <div style={{ fontSize: "36px", marginBottom: "18px" }}>{item.icon}</div>
-                <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#ffffff", marginBottom: "10px" }}>
+                <div className="text-4xl mb-6">{item.icon}</div>
+                <h3 className="text-lg font-bold text-slate-900 mb-3">
                   {item.title}
                 </h3>
-                <p style={{ fontSize: "14px", color: "rgba(255, 255, 255, 0.55)", lineHeight: "1.65" }}>
+                <p className="text-sm text-slate-600 leading-relaxed">
                   {item.desc}
                 </p>
               </div>
@@ -532,23 +287,6 @@ export default function EMICalculatorPage() {
         </div>
       </section>
 
-      <style>{`
-        .calc-grid {
-          grid-template-columns: 1fr 1fr;
-        }
-        .benefit-card:hover {
-          transform: translateY(-4px);
-          background: rgba(255, 255, 255, 0.05) !important;
-          border-color: rgba(191, 221, 240, 0.3) !important;
-          box-shadow: 0 8px 24px rgba(191, 221, 240, 0.05);
-        }
-        @media (max-width: 992px) {
-          .calc-grid {
-            grid-template-columns: 1fr !important;
-            gap: 32px !important;
-          }
-        }
-      `}</style>
     </main>
   );
 }

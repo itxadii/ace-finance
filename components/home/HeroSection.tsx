@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import ContinueButton from "@/components/ui/ContinueButton";
 import PrimaryButton from "@/components/ui/PrimaryButton";
@@ -22,7 +23,7 @@ export default function HeroSection() {
       </div>
 
       {/* Main Content Container */}
-      <div className="container mx-auto px-32 relative z-10">
+      <div className="container mx-auto px-6 relative z-10 max-w-[1200px]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center py-20 lg:py-32">
 
           {/* LEFT COLUMN */}
@@ -33,15 +34,16 @@ export default function HeroSection() {
 
             <h1 className="text-[clamp(36px,5vw,64px)] font-black text-slate-900 leading-[1.1] tracking-tight mb-8 w-full">
               <span className="block">Get the Best</span>
-              <span className="flex items-center justify-center lg:justify-start whitespace-nowrap my-3">
+              {/* Added flex-nowrap to absolutely guarantee words stay on the same line */}
+              <span className="flex items-center justify-center lg:justify-start whitespace-nowrap flex-nowrap my-3">
                 <RotatingText
                   texts={["Home", "Business", "Personal"]}
-                  mainClassName="text-emerald-500 inline-flex"
+                  mainClassName="text-emerald-500 inline-flex whitespace-nowrap"
                   staggerDuration={0.08}
                   rotationInterval={4500}
                   transition={{ type: "spring", damping: 30, stiffness: 120 }}
                 />
-                <span className="ml-3">Loan Offer</span>
+                <span className="ml-3 whitespace-nowrap">Loan Offer</span>
               </span>
               <span className="block text-emerald-600">Tailored for You</span>
             </h1>
@@ -73,14 +75,21 @@ export default function HeroSection() {
           <div className="relative w-full h-[400px] lg:h-[520px]">
             <Image src="/heroimage.png" alt="Loan Expert" fill className="object-contain" priority />
 
-            {/* Badges */}
-            <div className="absolute top-0 lg:top-[10%] -left-4 lg:-left-12 bg-white p-4 rounded-2xl shadow-xl border border-emerald-100 flex items-center gap-3 animate-[float_4s_ease-in-out_infinite]">
+            {/* Badges - FIXED: Changed -left-12 to left-4 so it stays inside the image area */}
+            <div className="absolute top-0 lg:top-[12%] left-0 lg:left-4 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-emerald-100 flex items-center gap-3 animate-[float_4s_ease-in-out_infinite] z-20">
               <div className="w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center text-white font-bold">✓</div>
               <div>
                 <p className="font-extrabold text-sm text-slate-900">Best Rate Approved!</p>
-                <p className="text-[10px] text-slate-400">Across 20+ banks</p>
+                <p className="text-[10px] text-slate-500">Across 20+ banks</p>
               </div>
             </div>
+
+            {/* Re-added the second badge for balance (optional) */}
+            <div className="absolute bottom-[10%] right-0 lg:right-4 bg-white/95 backdrop-blur-md p-3 rounded-2xl shadow-xl border border-emerald-100 flex items-center gap-2.5 animate-[float_4s_ease-in-out_infinite_1.5s] z-30">
+              <span className="text-base">⚡</span>
+              <span className="text-[10px] font-bold text-slate-900 tracking-wider uppercase">Zero Agent Charges</span>
+            </div>
+
           </div>
         </div>
       </div>
