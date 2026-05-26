@@ -9,9 +9,10 @@ interface PrimaryButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const PrimaryButton = ({ children = "APPLY NOW", ...props }: PrimaryButtonProps) => {
+    const isFullWidth = props.className?.includes("w-full");
     return (
-        <StyledWrapper>
-            <div className="button-borders">
+        <StyledWrapper style={isFullWidth ? { width: '100%', display: 'block' } : { display: 'inline-block' }}>
+            <div className="button-borders" style={isFullWidth ? { width: '100%' } : {}}>
                 {/* We spread {...props} here so things like onClick are passed down to the HTML button */}
                 <button className="primary-button" {...props}>
                     {children}

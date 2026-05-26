@@ -70,6 +70,8 @@ export default function ServicesSection() {
           background: "radial-gradient(circle, rgba(16,185,129,0.06) 0%, transparent 70%)",
           borderRadius: "50%",
         }} />
+        {/* Background Pattern - Right Side */}
+
       </div>
 
       <div style={{

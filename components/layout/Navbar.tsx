@@ -8,6 +8,7 @@ import PrimaryButton from "@/components/ui/PrimaryButton";
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isMobileLoansOpen, setIsMobileLoansOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 20);
@@ -15,12 +16,18 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const navLinks = [
+  const mainLinks = [
+    { label: "Loans", href: "#", isDropdown: true },
+    { label: "Credit Cards", href: "/credit-cards" },
+    { label: "EMI Calculator", href: "/emicalculator" },
+    { label: "About Us", href: "/about" },
+    { label: "Contact Us", href: "/contact" },
+  ];
+
+  const loanSubLinks = [
     { label: "Home Loan", href: "/home-loan" },
     { label: "Personal Loan", href: "/personal-loan" },
     { label: "Business Loan", href: "/business-loan" },
-    { label: "EMI Calculator", href: "/emicalculator" },
-    { label: "About Us", href: "/about" },
   ];
 
   return (
@@ -108,11 +115,29 @@ export default function Navbar() {
           <DesktopNavWrapper>
             <div className="nav">
               <div className="container">
-                {navLinks.map((link) => (
-                  <Link key={link.href} href={link.href} className="btn">
-                    {link.label}
-                  </Link>
-                ))}
+                {mainLinks.map((link) => {
+                  if (link.isDropdown) {
+                    return (
+                      <div key={link.label} className="btn dropdown-btn">
+                        <span style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+                          {link.label} <span style={{ fontSize: "10px", marginTop: "2px" }}>▼</span>
+                        </span>
+                        <div className="dropdown-menu">
+                          {loanSubLinks.map((subLink) => (
+                            <Link key={subLink.href} href={subLink.href} className="dropdown-item">
+                              {subLink.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  }
+                  return (
+                    <Link key={link.href} href={link.href} className="btn">
+                      {link.label}
+                    </Link>
+                  );
+                })}
 
                 {/* SVG Outline Box */}
                 <svg className="outline" overflow="visible" width="100%" height="100%" viewBox="0 0 700 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
@@ -124,8 +149,11 @@ export default function Navbar() {
 
           {/* Primary CTA Button */}
           <div style={{ marginLeft: "24px" }}>
-            <PrimaryButton>Apply Now</PrimaryButton>
+            <Link href="/contact" className="no-underline">
+              <PrimaryButton>Apply Now</PrimaryButton>
+            </Link>
           </div>
+
 
         </div>
 
@@ -161,31 +189,89 @@ export default function Navbar() {
             animation: "fadeInUp 0.3s ease",
           }}
         >
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setIsMobileOpen(false)}
-              style={{
-                display: "block",
-                color: "#475569",
-                textDecoration: "none",
-                fontSize: "15px",
-                fontWeight: "600",
-                padding: "12px 0",
-                borderBottom: "1px solid rgba(16, 185, 129, 0.08)",
-                transition: "color 0.2s",
-              }}
-              onMouseEnter={(e) => {
-                (e.target as HTMLElement).style.color = "#059669";
-              }}
-              onMouseLeave={(e) => {
-                (e.target as HTMLElement).style.color = "#475569";
-              }}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {mainLinks.map((link) => {
+            if (link.isDropdown) {
+              return (
+                <div key={link.label} style={{ borderBottom: "1px solid rgba(16, 185, 129, 0.08)" }}>
+                  <button
+                    onClick={() => setIsMobileLoansOpen(!isMobileLoansOpen)}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      width: "100%",
+                      color: "#475569",
+                      background: "none",
+                      border: "none",
+                      fontSize: "15px",
+                      fontWeight: "600",
+                      padding: "12px 0",
+                      cursor: "pointer",
+                      textAlign: "left",
+                    }}
+                  >
+                    <span>{link.label}</span>
+                    <span style={{ fontSize: "10px", transition: "transform 0.2s", transform: isMobileLoansOpen ? "rotate(90deg)" : "rotate(0)" }}>▶</span>
+                  </button>
+                  {isMobileLoansOpen && (
+                    <div style={{ paddingLeft: "16px", paddingBottom: "8px", display: "flex", flexDirection: "column" }}>
+                      {loanSubLinks.map((subLink) => (
+                        <Link
+                          key={subLink.href}
+                          href={subLink.href}
+                          onClick={() => {
+                            setIsMobileOpen(false);
+                            setIsMobileLoansOpen(false);
+                          }}
+                          style={{
+                            color: "#64748b",
+                            textDecoration: "none",
+                            fontSize: "14px",
+                            fontWeight: "500",
+                            padding: "8px 0",
+                            transition: "color 0.2s",
+                          }}
+                          onMouseEnter={(e) => {
+                            (e.target as HTMLElement).style.color = "#059669";
+                          }}
+                          onMouseLeave={(e) => {
+                            (e.target as HTMLElement).style.color = "#64748b";
+                          }}
+                        >
+                          {subLink.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            }
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setIsMobileOpen(false)}
+                style={{
+                  display: "block",
+                  color: "#475569",
+                  textDecoration: "none",
+                  fontSize: "15px",
+                  fontWeight: "600",
+                  padding: "12px 0",
+                  borderBottom: "1px solid rgba(16, 185, 129, 0.08)",
+                  transition: "color 0.2s",
+                }}
+                onMouseEnter={(e) => {
+                  (e.target as HTMLElement).style.color = "#059669";
+                }}
+                onMouseLeave={(e) => {
+                  (e.target as HTMLElement).style.color = "#475569";
+                }}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
 
           <div
             style={{
@@ -195,8 +281,11 @@ export default function Navbar() {
             }}
             onClick={() => setIsMobileOpen(false)}
           >
-            <PrimaryButton>Apply Now</PrimaryButton>
+            <Link href="/contact" className="no-underline">
+              <PrimaryButton>Apply Now</PrimaryButton>
+            </Link>
           </div>
+
         </div>
       )}
 
@@ -277,31 +366,31 @@ const DesktopNavWrapper = styled.div`
     Format: 0 [start-top] [length-top] [gap-to-bottom] [length-bottom] [gap-to-end]
   */
   
-  /* 1. Home Loan */
+  /* 1. Loans Dropdown */
   .btn:nth-child(1):hover ~ svg .rect {
     stroke-dashoffset: 0;
     stroke-dasharray: 0 2 7 80 7 4;
   }
 
-  /* 2. Personal Loan */
+  /* 2. Credit Cards */
   .btn:nth-child(2):hover ~ svg .rect {
     stroke-dashoffset: 0;
     stroke-dasharray: 0 11 7 62 7 13;
   }
 
-  /* 3. Business Loan */
+  /* 3. EMI Calculator */
   .btn:nth-child(3):hover ~ svg .rect {
     stroke-dashoffset: 0;
     stroke-dasharray: 0 20 7 44 7 22;
   }
 
-  /* 4. EMI Calculator */
+  /* 4. About Us */
   .btn:nth-child(4):hover ~ svg .rect {
     stroke-dashoffset: 0;
     stroke-dasharray: 0 29 7 26 7 31;
   }
 
-  /* 5. About Us */
+  /* 5. Contact Us */
   .btn:nth-child(5):hover ~ svg .rect {
     stroke-dashoffset: 0;
     stroke-dasharray: 0 38 7 8 7 40;
@@ -311,5 +400,53 @@ const DesktopNavWrapper = styled.div`
     stroke-dashoffset: 0;
     stroke-dasharray: 0 0 10 40 10 40;
     transition: 0.5s !important;
+  }
+
+  .dropdown-btn {
+    position: relative;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(16, 185, 129, 0.15);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.15);
+    padding: 8px 0;
+    min-width: 170px;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 100;
+  }
+
+  .dropdown-btn:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .dropdown-item {
+    padding: 10px 20px;
+    color: #475569;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    text-align: center;
+    white-space: nowrap;
+    display: block;
+  }
+
+  .dropdown-item:hover {
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
   }
 `;

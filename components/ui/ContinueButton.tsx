@@ -3,10 +3,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const ContinueButton = () => {
+interface ContinueButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+    children?: React.ReactNode;
+}
+
+const ContinueButton = ({ children = "Apply Now", ...props }: ContinueButtonProps) => {
     return (
         <StyledWrapper>
-            <button className="continue-application">
+            <button className="continue-application" {...props}>
                 <div>
                     <div className="pencil" />
                     <div className="folder">
@@ -18,7 +22,7 @@ const ContinueButton = () => {
                         <div className="paper" />
                     </div>
                 </div>
-                Apply Now
+                {children}
             </button>
         </StyledWrapper>
     );

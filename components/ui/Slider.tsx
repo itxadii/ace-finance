@@ -40,9 +40,9 @@ export default function Slider({
           style={{
             fontSize: "14px",
             fontWeight: "800",
-            color: "#000000",
-            background: "rgba(191, 221, 240, 0.35)",
-            border: "1px solid rgba(191, 221, 240, 0.5)",
+            color: "#059669",
+            background: "rgba(16, 185, 129, 0.1)",
+            border: "1px solid rgba(16, 185, 129, 0.2)",
             padding: "3px 12px",
             borderRadius: "20px",
           }}
@@ -58,7 +58,7 @@ export default function Slider({
             top: 0,
             height: "100%",
             width: `${pct}%`,
-            background: "#BFDDF0",
+            background: "#10B981",
             borderRadius: "3px",
             transition: "width 0.1s",
           }}
@@ -90,9 +90,9 @@ export default function Slider({
             width: "20px",
             height: "20px",
             background: "#ffffff",
-            border: "3px solid #BFDDF0",
+            border: "3px solid #10B981",
             borderRadius: "50%",
-            boxShadow: "0 2px 8px rgba(191, 221, 240, 0.4)",
+            boxShadow: "0 2px 8px rgba(16, 185, 129, 0.3)",
             transition: "left 0.1s",
             pointerEvents: "none",
           }}

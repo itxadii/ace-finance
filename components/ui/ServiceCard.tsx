@@ -3,6 +3,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
+import { ChevronRight } from 'lucide-react';
 
 interface ServiceCardProps {
     title: string;
@@ -20,8 +21,8 @@ const ServiceCard = ({ title, description, href, icon }: ServiceCardProps) => {
                     <h3>{title}</h3>
                     <p className="small">{description}</p>
                     <div className="go-corner">
-                        <div className="go-arrow">
-                            →
+                        <div className="go-arrow" style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "2px", marginRight: "2px" }}>
+                            <ChevronRight size={14} />
                         </div>
                     </div>
                 </Link>

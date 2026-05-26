@@ -31,6 +31,8 @@ export default function TestimonialsSection() {
     >
       {/* Decorative BG Glow (Subtle Green) */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(16,185,129,0.04)_0%,transparent_70%)] rounded-full pointer-events-none" />
+      {/* Background Pattern - Right Side */}
+
 
       <div className="container mx-auto max-w-[1200px] relative z-10">
 

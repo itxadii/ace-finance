@@ -9,14 +9,14 @@ const loanLinks = [
   { label: "Business Loan", href: "/business-loan" },
   { label: "Loan Against Property", href: "/#services" },
   { label: "Used Car Loan", href: "/#services" },
-  { label: "Credit Cards", href: "/#services" },
+  { label: "Credit Cards", href: "/credit-cards" },
 ];
 
 const companyLinks = [
   { label: "About Us", href: "/about" },
   { label: "Why Choose Us", href: "/#why-choose" },
   { label: "Testimonials", href: "/#testimonials" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Footer() {
@@ -145,15 +145,24 @@ export default function Footer() {
               © {new Date().getFullYear()} ACE Finance. All rights reserved.
             </p>
             <div className="flex gap-6">
-              {["Privacy Policy", "Terms of Service"].map((item) => (
-                <a
-                  key={item}
-                  href="#"
-                  className="text-[13px] text-slate-500 hover:text-emerald-600 transition-colors"
-                >
-                  {item}
-                </a>
-              ))}
+              <Link
+                href="/privacy"
+                className="text-[13px] text-slate-500 hover:text-emerald-600 transition-colors"
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                href="/terms"
+                className="text-[13px] text-slate-500 hover:text-emerald-600 transition-colors"
+              >
+                Terms of Service
+              </Link>
+              <Link
+                href="/cookie-policy"
+                className="text-[13px] text-slate-500 hover:text-emerald-600 transition-colors"
+              >
+                Cookie Policy
+              </Link>
             </div>
           </div>
 

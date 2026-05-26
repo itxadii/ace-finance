@@ -26,7 +26,7 @@ export default function DonutChart({ principal, interest }: DonutChartProps) {
           cy="80"
           r={r}
           fill="none"
-          stroke="#BFDDF0"
+          stroke="#10B981"
           strokeWidth="18"
           strokeDasharray={`${principalDash} ${circ - principalDash}`}
           strokeDashoffset={circ / 4}
@@ -37,7 +37,7 @@ export default function DonutChart({ principal, interest }: DonutChartProps) {
           cy="80"
           r={r}
           fill="none"
-          stroke="#000000"
+          stroke="#0f172a"
           strokeWidth="18"
           strokeDasharray={`${interestDash} ${circ - interestDash}`}
           strokeDashoffset={circ / 4 - principalDash}

@@ -2,6 +2,20 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import PrimaryButton from "@/components/ui/PrimaryButton";
+import ContinueButton from "@/components/ui/ContinueButton";
+import CountUp from "@/components/CountUp";
+
+function parseStatValue(valStr: string) {
+  const regex = /^(₹)?\s*([0-9]+(?:\.[0-9]+)?)\s*(.*)?$/;
+  const match = valStr.match(regex);
+  if (!match) return null;
+  return {
+    prefix: match[1] || "",
+    to: parseFloat(match[2]),
+    suffix: match[3] || ""
+  };
+}
 
 interface Feature {
   icon: string;
@@ -92,6 +106,8 @@ export default function LoanPageLayout({ data }: { data: LoanPageData }) {
         {/* Glow Effects */}
         <div className="absolute top-1/2 -right-[10%] -translate-y-1/2 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(16,185,129,0.06)_0%,transparent_70%)] rounded-full pointer-events-none" />
         <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#0f172a_1px,transparent_1px)] [background-size:40px_40px] pointer-events-none" />
+        {/* Background Pattern */}
+        <div className="absolute right-220 top-1/2 -translate-y-1/2 w-[70%] h-[100%] bg-[url('/pattern.png')] bg-contain bg-no-repeat bg-right opacity-[0.2] pointer-events-none" />
 
         <div className="container mx-auto max-w-[1200px] px-6 relative z-10 w-full">
 
@@ -123,17 +139,13 @@ export default function LoanPageLayout({ data }: { data: LoanPageData }) {
           </p>
 
           <div className="flex flex-wrap items-center gap-4 mb-16">
-            <a
-              href="#apply"
-              className="inline-flex items-center gap-2 bg-emerald-600 text-white px-8 py-3.5 rounded-full font-bold text-base shadow-[0_6px_20px_rgba(16,185,129,0.25)] hover:bg-emerald-700 hover:-translate-y-0.5 transition-all duration-300"
-            >
-              Apply Now →
-            </a>
-            <Link
-              href="/emicalculator"
-              className="inline-flex items-center gap-2 bg-white text-slate-700 px-8 py-3.5 rounded-full font-bold text-base border-2 border-slate-200 hover:border-emerald-300 hover:bg-emerald-50 transition-all duration-300"
-            >
-              📊 EMI Calculator
+            <ContinueButton onClick={() => document.getElementById("apply")?.scrollIntoView({ behavior: "smooth" })}>
+              Apply Now
+            </ContinueButton>
+            <Link href="/emicalculator" className="no-underline">
+              <PrimaryButton>
+                EMI Calculator
+              </PrimaryButton>
             </Link>
           </div>
 
@@ -141,8 +153,20 @@ export default function LoanPageLayout({ data }: { data: LoanPageData }) {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-emerald-100 pt-10 max-w-[900px]">
             {data.stats.map((s, idx) => (
               <div key={idx}>
-                <div className="text-[clamp(24px,3vw,32px)] font-black text-emerald-600 tracking-tight">
-                  {s.value}
+                <div className="text-[clamp(24px,3vw,32px)] font-black text-emerald-600 tracking-tight flex items-baseline gap-0.5">
+                  {(() => {
+                    const parsed = parseStatValue(s.value);
+                    if (parsed) {
+                      return (
+                        <>
+                          {parsed.prefix && <span>{parsed.prefix}</span>}
+                          <CountUp to={parsed.to} duration={2} />
+                          {parsed.suffix && <span>{parsed.suffix}</span>}
+                        </>
+                      );
+                    }
+                    return s.value;
+                  })()}
                 </div>
                 <div className="text-[11px] text-slate-500 mt-1.5 font-bold uppercase tracking-widest">
                   {s.label}
@@ -307,13 +331,13 @@ export default function LoanPageLayout({ data }: { data: LoanPageData }) {
               </div>
             ))}
 
-            <button
+            <PrimaryButton
               id="apply-submit-btn"
               type="button"
-              className="w-full bg-emerald-600 text-white py-4 rounded-xl font-bold text-base shadow-lg shadow-emerald-600/20 hover:bg-emerald-700 hover:-translate-y-0.5 transition-all duration-300 mt-2"
+              className="w-full mt-2"
             >
               Get Free Consultation
-            </button>
+            </PrimaryButton>
 
             <p className="text-xs text-slate-400 mt-4 text-center">
               🔒 100% Secure & confidential process. We never share details.
