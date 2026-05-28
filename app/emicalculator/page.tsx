@@ -373,7 +373,7 @@ export default function EMICalculatorPage() {
           <div className="mt-10 bg-slate-50 rounded-2xl p-6 border border-slate-200/80 flex items-start gap-4">
             <Info size={20} className="text-emerald-600 flex-shrink-0 mt-0.5" />
             <p className="text-xs text-slate-500 leading-relaxed m-0">
-              <strong className="text-slate-900">Important Disclaimer:</strong> These figures are calculated as estimates for general financial planning. ACE Finance functions as a direct selling agent (DSA) matching profiles to top bank partners. Actual rates, loan limits, Processing Fees, and tenures are determined strictly by lender approvals and validation of your credit score.
+              <strong className="text-slate-900">Important Disclaimer:</strong> These figures are calculated as estimates for general financial planning. ACE Financial Services functions as a direct selling agent (DSA) matching profiles to top bank partners. Actual rates, loan limits, Processing Fees, and tenures are determined strictly by lender approvals and validation of your credit score.
             </p>
           </div>
 

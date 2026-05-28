@@ -69,7 +69,7 @@ export default function WhyChooseSection() {
           {/* LEFT COLUMN: Features & Stats */}
           <div className="flex flex-col gap-8">
             <div className="inline-flex w-fit items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-4 py-1.5">
-              <span className="text-xs font-bold text-emerald-600 tracking-wider uppercase">Why Choose ACE Finance?</span>
+              <span className="text-xs font-bold text-emerald-600 tracking-wider uppercase">Why Choose ACE Financial Services?</span>
             </div>
 
             <div className="flex flex-col gap-4">

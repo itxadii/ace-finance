@@ -2,10 +2,10 @@ import Link from "next/link";
 import { Shield, ChevronRight } from "lucide-react";
 
 export const metadata = {
-  title: "Privacy Policy | ACE Finance",
+  title: "Privacy Policy | ACE Financial Services",
   description:
-    "Learn about how ACE Finance collects, uses, and safeguards your personal data. We are committed to transparency and maintaining secure application processes.",
-  keywords: "privacy policy, data protection, security, ACE Finance privacy, credit card application safety",
+    "Learn about how ACE Financial Services collects, uses, and safeguards your personal data. We are committed to transparency and maintaining secure application processes.",
+  keywords: "privacy policy, data protection, security, ACE Financial Services privacy, credit card application safety",
 };
 
 export default function PrivacyPage() {
@@ -56,7 +56,7 @@ export default function PrivacyPage() {
                 1. Introduction
               </h2>
               <p className="text-sm leading-relaxed mb-4">
-                Welcome to <strong>ACE Finance</strong>. We operate as an authorized Direct Selling Agent (DSA) partner for leading banks and financial institutions in India. This Privacy Policy details how we collect, process, share, and protect your personal identification information and credit application details when you interact with our website or apply for financial products through us.
+                Welcome to <strong>ACE Financial Services</strong>. We operate as an authorized Direct Selling Agent (DSA) partner for leading banks and financial institutions in India. This Privacy Policy details how we collect, process, share, and protect your personal identification information and credit application details when you interact with our website or apply for financial products through us.
               </p>
               <p className="text-sm leading-relaxed">
                 By submitting your details via our online forms, you consent to the data collection and sharing practices outlined in this policy.
@@ -130,7 +130,7 @@ export default function PrivacyPage() {
                 6. Your Rights
               </h2>
               <p className="text-sm leading-relaxed">
-                You have the right to request access to the data we hold, ask for corrections, or request that we delete your contact files from our internal databases. To exercise these rights, please email us directly at <a href="mailto:privacy@acefinance.in" className="text-emerald-600 font-bold hover:underline">privacy@acefinance.in</a>.
+                You have the right to request access to the data we hold, ask for corrections, or request that we delete your contact files from our internal databases. To exercise these rights, please email us directly at <a href="mailto:priyanka.agrawal@iiflpartner.com" className="text-emerald-600 font-bold hover:underline">priyanka.agrawal@iiflpartner.com</a>.
               </p>
             </div>
 

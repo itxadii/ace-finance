@@ -15,6 +15,7 @@ export default function ContactPageClient() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
   const [agreedToPrivacy, setAgreedToPrivacy] = useState(false);
+  const [isSending, setIsSending] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -24,7 +25,7 @@ export default function ContactPageClient() {
     }));
   };
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
 
@@ -43,7 +44,32 @@ export default function ContactPageClient() {
       return;
     }
 
-    setSubmitted(true);
+    setIsSending(true);
+    try {
+      const dataToSend = new FormData();
+      dataToSend.append("access_key", "4176dc02-645c-44a1-b4ec-ca55a7c18982");
+      dataToSend.append("name", formData.name);
+      dataToSend.append("email", formData.email);
+      dataToSend.append("phone", formData.phone);
+      dataToSend.append("subject", formData.subject || "Contact Inquiry");
+      dataToSend.append("message", formData.message);
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: dataToSend
+      });
+
+      const resData = await response.json();
+      if (resData.success) {
+        setSubmitted(true);
+      } else {
+        setError(resData.message || "Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      setError("An error occurred while sending the message. Please check your internet connection.");
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -237,13 +263,17 @@ export default function ContactPageClient() {
                       className="mt-1 w-4 h-4 text-emerald-600 border-slate-300 rounded focus:ring-emerald-500 cursor-pointer"
                     />
                     <label htmlFor="contact-privacy" className="text-xs text-slate-500 leading-normal cursor-pointer select-none">
-                      I agree to the <Link href="/privacy" className="text-emerald-600 underline font-bold hover:text-emerald-700">Privacy Policy</Link> and authorize ACE Finance to contact me.
+                      I agree to the <Link href="/privacy" className="text-emerald-600 underline font-bold hover:text-emerald-700">Privacy Policy</Link> and authorize ACE Financial Services to contact me.
                     </label>
                   </div>
 
                   <div className="mt-2">
-                    <button type="submit" className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-emerald-600/20 transition-all duration-300 border-none cursor-pointer flex items-center justify-center gap-1">
-                      Send Message Now <ChevronRight size={18} />
+                    <button
+                      type="submit"
+                      disabled={isSending}
+                      className="w-full bg-emerald-600 hover:bg-emerald-700 disabled:bg-emerald-400 text-white font-bold py-4 rounded-xl shadow-lg shadow-emerald-600/20 transition-all duration-300 border-none cursor-pointer flex items-center justify-center gap-1"
+                    >
+                      {isSending ? "Sending..." : "Send Message Now"} <ChevronRight size={18} />
                     </button>
                   </div>
 
@@ -264,17 +294,26 @@ export default function ContactPageClient() {
                   {
                     icon: <MapPin className="text-emerald-600" size={20} />,
                     title: "Our Location",
-                    lines: ["Nashik, Maharashtra,", "India"]
+                    lines: [
+                      "S-301-305, 'B' Wing, 2nd Floor,",
+                      "New Jayshankar Market,",
+                      "Opp. Urdu High School,",
+                      "Dhule - 424001, Maharashtra, India"
+                    ]
                   },
                   {
                     icon: <Phone className="text-emerald-600" size={20} />,
                     title: "Phone Numbers",
-                    lines: ["+91 95296 02759", "Mon-Sat, 9:00 AM - 6:00 PM"]
+                    lines: [
+                      "+91 99754 94945 (Mobile)",
+                      "02562-280033 / 34 / 35 (Landline)",
+                      "Mon-Sat, 9:00 AM - 6:00 PM"
+                    ]
                   },
                   {
                     icon: <Mail className="text-emerald-600" size={20} />,
                     title: "Email Channels",
-                    lines: ["info@acefinance.in", "queries@acefinance.in"]
+                    lines: ["priyanka.agrawal@iiflpartner.com"]
                   },
                   {
                     icon: <Clock className="text-emerald-600" size={20} />,
@@ -312,9 +351,9 @@ export default function ContactPageClient() {
                   <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-4 h-1.5 bg-black/10 rounded-full blur-sm" />
                 </div>
 
-                <h4 className="text-sm font-black text-slate-900 z-10">ACE Finance HQ</h4>
+                <h4 className="text-sm font-black text-slate-900 z-10">ACE Financial Services HQ</h4>
                 <p className="text-xs text-slate-500 mt-1 max-w-[200px] leading-relaxed z-10">
-                  Visit us in Nashik for a detailed loan consultation.
+                  Visit us in Dhule for a detailed loan consultation.
                 </p>
               </div>
 

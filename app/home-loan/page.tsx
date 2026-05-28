@@ -1,9 +1,9 @@
 import LoanPageLayout, { LoanPageData } from "@/components/layout/LoanPageLayout";
 
 export const metadata = {
-  title: "Home Loan in Nashik | ACE Finance — Low Rates, Quick Approval",
+  title: "Home Loan in Dhule | ACE Financial Services — Low Rates, Quick Approval",
   description:
-    "Get your dream home with ACE Finance Home Loans. Attractive interest rates, minimal documentation, and approval within 24–48 hours in Nashik.",
+    "Get your dream home with ACE Financial Services Home Loans. Attractive interest rates, minimal documentation, and approval within 24–48 hours in Dhule.",
 };
 
 const data: LoanPageData = {
@@ -67,7 +67,7 @@ const data: LoanPageData = {
     { icon: "📑", text: "Valid KYC documents (Aadhaar, PAN)" },
   ],
   steps: [
-    { num: "1", title: "Apply Online or Visit Us", desc: "Fill out our quick application form or walk into our Nashik office." },
+    { num: "1", title: "Apply Online or Visit Us", desc: "Fill out our quick application form or walk into our Dhule office." },
     { num: "2", title: "Document Submission", desc: "Submit your income proof, property papers, and KYC documents." },
     { num: "3", title: "Loan Processing & Approval", desc: "Our team verifies documents and approves the loan within 24–48 hours." },
     { num: "4", title: "Disbursal", desc: "Funds are transferred directly to the seller/builder's account." },

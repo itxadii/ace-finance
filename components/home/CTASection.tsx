@@ -11,8 +11,9 @@ export default function CTASection() {
   const [agreedToPrivacy, setAgreedToPrivacy] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
+  const [isSending, setIsSending] = useState(false);
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
 
@@ -33,7 +34,31 @@ export default function CTASection() {
       return;
     }
 
-    setSubmitted(true);
+    setIsSending(true);
+    try {
+      const dataToSend = new FormData();
+      dataToSend.append("access_key", "4176dc02-645c-44a1-b4ec-ca55a7c18982");
+      dataToSend.append("name", name);
+      dataToSend.append("phone", phone);
+      dataToSend.append("loan_type", loanType);
+      dataToSend.append("subject", `Consultation: ${loanType}`);
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: dataToSend
+      });
+
+      const resData = await response.json();
+      if (resData.success) {
+        setSubmitted(true);
+      } else {
+        setError(resData.message || "Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      setError("An error occurred while sending your request. Please check your internet connection.");
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -140,12 +165,16 @@ export default function CTASection() {
                       className="mt-1 w-4 h-4 text-emerald-600 border-slate-300 rounded focus:ring-emerald-500 cursor-pointer"
                     />
                     <label htmlFor="cta-privacy" className="text-xs text-slate-500 leading-normal cursor-pointer select-none">
-                      I agree to the <Link href="/privacy" className="text-emerald-600 underline font-bold hover:text-emerald-700">Privacy Policy</Link> and authorize ACE Finance to contact me regarding my request.
+                      I agree to the <Link href="/privacy" className="text-emerald-600 underline font-bold hover:text-emerald-700">Privacy Policy</Link> and authorize ACE Financial Services to contact me regarding my request.
                     </label>
                   </div>
 
-                  <button type="submit" className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-emerald-600/20 transition-all duration-300 border-none cursor-pointer flex items-center justify-center gap-1">
-                    Get Free Consultation <ChevronRight size={18} />
+                  <button
+                    type="submit"
+                    disabled={isSending}
+                    className="w-full bg-emerald-600 hover:bg-emerald-700 disabled:bg-emerald-400 text-white font-bold py-4 rounded-xl shadow-lg shadow-emerald-600/20 transition-all duration-300 border-none cursor-pointer flex items-center justify-center gap-1"
+                  >
+                    {isSending ? "Sending..." : "Get Free Consultation"} <ChevronRight size={18} />
                   </button>
 
                   <p className="text-xs text-slate-400 text-center mt-2 m-0">
@@ -157,9 +186,9 @@ export default function CTASection() {
 
             {/* Direct Contact */}
             <p className="mt-10 text-slate-600">
-              Or speak with an advisor directly:{" "}
-              <a href="tel:+919529602759" className="text-emerald-600 font-extrabold hover:underline">
-                +91 999999999
+              Or speak with Nilesh Gindodia directly:{" "}
+              <a href="tel:+919975494945" className="text-emerald-600 font-extrabold hover:underline">
+                +91 99754 94945
               </a>
             </p>
           </div>

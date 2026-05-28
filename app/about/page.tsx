@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "About Us | ACE Finance — Direct Selling Agent (DSA) in Nashik",
+  title: "About Us | ACE Financial Services — Direct Selling Agent (DSA) in Dhule",
   description:
-    "Learn about ACE Finance, the leading Direct Selling Agent (DSA) in Nashik. We partner with 20+ top banks to find you the best loan deals at zero service charges.",
+    "Learn about ACE Financial Services, the leading Direct Selling Agent (DSA) in Dhule. We partner with 20+ top banks to find you the best loan deals at zero service charges.",
 };
 
 export default function AboutPage() {
@@ -103,7 +103,7 @@ export default function AboutPage() {
           </h1>
 
           <p className="text-lg md:text-xl text-slate-600 max-w-[600px] mx-auto leading-relaxed">
-            ACE Finance connects you to India's premier financial institutions under one single platform. We manage the paperwork, compare rates, and fast-track approvals for free.
+            ACE Financial Services connects you to India's premier financial institutions under one single platform. We manage the paperwork, compare rates, and fast-track approvals for free.
           </p>
         </div>
       </section>
@@ -124,7 +124,7 @@ export default function AboutPage() {
                 Going directly to a single bank locks you into their criteria, products, and interest rates. If your profile doesn't perfectly fit their checklist, you face delays or rejection.
               </p>
               <p className="text-base text-slate-600 leading-relaxed mb-10">
-                As a Direct Selling Agent (DSA) partner, ACE Finance offers a unified bridge. We evaluate your financial health, match it with lending guidelines of over 20+ banks, structure your files correctly, and coordinate directly with bank managers to ensure fast disbursal.
+                As a Direct Selling Agent (DSA) partner, ACE Financial Services offers a unified bridge. We evaluate your financial health, match it with lending guidelines of over 20+ banks, structure your files correctly, and coordinate directly with bank managers to ensure fast disbursal.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-8 sm:gap-12">
@@ -176,7 +176,7 @@ export default function AboutPage() {
               Our Philosophy
             </span>
             <h2 className="text-[clamp(30px,3.5vw,42px)] font-black text-slate-900 tracking-tight">
-              Why Borrowers Trust ACE Finance
+              Why Borrowers Trust ACE Financial Services
             </h2>
           </div>
 

@@ -5,13 +5,13 @@ import TestimonialCard from "@/components/ui/TestimonialCard";
 const testimonials = [
   {
     id: "testimonial-ravi",
-    quote: "ACE Finance helped us expand our manufacturing unit with a quick business loan. The process was smooth and completely transparent.",
+    quote: "ACE Financial Services helped us expand our manufacturing unit with a quick business loan. The process was smooth and completely transparent.",
     name: "Ravi B.",
     role: "Manufacturing Owner",
   },
   {
     id: "testimonial-ajit",
-    quote: "As a startup, getting funding was challenging. The ACE Finance team truly understood our needs and matched us with the right bank.",
+    quote: "As a startup, getting funding was challenging. The ACE Financial Services team truly understood our needs and matched us with the right bank.",
     name: "Ajit Patil",
     role: "Retail Trader",
   },

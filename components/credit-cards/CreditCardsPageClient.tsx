@@ -6,6 +6,7 @@ import CreditCard from "./CreditCard";
 import PrimaryButton from "@/components/ui/PrimaryButton";
 import ContinueButton from "@/components/ui/ContinueButton";
 import { Check, ShieldCheck, Zap, Award, Plane, Star, ArrowRight, User, Phone, Mail, IndianRupee, Briefcase, HelpCircle, Gift, ChevronRight } from "lucide-react";
+import { Skeleton } from "boneyard-js/react";
 
 interface CardTier {
   id: string;
@@ -94,6 +95,7 @@ const CARD_TIERS: CardTier[] = [
 ];
 
 export default function CreditCardsPageClient() {
+  const [isLoading, setIsLoading] = useState(true);
   const [selectedTier, setSelectedTier] = useState<CardTier>(CARD_TIERS[0]);
   const [previewName, setPreviewName] = useState<string>("Bruce Wayne");
   const [formData, setFormData] = useState({
@@ -119,6 +121,13 @@ export default function CreditCardsPageClient() {
       preferredCard: selectedTier.id
     }));
   }, [selectedTier]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleSelectTier = (tier: CardTier) => {
     setSelectedTier(tier);
@@ -175,8 +184,8 @@ export default function CreditCardsPageClient() {
 
   const faqs = [
     {
-      q: "Are there any hidden fees or charges for using ACE Finance's credit card services?",
-      a: "Absolutely not! ACE Finance is an authorized Direct Selling Agent (DSA) partner for top banks. Our card assessment, recommendation, and application assistance are 100% free of charge. Any card-related fees (annual/joining fees) are charged directly by the issuing bank and are fully transparent."
+      q: "Are there any hidden fees or charges for using ACE Financial Services' credit card services?",
+      a: "Absolutely not! ACE Financial Services is an authorized Direct Selling Agent (DSA) partner for top banks. Our card assessment, recommendation, and application assistance are 100% free of charge. Any card-related fees (annual/joining fees) are charged directly by the issuing bank and are fully transparent."
     },
     {
       q: "What is the minimum CIBIL credit score required for card approval?",
@@ -348,55 +357,57 @@ export default function CreditCardsPageClient() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {CARD_TIERS.map((tier) => (
-              <div
-                key={tier.id}
-                className="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between hover:-translate-y-2 hover:border-emerald-300 hover:shadow-2xl transition-all duration-300 group"
-              >
-                {/* Header card color block */}
-                <div className={`p-8 border-b border-slate-100 relative ${tier.bgColor}`}>
-                  <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-extrabold uppercase border mb-4 ${tier.accentColor}`}>
-                    {tier.badge}
-                  </div>
-                  <h3 className="text-xl font-black text-slate-900 group-hover:text-emerald-600 transition-colors">
-                    {tier.name}
-                  </h3>
-                  <p className="text-xs text-slate-500 mt-2 font-medium">{tier.tagline}</p>
+          <Skeleton name="credit-cards-grid" loading={isLoading}>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {CARD_TIERS.map((tier) => (
+                <div
+                  key={tier.id}
+                  className="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between hover:-translate-y-2 hover:border-emerald-300 hover:shadow-2xl transition-all duration-300 group"
+                >
+                  {/* Header card color block */}
+                  <div className={`p-8 border-b border-slate-100 relative ${tier.bgColor}`}>
+                    <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-extrabold uppercase border mb-4 ${tier.accentColor}`}>
+                      {tier.badge}
+                    </div>
+                    <h3 className="text-xl font-black text-slate-900 group-hover:text-emerald-600 transition-colors">
+                      {tier.name}
+                    </h3>
+                    <p className="text-xs text-slate-500 mt-2 font-medium">{tier.tagline}</p>
 
-                  <div className="mt-6">
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">
-                      Joining & Annual Fee
-                    </span>
-                    <span className="text-lg font-black text-slate-800 tracking-tight block mt-1">
-                      {tier.fee}
-                    </span>
+                    <div className="mt-6">
+                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">
+                        Joining & Annual Fee
+                      </span>
+                      <span className="text-lg font-black text-slate-800 tracking-tight block mt-1">
+                        {tier.fee}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Benefits List */}
+                  <div className="p-8 flex-1 flex flex-col">
+                    <div className="mb-6 flex-1">
+                      <h4 className="text-[11px] font-extrabold text-slate-400 uppercase tracking-widest mb-4">
+                        Key Privileges & Rewards
+                      </h4>
+                      <ul className="flex flex-col gap-3.5">
+                        {tier.benefits.map((benefit, idx) => (
+                          <li key={idx} className="flex items-start gap-3">
+                            <Check className="text-emerald-500 mt-0.5 flex-shrink-0" size={16} />
+                            <span className="text-xs text-slate-600 leading-relaxed font-medium">{benefit}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <PrimaryButton onClick={() => scrollToApply(tier.id)}>
+                      Select & Apply Now
+                    </PrimaryButton>
                   </div>
                 </div>
-
-                {/* Benefits List */}
-                <div className="p-8 flex-1 flex flex-col">
-                  <div className="mb-6 flex-1">
-                    <h4 className="text-[11px] font-extrabold text-slate-400 uppercase tracking-widest mb-4">
-                      Key Privileges & Rewards
-                    </h4>
-                    <ul className="flex flex-col gap-3.5">
-                      {tier.benefits.map((benefit, idx) => (
-                        <li key={idx} className="flex items-start gap-3">
-                          <Check className="text-emerald-500 mt-0.5 flex-shrink-0" size={16} />
-                          <span className="text-xs text-slate-600 leading-relaxed font-medium">{benefit}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <PrimaryButton onClick={() => scrollToApply(tier.id)}>
-                    Select & Apply Now
-                  </PrimaryButton>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </Skeleton>
         </div>
       </section>
 
@@ -643,7 +654,7 @@ export default function CreditCardsPageClient() {
                   </div>
                 </div>
                 <p className="text-xs text-slate-500 leading-relaxed mb-6">
-                  📞 An ACE Finance credit card consultant will call you within 2 hours (between 9:00 AM and 6:00 PM) to help you complete the digital Video KYC.
+                  📞 An ACE Financial Services credit card consultant will call you within 2 hours (between 9:00 AM and 6:00 PM) to help you complete the digital Video KYC.
                 </p>
                 <button
                   type="button"
@@ -817,7 +828,7 @@ export default function CreditCardsPageClient() {
                     className="mt-1 w-4 h-4 text-emerald-600 border-slate-300 rounded focus:ring-emerald-500 cursor-pointer"
                   />
                   <label htmlFor="cc-privacy" className="text-xs text-slate-500 leading-normal cursor-pointer select-none">
-                    I agree to the <Link href="/privacy" className="text-emerald-600 underline font-bold hover:text-emerald-700">Privacy Policy</Link> and authorize ACE Finance to contact me.
+                    I agree to the <Link href="/privacy" className="text-emerald-600 underline font-bold hover:text-emerald-700">Privacy Policy</Link> and authorize ACE Financial Services to contact me.
                   </label>
                 </div>
 

@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { Lato, Geist } from "next/font/google";
 import "./globals.css";
+import "./bones/registry";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CookieConsent from "@/components/ui/CookieConsent";
 import { cn } from "@/lib/utils";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
 const lato = Lato({
   variable: "--font-lato",
@@ -16,14 +17,14 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-  title: "ACE Finance — Home, Personal & Business Loans in Nashik",
+  title: "ACE Financial Services — Home, Personal & Business Loans in Dhule",
   description:
-    "Get fast loan approvals in Nashik. ACE Finance offers home loans, personal loans, business loans, loan against property, and used car loans at competitive rates with minimal documentation.",
-  keywords: "home loan Nashik, personal loan Nashik, business loan Nashik, ACE Finance, loan approval",
+    "Get fast loan approvals in Dhule. ACE Financial Services offers home loans, personal loans, business loans, loan against property, and used car loans at competitive rates with minimal documentation.",
+  keywords: "home loan Dhule, personal loan Dhule, business loan Dhule, ACE Financial Services, loan approval",
   openGraph: {
-    title: "ACE Finance — Loans in Nashik",
+    title: "ACE Financial Services — Loans in Dhule",
     description:
-      "Turn your dream home into reality with ACE Finance. Quick approval, low rates, expert guidance.",
+      "Turn your dream home into reality with ACE Financial Services. Quick approval, low rates, expert guidance.",
     type: "website",
   },
 };

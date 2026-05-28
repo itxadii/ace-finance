@@ -1,9 +1,9 @@
 import LoanPageLayout, { LoanPageData } from "@/components/layout/LoanPageLayout";
 
 export const metadata = {
-  title: "Personal Loan in Nashik | ACE Finance — Instant Approval",
+  title: "Personal Loan in Dhule | ACE Financial Services — Instant Approval",
   description:
-    "Get a hassle-free personal loan in Nashik with ACE Finance. Flexible repayment, minimal paperwork, and same-day disbursals for urgent financial needs.",
+    "Get a hassle-free personal loan in Dhule with ACE Financial Services. Flexible repayment, minimal paperwork, and same-day disbursals for urgent financial needs.",
 };
 
 const data: LoanPageData = {

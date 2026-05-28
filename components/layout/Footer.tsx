@@ -3,12 +3,16 @@
 import Link from "next/link";
 import { MessageCircle, MapPin, Phone, Mail, Clock } from "lucide-react";
 
-const loanLinks = [
+const serviceLinks = [
   { label: "Home Loan", href: "/home-loan" },
   { label: "Personal Loan", href: "/personal-loan" },
   { label: "Business Loan", href: "/business-loan" },
-  { label: "Loan Against Property", href: "/#services" },
-  { label: "Used Car Loan", href: "/#services" },
+  { label: "Loan Against Property", href: "/loan-against-property" },
+  { label: "Auto Loan", href: "/auto-loan" },
+  { label: "Life & Health Insurance", href: "/insurance" },
+  { label: "Mutual Funds", href: "/mutual-funds" },
+  { label: "Commodity & Currency", href: "/commodity-currency" },
+  { label: "Shares Trading", href: "/shares-trading" },
   { label: "Credit Cards", href: "/credit-cards" },
 ];
 
@@ -37,25 +41,20 @@ export default function Footer() {
 
             {/* Brand column */}
             <div>
-              <Link href="/" className="inline-flex items-center gap-3 no-underline mb-6 group">
-                <div className="w-[38px] h-[38px] bg-white rounded-lg flex items-center justify-center font-black text-lg text-emerald-600 border-2 border-emerald-500 shadow-sm group-hover:shadow-md transition-shadow">
-                  A
+              <Link href="/" className="inline-block no-underline mb-6 group">
+                <div className="w-[64px] h-[64px] bg-white rounded-xl flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow overflow-hidden p-1.5">
+                  <img src="/favicon.ico" alt="ACE Logo" className="w-full h-full object-contain" />
                 </div>
-                <span className="text-xl font-extrabold text-slate-900 tracking-tight">
-                  ACE <span className="text-emerald-600">Finance</span>
-                </span>
               </Link>
 
               <p className="text-sm text-slate-600 leading-relaxed max-w-[280px] mb-8">
-                Your premier direct selling loan agent in Nashik. We partner with India's leading banks to secure the best loan rates for you at zero service charge.
+                <strong>Universe of Loans & Investments.</strong> Your premier direct selling loan agent in Dhule. We partner with India's leading banks to secure the best loan rates for you at zero service charge.
               </p>
 
               {/* Social icons */}
               <div className="flex gap-3">
                 {[
-
                   { id: "wa", icon: <MessageCircle size={18} />, label: "WhatsApp" },
-
                 ].map((s) => (
                   <a
                     key={s.id}
@@ -69,13 +68,13 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Loan Products */}
+            {/* Services */}
             <div>
               <h4 className="text-[13px] font-bold text-slate-900 tracking-widest uppercase mb-6">
-                Loan Products
+                Our Services
               </h4>
-              <ul className="flex flex-col gap-3">
-                {loanLinks.map((link) => (
+              <ul className="flex flex-col gap-2.5">
+                {serviceLinks.map((link) => (
                   <li key={link.label}>
                     <Link
                       href={link.href}
@@ -114,9 +113,10 @@ export default function Footer() {
               </h4>
               <div className="flex flex-col gap-4">
                 {[
-                  { icon: <MapPin size={18} />, text: "Nashik, Maharashtra, India" },
-                  { icon: <Phone size={18} />, text: "+91 95296 02759", href: "tel:+919529602759" },
-                  { icon: <Mail size={18} />, text: "info@acefinance.in", href: "mailto:info@acefinance.in" },
+                  { icon: <MapPin size={18} />, text: "S-301-305, 'B' Wing, 2nd Floor, New Jayshankar Market, Opp. Urdu High School, Dhule - 424001" },
+                  { icon: <Phone size={18} />, text: "+91 99754 94945", href: "tel:+919975494945" },
+                  { icon: <Phone size={18} />, text: "02562 - 280033 / 34 / 35", href: "tel:02562280033" },
+                  { icon: <Mail size={18} />, text: "priyanka.agrawal@iiflpartner.com", href: "mailto:priyanka.agrawal@iiflpartner.com" },
                   { icon: <Clock size={18} />, text: "Mon–Sat: 9 AM – 6 PM" },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-start gap-3 text-slate-600">
@@ -142,7 +142,7 @@ export default function Footer() {
           {/* Divider & Copyright */}
           <div className="border-t border-slate-200/80 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-[13px] text-slate-500">
-              © {new Date().getFullYear()} ACE Finance. All rights reserved.
+              © {new Date().getFullYear()} ACE Financial Services. All rights reserved.
             </p>
             <div className="flex gap-6">
               <Link

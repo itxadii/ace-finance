@@ -2,10 +2,10 @@ import Link from "next/link";
 import { FileText, ChevronRight } from "lucide-react";
 
 export const metadata = {
-  title: "Terms of Service | ACE Finance",
+  title: "Terms of Service | ACE Financial Services",
   description:
-    "Review the terms and conditions for using ACE Finance's consultation, evaluation, and application assistance services for loans and credit cards.",
-  keywords: "terms of service, conditions, loan agreement terms, credit card consultancy terms, ACE Finance rules",
+    "Review the terms and conditions for using ACE Financial Services' consultation, evaluation, and application assistance services for loans and credit cards.",
+  keywords: "terms of service, conditions, loan agreement terms, credit card consultancy terms, ACE Financial Services rules",
 };
 
 export default function TermsPage() {
@@ -56,7 +56,7 @@ export default function TermsPage() {
                 1. Scope of Services
               </h2>
               <p className="text-sm leading-relaxed mb-4">
-                <strong>ACE Finance</strong> functions as an authorized Direct Selling Agent (DSA) partner for banks and financial institutions in India. We provide consulting, evaluation, and application routing services to help you match with, and apply for, credit cards and loans.
+                <strong>ACE Financial Services</strong> functions as an authorized Direct Selling Agent (DSA) partner for banks and financial institutions in India. We provide consulting, evaluation, and application routing services to help you match with, and apply for, credit cards and loans.
               </p>
               <p className="text-sm leading-relaxed">
                 We do not issue credit cards or disburse loans directly. All final credit approvals, limit definitions, interest rates, and loan terms are determined solely by the issuing banks and are subject to their credit review procedures.
@@ -86,7 +86,7 @@ export default function TermsPage() {
                 3. Zero Charges & Free Consultation
               </h2>
               <p className="text-sm leading-relaxed">
-                Our consultancy, recommendation, and application processing services are <strong>100% free of charge to customers</strong>. ACE Finance will never ask you to pay any advisory fee or processing charges directly. Any application or processing fees are charged directly by the issuing bank and are included in the bank's official terms.
+                Our consultancy, recommendation, and application processing services are <strong>100% free of charge to customers</strong>. ACE Financial Services will never ask you to pay any advisory fee or processing charges directly. Any application or processing fees are charged directly by the issuing bank and are included in the bank's official terms.
               </p>
             </div>
 
@@ -111,7 +111,7 @@ export default function TermsPage() {
                 5. Limitation of Liability
               </h2>
               <p className="text-sm leading-relaxed">
-                ACE Finance, its directors, and employees shall not be liable for any direct, indirect, or incidental damages resulting from the denial of credit by partner banks, technical downtime of website forms, or errors in rates published. We act strictly as an intermediary advisor.
+                ACE Financial Services, its directors, and employees shall not be liable for any direct, indirect, or incidental damages resulting from the denial of credit by partner banks, technical downtime of website forms, or errors in rates published. We act strictly as an intermediary advisor.
               </p>
             </div>
 
@@ -122,7 +122,7 @@ export default function TermsPage() {
                 6. Governing Law
               </h2>
               <p className="text-sm leading-relaxed">
-                These terms are governed by and construed in accordance with the laws of India. Any disputes arising out of the use of our services or website shall be subject to the exclusive jurisdiction of the courts located in Nashik, Maharashtra.
+                These terms are governed by and construed in accordance with the laws of India. Any disputes arising out of the use of our services or website shall be subject to the exclusive jurisdiction of the courts located in Dhule, Maharashtra.
               </p>
             </div>
 

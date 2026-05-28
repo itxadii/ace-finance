@@ -1,9 +1,9 @@
 import LoanPageLayout, { LoanPageData } from "@/components/layout/LoanPageLayout";
 
 export const metadata = {
-  title: "Business Loan in Nashik | ACE Finance — Grow Your Business",
+  title: "Business Loan in Dhule | ACE Financial Services — Grow Your Business",
   description:
-    "Fuel your business growth with ACE Finance business loans in Nashik. Affordable rates, flexible repayment, and fast approvals for SMEs and startups.",
+    "Fuel your business growth with ACE Financial Services business loans in Dhule. Affordable rates, flexible repayment, and fast approvals for SMEs and startups.",
 };
 
 const data: LoanPageData = {

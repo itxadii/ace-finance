@@ -9,6 +9,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isMobileLoansOpen, setIsMobileLoansOpen] = useState(false);
+  const [isMobileInvestmentsOpen, setIsMobileInvestmentsOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 20);
@@ -17,17 +18,26 @@ export default function Navbar() {
   }, []);
 
   const mainLinks = [
-    { label: "Loans", href: "#", isDropdown: true },
+    { label: "Loans", href: "#", isDropdown: true, dropdownKey: "loans" },
+    { label: "Investments", href: "#", isDropdown: true, dropdownKey: "investments" },
     { label: "Credit Cards", href: "/credit-cards" },
     { label: "EMI Calculator", href: "/emicalculator" },
     { label: "About Us", href: "/about" },
-    { label: "Contact Us", href: "/contact" },
   ];
 
   const loanSubLinks = [
     { label: "Home Loan", href: "/home-loan" },
     { label: "Personal Loan", href: "/personal-loan" },
     { label: "Business Loan", href: "/business-loan" },
+    { label: "Loan Against Property", href: "/loan-against-property" },
+    { label: "Auto Loan", href: "/auto-loan" },
+  ];
+
+  const investmentSubLinks = [
+    { label: "Life & Health Insurance", href: "/insurance" },
+    { label: "Mutual Funds", href: "/mutual-funds" },
+    { label: "Commodity & Currency", href: "/commodity-currency" },
+    { label: "Shares Trading", href: "/shares-trading" },
   ];
 
   return (
@@ -39,21 +49,10 @@ export default function Navbar() {
         right: 0,
         zIndex: 1000,
         transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
-        /* ========================================= */
-        /* CHANGED: 80% Translucency (0.8 alpha)     */
-        /* ========================================= */
-        background: isScrolled
-          ? "rgba(255, 255, 255, 0.8)" // 80% white when scrolled
-          : "rgba(255, 255, 255, 0)",  // 0% white (fully transparent) at the top
-        /* ========================================= */
-        /* CHANGED: Increased blur for frosted glass */
-        /* ========================================= */
+        background: isScrolled ? "rgba(255, 255, 255, 0.8)" : "rgba(255, 255, 255, 0)",
         backdropFilter: isScrolled ? "blur(24px)" : "blur(0px)",
-        WebkitBackdropFilter: isScrolled ? "blur(24px)" : "blur(0px)", // For Safari support
-
-        borderBottom: isScrolled
-          ? "1px solid rgba(16, 185, 129, 0.15)"
-          : "1px solid transparent",
+        WebkitBackdropFilter: isScrolled ? "blur(24px)" : "blur(0px)",
+        borderBottom: isScrolled ? "1px solid rgba(16, 185, 129, 0.15)" : "1px solid transparent",
         boxShadow: isScrolled ? "0 10px 30px -10px rgba(16, 185, 129, 0.1)" : "none",
       }}
     >
@@ -75,55 +74,48 @@ export default function Navbar() {
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "12px",
             textDecoration: "none",
+            flexShrink: 0
           }}
         >
           <div
             style={{
-              width: "38px",
-              height: "38px",
-              background: "#ffffff",
-              borderRadius: "8px",
+              width: "57px", /* Increased size by 50% */
+              height: "57px", /* Increased size by 50% */
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              fontWeight: "900",
-              fontSize: "18px",
-              color: "#059669",
-              border: "2px solid #10B981",
-              boxShadow: "0 0 15px rgba(16, 185, 129, 0.2)",
+              flexShrink: 0
             }}
           >
-            A
+            <img src="/favicon.ico" alt="ACE Financial Services Logo" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
           </div>
-          <span
-            style={{
-              fontSize: "20px",
-              fontWeight: "800",
-              color: "#0f172a",
-              letterSpacing: "-0.5px",
-            }}
-          >
-            ACE <span style={{ color: "#059669" }}>Finance</span>
-          </span>
         </Link>
 
-        {/* Desktop Links - Replaced with UIverse Animated Nav */}
-        <div className="hidden-mobile" style={{ display: "flex", alignItems: "center" }}>
-
+        {/* Desktop Navigation & Button Wrapper */}
+        <div
+          className="hidden-mobile"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "24px",
+            flexShrink: 0,
+          }}
+        >
+          {/* The Animated Navigation Box */}
           <DesktopNavWrapper>
             <div className="nav">
               <div className="container">
                 {mainLinks.map((link) => {
                   if (link.isDropdown) {
+                    const subLinks = link.dropdownKey === "loans" ? loanSubLinks : investmentSubLinks;
                     return (
                       <div key={link.label} className="btn dropdown-btn">
                         <span style={{ display: "flex", alignItems: "center", gap: "4px" }}>
                           {link.label} <span style={{ fontSize: "10px", marginTop: "2px" }}>▼</span>
                         </span>
                         <div className="dropdown-menu">
-                          {loanSubLinks.map((subLink) => (
+                          {subLinks.map((subLink) => (
                             <Link key={subLink.href} href={subLink.href} className="dropdown-item">
                               {subLink.label}
                             </Link>
@@ -140,21 +132,36 @@ export default function Navbar() {
                 })}
 
                 {/* SVG Outline Box */}
-                <svg className="outline" overflow="visible" width="100%" height="100%" viewBox="0 0 700 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect className="rect" pathLength={100} x={0} y={0} width="100%" height="100%" fill="transparent" strokeWidth={3} />
+                <svg
+                  className="outline"
+                  overflow="visible"
+                  width="100%"
+                  height="100%"
+                  viewBox="0 0 700 48"
+                  preserveAspectRatio="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    className="rect"
+                    pathLength={100}
+                    x={0}
+                    y={0}
+                    width="100%"
+                    height="100%"
+                    fill="transparent"
+                    strokeWidth={3}
+                  />
                 </svg>
               </div>
             </div>
           </DesktopNavWrapper>
 
           {/* Primary CTA Button */}
-          <div style={{ marginLeft: "24px" }}>
+          <div style={{ display: "flex", alignItems: "center" }}>
             <Link href="/contact" className="no-underline">
               <PrimaryButton>Apply Now</PrimaryButton>
             </Link>
           </div>
-
-
         </div>
 
         {/* Mobile Hamburger */}
@@ -191,10 +198,13 @@ export default function Navbar() {
         >
           {mainLinks.map((link) => {
             if (link.isDropdown) {
+              const isOpen = link.dropdownKey === "loans" ? isMobileLoansOpen : isMobileInvestmentsOpen;
+              const setIsOpen = link.dropdownKey === "loans" ? setIsMobileLoansOpen : setIsMobileInvestmentsOpen;
+              const subLinks = link.dropdownKey === "loans" ? loanSubLinks : investmentSubLinks;
               return (
                 <div key={link.label} style={{ borderBottom: "1px solid rgba(16, 185, 129, 0.08)" }}>
                   <button
-                    onClick={() => setIsMobileLoansOpen(!isMobileLoansOpen)}
+                    onClick={() => setIsOpen(!isOpen)}
                     style={{
                       display: "flex",
                       alignItems: "center",
@@ -211,17 +221,17 @@ export default function Navbar() {
                     }}
                   >
                     <span>{link.label}</span>
-                    <span style={{ fontSize: "10px", transition: "transform 0.2s", transform: isMobileLoansOpen ? "rotate(90deg)" : "rotate(0)" }}>▶</span>
+                    <span style={{ fontSize: "10px", transition: "transform 0.2s", transform: isOpen ? "rotate(90deg)" : "rotate(0)" }}>▶</span>
                   </button>
-                  {isMobileLoansOpen && (
+                  {isOpen && (
                     <div style={{ paddingLeft: "16px", paddingBottom: "8px", display: "flex", flexDirection: "column" }}>
-                      {loanSubLinks.map((subLink) => (
+                      {subLinks.map((subLink) => (
                         <Link
                           key={subLink.href}
                           href={subLink.href}
                           onClick={() => {
                             setIsMobileOpen(false);
-                            setIsMobileLoansOpen(false);
+                            setIsOpen(false);
                           }}
                           style={{
                             color: "#64748b",
@@ -285,16 +295,15 @@ export default function Navbar() {
               <PrimaryButton>Apply Now</PrimaryButton>
             </Link>
           </div>
-
         </div>
       )}
 
       <style>{`
-        @media (max-width: 992px) {
+        @media (max-width: 1024px) {
           .hidden-mobile { display: none !important; }
           .show-mobile { display: flex !important; }
         }
-        @media (min-width: 993px) {
+        @media (min-width: 1025px) {
           .show-mobile { display: none !important; }
         }
       `}</style>
@@ -341,12 +350,13 @@ const DesktopNavWrapper = styled.div`
     justify-content: space-around;
     align-items: center;
     padding: 0;
+    border-radius: 4px; /* Slight rounding for cleaner look */
   }
 
   .btn {
     flex: 1;
     display: flex;
-    align-items: center;
+    align-items: center; /* FIXED: Correct CSS syntax (was camelCase previously) */
     justify-content: center;
     height: 100%;
     color: #475569; /* Slate 600 text for readability */
@@ -363,7 +373,7 @@ const DesktopNavWrapper = styled.div`
   }
 
   /* Calculated SVG Path Lengths for exactly 5 items.
-    Format: 0 [start-top] [length-top] [gap-to-bottom] [length-bottom] [gap-to-end]
+     Format: 0 [start-top] [length-top] [gap-to-bottom] [length-bottom] [gap-to-end]
   */
   
   /* 1. Loans Dropdown */

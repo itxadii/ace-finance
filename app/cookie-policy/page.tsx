@@ -2,10 +2,10 @@ import Link from "next/link";
 import { Cookie, ChevronRight } from "lucide-react";
 
 export const metadata = {
-  title: "Cookie Policy | ACE Finance",
+  title: "Cookie Policy | ACE Financial Services",
   description:
-    "Learn about how ACE Finance uses cookies to optimize your experience, process credit card and loan applications securely, and perform site analytics.",
-  keywords: "cookie policy, cookies, data storage, user tracking, ACE Finance cookies",
+    "Learn about how ACE Financial Services uses cookies to optimize your experience, process credit card and loan applications securely, and perform site analytics.",
+  keywords: "cookie policy, cookies, data storage, user tracking, ACE Financial Services cookies",
 };
 
 export default function CookiePolicyPage() {
@@ -59,7 +59,7 @@ export default function CookiePolicyPage() {
                 Cookies are small text files stored on your device (computer, tablet, or mobile phone) when you visit websites. They are widely used to make websites work more efficiently, improve speed, remember user preferences, and provide analytical information to the site owners.
               </p>
               <p className="text-sm leading-relaxed">
-                At <strong>ACE Finance</strong>, we use cookies to streamline credit application processing, remember your inputs on calculators, and analyze user traffic patterns.
+                At <strong>ACE Financial Services</strong>, we use cookies to streamline credit application processing, remember your inputs on calculators, and analyze user traffic patterns.
               </p>
             </div>
 

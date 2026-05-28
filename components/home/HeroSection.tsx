@@ -51,7 +51,7 @@ export default function HeroSection() {
             </h1>
 
             <p className="text-lg text-slate-600 leading-relaxed max-w-lg mb-10">
-              As a trusted direct selling agent in Nashik, we compare rates and terms across India's top lenders to find your perfect home, personal, or business loan.
+              As a trusted direct selling agent in Dhule, we compare rates and terms across India's top lenders to find your perfect home, personal, or business loan.
               <strong className="text-slate-900 block mt-2">Zero fees, 100% bank-direct rates.</strong>
             </p>
 
