@@ -17,7 +17,7 @@ const lato = Lato({
 });
 
 // ─── Constants ────────────────────────────────────────────────────────────────
-const siteUrl = "https://acefinancialservices.in";
+const siteUrl = "https://acefinancehub.in";
 const siteName = "ACE Financial Services";
 const defaultTitle = "ACE Financial Services | Home, Personal & Business Loans in Dhule";
 const defaultDescription =
@@ -76,11 +76,6 @@ const structuredData = {
 // ─── Metadata ─────────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-
-  // Canonical — prevents duplicate indexing
-  alternates: {
-    canonical: "/",
-  },
 
   title: {
     default: defaultTitle,
