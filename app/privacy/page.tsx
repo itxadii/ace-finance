@@ -6,6 +6,9 @@ export const metadata = {
   description:
     "Learn about how ACE Financial Services collects, uses, and safeguards your personal data. We are committed to transparency and maintaining secure application processes.",
   keywords: "privacy policy, data protection, security, ACE Financial Services privacy, credit card application safety",
+  alternates: {
+    canonical: "/privacy/",
+  },
 };
 
 export default function PrivacyPage() {

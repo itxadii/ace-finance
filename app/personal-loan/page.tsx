@@ -4,6 +4,9 @@ export const metadata = {
   title: "Personal Loan in Dhule | ACE Financial Services — Instant Approval",
   description:
     "Get a hassle-free personal loan in Dhule with ACE Financial Services. Flexible repayment, minimal paperwork, and same-day disbursals for urgent financial needs.",
+  alternates: {
+    canonical: "/personal-loan/",
+  },
 };
 
 const data: LoanPageData = {

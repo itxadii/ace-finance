@@ -6,6 +6,9 @@ export const metadata = {
   description:
     "Learn about how ACE Financial Services uses cookies to optimize your experience, process credit card and loan applications securely, and perform site analytics.",
   keywords: "cookie policy, cookies, data storage, user tracking, ACE Financial Services cookies",
+  alternates: {
+    canonical: "/cookie-policy/",
+  },
 };
 
 export default function CookiePolicyPage() {

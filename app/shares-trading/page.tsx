@@ -4,6 +4,9 @@ export const metadata = {
   title: "Shares Trading & Demat in Dhule | ACE Financial Services",
   description:
     "Open a free Demat account in Dhule. Invest in equity shares, ETFs, and IPOs on BSE & NSE with advanced trading platforms and research tools.",
+  alternates: {
+    canonical: "/shares-trading/",
+  },
 };
 
 const data: LoanPageData = {

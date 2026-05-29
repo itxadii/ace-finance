@@ -4,6 +4,9 @@ export const metadata = {
   title: "Commodity & Currency Trading in Dhule | ACE Financial Services",
   description:
     "Diversify your trading portfolio. Access commodities like Gold, Crude Oil, and major currency pairs in Dhule with low brokerage and high speed.",
+  alternates: {
+    canonical: "/commodity-currency/",
+  },
 };
 
 const data: LoanPageData = {

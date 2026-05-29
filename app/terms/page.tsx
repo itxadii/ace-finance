@@ -6,6 +6,9 @@ export const metadata = {
   description:
     "Review the terms and conditions for using ACE Financial Services' consultation, evaluation, and application assistance services for loans and credit cards.",
   keywords: "terms of service, conditions, loan agreement terms, credit card consultancy terms, ACE Financial Services rules",
+  alternates: {
+    canonical: "/terms/",
+  },
 };
 
 export default function TermsPage() {

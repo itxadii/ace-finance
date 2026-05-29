@@ -4,6 +4,9 @@ export const metadata = {
   title: "Loan Against Property in Dhule | ACE Financial Services",
   description:
     "Unlock the hidden value of your residential or commercial property in Dhule. Get maximum funding, low interest rates, and quick disbursal at zero service charges.",
+  alternates: {
+    canonical: "/loan-against-property/",
+  },
 };
 
 const data: LoanPageData = {

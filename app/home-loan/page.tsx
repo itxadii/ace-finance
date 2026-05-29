@@ -4,6 +4,9 @@ export const metadata = {
   title: "Home Loan in Dhule | ACE Financial Services — Low Rates, Quick Approval",
   description:
     "Get your dream home with ACE Financial Services Home Loans. Attractive interest rates, minimal documentation, and approval within 24–48 hours in Dhule.",
+  alternates: {
+    canonical: "/home-loan/",
+  },
 };
 
 const data: LoanPageData = {

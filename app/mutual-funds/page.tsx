@@ -4,6 +4,9 @@ export const metadata = {
   title: "Mutual Funds Investment in Dhule | ACE Financial Services",
   description:
     "Grow your wealth with top-performing mutual funds in Dhule. Get personalized SIP & lumpsum investment advice at zero service fees.",
+  alternates: {
+    canonical: "/mutual-funds/",
+  },
 };
 
 const data: LoanPageData = {

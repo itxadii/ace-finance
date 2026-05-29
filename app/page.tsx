@@ -8,6 +8,9 @@ export const metadata = {
   title: "ACE Financial Services — Loans in Dhule | Home, Personal & Business Loans",
   description:
     "Apply for home, personal, and business loans in Dhule with fast 24-hour approval, competitive interest rates, and minimal documentation. Trusted by 10,000+ clients.",
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function Home() {

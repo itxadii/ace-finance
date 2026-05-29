@@ -4,6 +4,9 @@ export const metadata = {
   title: "Life & Health Insurance in Dhule | ACE Financial Services",
   description:
     "Secure your family's future and your wealth with comprehensive Life & Health Insurance policies in Dhule. Expert guidance and support at zero fee.",
+  alternates: {
+    canonical: "/insurance/",
+  },
 };
 
 const data: LoanPageData = {

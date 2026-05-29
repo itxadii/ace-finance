@@ -6,6 +6,9 @@ export const metadata = {
   title: "About Us | ACE Financial Services — Direct Selling Agent (DSA) in Dhule",
   description:
     "Learn about ACE Financial Services, the leading Direct Selling Agent (DSA) in Dhule. We partner with 20+ top banks to find you the best loan deals at zero service charges.",
+  alternates: {
+    canonical: "/about/",
+  },
 };
 
 export default function AboutPage() {

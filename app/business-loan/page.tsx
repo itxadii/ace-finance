@@ -4,6 +4,9 @@ export const metadata = {
   title: "Business Loan in Dhule | ACE Financial Services — Grow Your Business",
   description:
     "Fuel your business growth with ACE Financial Services business loans in Dhule. Affordable rates, flexible repayment, and fast approvals for SMEs and startups.",
+  alternates: {
+    canonical: "/business-loan/",
+  },
 };
 
 const data: LoanPageData = {

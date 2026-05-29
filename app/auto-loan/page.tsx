@@ -4,6 +4,9 @@ export const metadata = {
   title: "Auto Loan in Dhule | ACE Financial Services",
   description:
     "Drive home your dream car with competitive interest rates and up to 100% on-road funding in Dhule. Easy processing and flexible tenures at zero service fees.",
+  alternates: {
+    canonical: "/auto-loan/",
+  },
 };
 
 const data: LoanPageData = {
