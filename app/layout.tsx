@@ -6,6 +6,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CookieConsent from "@/components/ui/CookieConsent";
 import { cn } from "@/lib/utils";
+import Script from "next/script";
 
 // ─── Font ─────────────────────────────────────────────────────────────────────
 const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
@@ -161,6 +162,21 @@ export default function RootLayout({
         />
       </head>
       <body>
+        {/* Google Analytics (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-X31YW0715L"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-X31YW0715L');
+          `}
+        </Script>
+
         <Navbar />
         <main>{children}</main>
         <Footer />
