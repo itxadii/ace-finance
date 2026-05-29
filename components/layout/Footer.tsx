@@ -13,7 +13,6 @@ const serviceLinks = [
   { label: "Mutual Funds", href: "/mutual-funds" },
   { label: "Commodity & Currency", href: "/commodity-currency" },
   { label: "Shares Trading", href: "/shares-trading" },
-  { label: "Credit Cards", href: "/credit-cards" },
 ];
 
 const companyLinks = [

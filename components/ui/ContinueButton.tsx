@@ -7,10 +7,10 @@ interface ContinueButtonProps extends React.ButtonHTMLAttributes<HTMLButtonEleme
     children?: React.ReactNode;
 }
 
-const ContinueButton = ({ children = "Apply Now", ...props }: ContinueButtonProps) => {
+const ContinueButton = ({ children = "Apply Now", className = "", ...props }: ContinueButtonProps) => {
     return (
         <StyledWrapper>
-            <button className="continue-application" {...props}>
+            <button {...props} className={`continue-application ${className}`}>
                 <div>
                     <div className="pencil" />
                     <div className="folder">

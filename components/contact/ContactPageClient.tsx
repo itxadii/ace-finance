@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { User, Mail, Phone, MessageSquare, MapPin, Clock, Send, Check, ChevronRight } from "lucide-react";
+import { User, Mail, Phone, MessageSquare, MapPin, Clock, Send, Check, ChevronRight, AlertCircle } from "lucide-react";
 
 export default function ContactPageClient() {
   const [formData, setFormData] = useState({
@@ -93,7 +93,7 @@ export default function ContactPageClient() {
 
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-5 py-1.5 mb-6">
-            <span>📞</span>
+            <Phone size={14} className="text-emerald-600" />
             <span className="text-xs font-bold text-emerald-600 tracking-widest uppercase">
               24/7 Availability
             </span>
@@ -147,8 +147,9 @@ export default function ContactPageClient() {
                   </h3>
 
                   {error && (
-                    <div className="bg-red-50 border border-red-200 text-red-700 text-xs font-bold px-4 py-3 rounded-xl">
-                      ⚠️ {error}
+                    <div className="bg-red-50 border border-red-200 text-red-700 text-xs font-bold px-4 py-3 rounded-xl flex items-center gap-2">
+                      <AlertCircle size={16} className="text-red-600 flex-shrink-0" />
+                      <span>{error}</span>
                     </div>
                   )}
 

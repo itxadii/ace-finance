@@ -20,7 +20,6 @@ export default function Navbar() {
   const mainLinks = [
     { label: "Loans", href: "#", isDropdown: true, dropdownKey: "loans" },
     { label: "Investments", href: "#", isDropdown: true, dropdownKey: "investments" },
-    { label: "Credit Cards", href: "/credit-cards" },
     { label: "EMI Calculator", href: "/emicalculator" },
     { label: "About Us", href: "/about" },
   ];
@@ -331,7 +330,7 @@ const DesktopNavWrapper = styled.div`
 
   .nav {
     position: relative;
-    width: 650px; /* Expanded width to fit all 5 links perfectly */
+    width: 520px; /* Reduced width for exactly 4 links */
     height: 48px;
   }
 
@@ -372,38 +371,32 @@ const DesktopNavWrapper = styled.div`
     color: #059669; /* Emerald 600 text */
   }
 
-  /* Calculated SVG Path Lengths for exactly 5 items.
+  /* Calculated SVG Path Lengths for exactly 4 items.
      Format: 0 [start-top] [length-top] [gap-to-bottom] [length-bottom] [gap-to-end]
   */
   
   /* 1. Loans Dropdown */
   .btn:nth-child(1):hover ~ svg .rect {
     stroke-dashoffset: 0;
-    stroke-dasharray: 0 2 7 80 7 4;
+    stroke-dasharray: 0 3 8 76 8 5;
   }
 
-  /* 2. Credit Cards */
+  /* 2. Investments Dropdown */
   .btn:nth-child(2):hover ~ svg .rect {
     stroke-dashoffset: 0;
-    stroke-dasharray: 0 11 7 62 7 13;
+    stroke-dasharray: 0 14 8 54 8 16;
   }
 
   /* 3. EMI Calculator */
   .btn:nth-child(3):hover ~ svg .rect {
     stroke-dashoffset: 0;
-    stroke-dasharray: 0 20 7 44 7 22;
+    stroke-dasharray: 0 25 8 32 8 27;
   }
 
   /* 4. About Us */
   .btn:nth-child(4):hover ~ svg .rect {
     stroke-dashoffset: 0;
-    stroke-dasharray: 0 29 7 26 7 31;
-  }
-
-  /* 5. Contact Us */
-  .btn:nth-child(5):hover ~ svg .rect {
-    stroke-dashoffset: 0;
-    stroke-dasharray: 0 38 7 8 7 40;
+    stroke-dasharray: 0 36 8 10 8 38;
   }
 
   .btn:hover ~ .outline .rect {

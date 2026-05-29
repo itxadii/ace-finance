@@ -1,54 +1,55 @@
 "use client";
 
-import ServiceCard from "@/components/ui/ServiceCard";
-import { User, Briefcase, Home, Landmark, Car, CreditCard } from "lucide-react";
-
-const loanServices = [
-  {
-    id: "personal-loan",
-    icon: <User size={28} strokeWidth={1.5} />,
-    title: "Personal Loans",
-    description: "Get quick, hassle-free personal loans with flexible repayment options and minimal paperwork.",
-    href: "/personal-loan",
-  },
-  {
-    id: "business-loan",
-    icon: <Briefcase size={28} strokeWidth={1.5} />,
-    title: "Business Loans",
-    description: "Boost your business growth with affordable business loans tailored to your goals.",
-    href: "/business-loan",
-  },
-  {
-    id: "home-loan",
-    icon: <Home size={28} strokeWidth={1.5} />,
-    title: "Home Loans",
-    description: "Turn your dream home into reality with our easy home loan process and expert guidance.",
-    href: "/home-loan",
-  },
-  {
-    id: "loan-against-property",
-    icon: <Landmark size={28} strokeWidth={1.5} />,
-    title: "Loan Against Property",
-    description: "Unlock the value of your property and secure high-value loans at low interest rates, with simple documentation and quick disbursal.",
-    href: "#contact",
-  },
-  {
-    id: "used-car-loan",
-    icon: <Car size={28} strokeWidth={1.5} />,
-    title: "Used Car Loans",
-    description: "Own the pre-owned vehicle you want with our fast-approval used car loans and competitive rates.",
-    href: "#contact",
-  },
-  {
-    id: "credit-cards",
-    icon: <CreditCard size={28} strokeWidth={1.5} />,
-    title: "Credit Cards",
-    description: "Enjoy financial freedom with our wide range of credit card options designed to suit every lifestyle.",
-    href: "#contact",
-  },
-];
+import ServiceCard from "@/components/layout/ServiceCard";
+import { User, Briefcase, Home, Landmark, Car, TrendingUp } from "lucide-react";
 
 export default function ServicesSection() {
+  // Move the array INSIDE the component to prevent SSR hydration issues.
+  const loanServices = [
+    {
+      id: "personal-loan",
+      icon: <User size={28} strokeWidth={1.5} />,
+      title: "Personal Loans",
+      description: "Get quick, hassle-free personal loans with flexible repayment options and minimal paperwork.",
+      href: "/personal-loan",
+    },
+    {
+      id: "business-loan",
+      icon: <Briefcase size={28} strokeWidth={1.5} />,
+      title: "Business Loans",
+      description: "Boost your business growth with affordable business loans tailored to your goals.",
+      href: "/business-loan",
+    },
+    {
+      id: "home-loan",
+      icon: <Home size={28} strokeWidth={1.5} />,
+      title: "Home Loans",
+      description: "Turn your dream home into reality with our easy home loan process and expert guidance.",
+      href: "/home-loan",
+    },
+    {
+      id: "loan-against-property",
+      icon: <Landmark size={28} strokeWidth={1.5} />,
+      title: "Loan Against Property",
+      description: "Unlock the value of your property and secure high-value loans at low interest rates, with simple documentation.",
+      href: "/loan-against-property",
+    },
+    {
+      id: "used-car-loan",
+      icon: <Car size={28} strokeWidth={1.5} />,
+      title: "Used Car Loans",
+      description: "Own the pre-owned vehicle you want with our fast-approval used car loans and competitive rates.",
+      href: "/auto-loan",
+    },
+    {
+      id: "mutual-funds",
+      icon: <TrendingUp size={28} strokeWidth={1.5} />,
+      title: "Mutual Funds",
+      description: "Invest in high-performing mutual funds with expert advice tailored to your financial goals and risk profile.",
+      href: "/mutual-funds",
+    },
+  ];
+
   return (
     <section
       id="services"
@@ -70,8 +71,6 @@ export default function ServicesSection() {
           background: "radial-gradient(circle, rgba(16,185,129,0.06) 0%, transparent 70%)",
           borderRadius: "50%",
         }} />
-        {/* Background Pattern - Right Side */}
-
       </div>
 
       <div style={{
@@ -105,7 +104,7 @@ export default function ServicesSection() {
             letterSpacing: "0.1em",
             textTransform: "uppercase",
           }}>
-            Our Loan Services
+            Our Services
           </div>
 
           {/* H2 */}
@@ -129,8 +128,7 @@ export default function ServicesSection() {
             lineHeight: 1.75,
             margin: 0,
           }}>
-            Partnering with multiple banks to compare rates, terms, and
-            eligibility — bringing you the best packages.
+            Partnering with multiple banks to compare rates, terms, and eligibility — bringing you the best packages.
           </p>
         </div>
 
@@ -152,14 +150,16 @@ export default function ServicesSection() {
         </div>
       </div>
 
-      <style>{`
+      {/* Use dangerouslySetInnerHTML for style tags to bypass text node hydration mismatches */}
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @media (min-width: 768px) {
           .md\\:grid-cols-2 { grid-template-columns: repeat(2, 1fr) !important; }
         }
         @media (min-width: 1024px) {
           .lg\\:grid-cols-3 { grid-template-columns: repeat(3, 1fr) !important; }
         }
-      `}</style>
+      `}} />
     </section>
   );
 }

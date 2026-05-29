@@ -1,7 +1,7 @@
 {
   "breakpoints": [375, 768, 1280],
   "out": "./app/bones",
-  "routes": ["/credit-cards/"],
+  "routes": [],
   "color": "#e5e5e5",
   "darkColor": "#2a2a2a",
   "animate": "shimmer",

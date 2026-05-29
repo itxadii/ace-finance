@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import ContinueButton from "@/components/ui/ContinueButton";
 import PrimaryButton from "@/components/ui/PrimaryButton";
 import RotatingText from "@/components/RotatingText";
@@ -56,7 +57,9 @@ export default function HeroSection() {
             </p>
 
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-12">
-              <ContinueButton />
+              <Link href="/contact" className="no-underline">
+                <ContinueButton />
+              </Link>
               <a href="#services" className="no-underline"><PrimaryButton>Compare Loans</PrimaryButton></a>
             </div>
 

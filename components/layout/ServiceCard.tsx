@@ -1,35 +1,49 @@
 "use client";
 
-import React from 'react';
-import styled from 'styled-components';
-import Link from 'next/link';
-import { ChevronRight } from 'lucide-react';
+import React from "react";
+import styled from "styled-components";
+import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 
 interface ServiceCardProps {
-    title: string;
-    description: string;
-    href: string;
-    icon: React.ReactNode;
+  title: string;
+  description: string;
+  href?: string;
+  icon: React.ReactNode;
 }
 
 const ServiceCard = ({ title, description, href, icon }: ServiceCardProps) => {
-    return (
-        <StyledWrapper>
-            <div className="card">
-                <Link className="card1" href={href}>
-                    <div className="icon-wrapper">{icon}</div>
-                    <h3>{title}</h3>
-                    <p className="small">{description}</p>
-                    <div className="go-corner">
-                        <div className="go-arrow" style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "2px", marginRight: "2px" }}>
-                            <ChevronRight size={14} />
-                        </div>
-                    </div>
-                </Link>
-            </div>
-        </StyledWrapper>
-    );
-}
+  const cardContent = (
+    <>
+      <div className="icon-wrapper">{icon}</div>
+      <h3>{title}</h3>
+      <p className="small">{description}</p>
+      {href && (
+        <div className="go-corner">
+          <div className="go-arrow" style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "2px", marginRight: "2px" }}>
+            <ChevronRight size={14} />
+          </div>
+        </div>
+      )}
+    </>
+  );
+
+  return (
+    <StyledWrapper>
+      <div className="card">
+        {href ? (
+          <Link className="card-container" href={href}>
+            {cardContent}
+          </Link>
+        ) : (
+          <div className="card-container">
+            {cardContent}
+          </div>
+        )}
+      </div>
+    </StyledWrapper>
+  );
+};
 
 const StyledWrapper = styled.div`
   height: 100%;
@@ -47,6 +61,7 @@ const StyledWrapper = styled.div`
     letter-spacing: -0.3px;
     position: relative;
     z-index: 1;
+    transition: color 0.3s ease-out;
   }
 
   .card p {
@@ -56,6 +71,7 @@ const StyledWrapper = styled.div`
     color: #475569;
     position: relative;
     z-index: 1;
+    transition: color 0.3s ease-out;
   }
 
   .icon-wrapper {
@@ -70,6 +86,7 @@ const StyledWrapper = styled.div`
     border: 1px solid rgba(16, 185, 129, 0.2);
     position: relative;
     z-index: 1;
+    color: #059669;
     transition: all 0.3s ease-out;
   }
 
@@ -95,7 +112,7 @@ const StyledWrapper = styled.div`
     font-weight: bold;
   }
 
-  .card1 {
+  .card-container {
     display: block;
     position: relative;
     height: 100%;
@@ -107,9 +124,10 @@ const StyledWrapper = styled.div`
     overflow: hidden;
     border: 1px solid rgba(0, 0, 0, 0.08);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    transition: border-color 0.3s ease-out, box-shadow 0.3s ease-out;
   }
 
-  .card1:before {
+  .card-container:before {
     content: "";
     position: absolute;
     z-index: -1;
@@ -124,24 +142,28 @@ const StyledWrapper = styled.div`
     transition: transform 0.35s ease-out;
   }
 
-  .card1:hover:before {
-    transform: scale(35); /* Increased scale to cover the wider card */
+  .card-container:hover {
+    border-color: rgba(16, 185, 129, 0.3);
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.08);
+  }
+
+  .card-container:hover:before {
+    transform: scale(35); /* Covers the card */
   }
 
   /* Hover States for Text and Icon */
-  .card1:hover p {
-    transition: all 0.3s ease-out;
+  .card-container:hover p {
     color: rgba(255, 255, 255, 0.9);
   }
 
-  .card1:hover h3 {
-    transition: all 0.3s ease-out;
+  .card-container:hover h3 {
     color: #ffffff;
   }
 
-  .card1:hover .icon-wrapper {
+  .card-container:hover .icon-wrapper {
     background: rgba(255, 255, 255, 0.2);
     border-color: rgba(255, 255, 255, 0.3);
+    color: #ffffff;
   }
 `;
 

@@ -5,6 +5,8 @@ import { useState } from "react";
 import PrimaryButton from "@/components/ui/PrimaryButton";
 import ContinueButton from "@/components/ui/ContinueButton";
 import CountUp from "@/components/CountUp";
+import ServiceCard from "@/components/layout/ServiceCard";
+import LucideIcon from "@/components/ui/LucideIcon";
 
 function parseStatValue(valStr: string) {
   const regex = /^(₹)?\s*([0-9]+(?:\.[0-9]+)?)\s*(.*)?$/;
@@ -122,7 +124,7 @@ export default function LoanPageLayout({ data }: { data: LoanPageData }) {
 
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-5 py-1.5 mb-6">
-            <span className="text-base">{data.badgeIcon}</span>
+            <LucideIcon name={data.badgeIcon} size={16} className="text-emerald-600" />
             <span className="text-xs font-bold text-emerald-600 tracking-widest uppercase">
               {data.badge}
             </span>
@@ -139,9 +141,11 @@ export default function LoanPageLayout({ data }: { data: LoanPageData }) {
           </p>
 
           <div className="flex flex-wrap items-center gap-4 mb-16">
-            <ContinueButton onClick={() => document.getElementById("apply")?.scrollIntoView({ behavior: "smooth" })}>
-              Apply Now
-            </ContinueButton>
+            <Link href="/contact" className="no-underline">
+              <ContinueButton>
+                Apply Now
+              </ContinueButton>
+            </Link>
             <Link href="/emicalculator" className="no-underline">
               <PrimaryButton>
                 EMI Calculator
@@ -194,18 +198,13 @@ export default function LoanPageLayout({ data }: { data: LoanPageData }) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {data.features.map((f, i) => (
-              <div
+              <ServiceCard
                 key={i}
-                className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:-translate-y-1.5 hover:border-emerald-300 hover:shadow-xl transition-all duration-300"
-              >
-                <div className="w-12 h-12 bg-emerald-50 border border-emerald-100 rounded-xl flex items-center justify-center text-2xl mb-6 text-emerald-600">
-                  {f.icon}
-                </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">
-                  {f.title}
-                </h3>
-                <p className="text-sm text-slate-600 leading-relaxed">{f.desc}</p>
-              </div>
+                title={f.title}
+                description={f.desc}
+                icon={<LucideIcon name={f.icon} size={28} strokeWidth={1.5} />}
+                href="/contact"
+              />
             ))}
           </div>
         </div>
@@ -234,7 +233,7 @@ export default function LoanPageLayout({ data }: { data: LoanPageData }) {
                     key={i}
                     className="flex items-center gap-4 px-5 py-4 bg-slate-50 border border-slate-100 rounded-xl hover:bg-emerald-50 hover:border-emerald-200 hover:translate-x-1 transition-all duration-200"
                   >
-                    <span className="text-xl">{item.icon}</span>
+                    <LucideIcon name={item.icon} size={20} className="text-emerald-600" />
                     <span className="text-sm text-slate-800 font-bold">{item.text}</span>
                   </div>
                 ))}
@@ -246,7 +245,7 @@ export default function LoanPageLayout({ data }: { data: LoanPageData }) {
               <span className="text-xs font-extrabold text-emerald-600 tracking-widest uppercase block mb-4">
                 DSA Journey
               </span>
-              <h2 className="text-[clamp(28px,3.5vw,38px)] font-black text-slate-900 tracking-tight mb-8">
+              <h2 className="text-[clamp(28px,3.5vw,38px)] font-black text-slate-900 tracking-tight mb-5">
                 Our Simple Process
               </h2>
 
@@ -312,36 +311,16 @@ export default function LoanPageLayout({ data }: { data: LoanPageData }) {
             {data.ctaDesc}
           </p>
 
-          {/* Quick Apply Form */}
-          <div className="bg-white border border-emerald-100 shadow-[0_20px_50px_rgba(16,185,129,0.05)] rounded-[24px] p-8 md:p-10 max-w-[520px] mx-auto text-left relative z-20">
-            {["Full Name", "Phone Number", "Expected Loan Amount (₹)"].map((placeholder, i) => (
-              <div key={i} className="mb-4">
-                <label
-                  htmlFor={`apply-field-${i}`}
-                  className="block text-[13px] font-bold text-slate-700 mb-2"
-                >
-                  {placeholder}
-                </label>
-                <input
-                  id={`apply-field-${i}`}
-                  type={i === 1 ? "tel" : i === 2 ? "number" : "text"}
-                  placeholder={placeholder}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 text-[15px] outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all"
-                />
-              </div>
-            ))}
-
-            <PrimaryButton
-              id="apply-submit-btn"
-              type="button"
-              className="w-full mt-2"
-            >
-              Get Free Consultation
-            </PrimaryButton>
-
-            <p className="text-xs text-slate-400 mt-4 text-center">
-              🔒 100% Secure & confidential process. We never share details.
-            </p>
+          <div className="flex justify-center relative z-20">
+            <Link href="/contact" className="no-underline">
+              <PrimaryButton
+                id="apply-submit-btn"
+                type="button"
+                className="px-12 py-4 text-base"
+              >
+                Apply Now & Get Consultation
+              </PrimaryButton>
+            </Link>
           </div>
         </div>
       </section>

@@ -1,14 +1,21 @@
 "use client";
 
 import React from "react";
-import { formatINR } from "@/components/ui/Slider";
 
 interface DonutChartProps {
   principal: number;
   interest: number;
+  centerLabel?: string;
 }
 
-export default function DonutChart({ principal, interest }: DonutChartProps) {
+// Self-contained currency formatter to avoid Slider dependency issues
+function formatValue(n: number): string {
+  if (n >= 10000000) return `₹${(n / 10000000).toFixed(2)} Cr`;
+  if (n >= 100000) return `₹${(n / 100000).toFixed(2)} L`;
+  return `₹${n.toLocaleString("en-IN")}`;
+}
+
+export default function DonutChart({ principal, interest, centerLabel = "TOTAL DUE" }: DonutChartProps) {
   const total = principal + interest;
   const principalPct = total > 0 ? (principal / total) * 100 : 50;
   const interestPct = 100 - principalPct;
@@ -45,8 +52,8 @@ export default function DonutChart({ principal, interest }: DonutChartProps) {
         />
       </svg>
       <div style={{ position: "absolute", textAlign: "center" }}>
-        <div style={{ fontSize: "10px", color: "#6b7280", fontWeight: "800", letterSpacing: "0.05em" }}>TOTAL DUE</div>
-        <div style={{ fontSize: "15px", fontWeight: "900", color: "#000000", marginTop: "2px" }}>{formatINR(total)}</div>
+        <div style={{ fontSize: "10px", color: "#6b7280", fontWeight: "800", letterSpacing: "0.05em" }}>{centerLabel}</div>
+        <div style={{ fontSize: "15px", fontWeight: "900", color: "#000000", marginTop: "2px" }}>{formatValue(total)}</div>
       </div>
     </div>
   );

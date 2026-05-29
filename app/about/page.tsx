@@ -1,4 +1,6 @@
 import Link from "next/link";
+import ServiceCard from "@/components/layout/ServiceCard";
+import LucideIcon from "@/components/ui/LucideIcon";
 
 export const metadata = {
   title: "About Us | ACE Financial Services — Direct Selling Agent (DSA) in Dhule",
@@ -11,38 +13,22 @@ export default function AboutPage() {
     {
       title: "Zero Service Charges",
       description: "Our consultation, comparison, and documentation processing are 100% free. We are compensated directly by our partner banks.",
-      icon: (
-        <svg className="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      ),
+      icon: "BadgePercent",
     },
     {
       title: "20+ Banking Partners",
       description: "Instead of visiting multiple banks, apply once with us. We compare and negotiate rates across top public and private lenders.",
-      icon: (
-        <svg className="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-        </svg>
-      ),
+      icon: "Landmark",
     },
     {
       title: "Doorstep Documentation",
       description: "Our loan relationship officers handle all physical verification and document collection, saving you multiple branch visits.",
-      icon: (
-        <svg className="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      ),
+      icon: "FileText",
     },
     {
       title: "End-to-End Tracking",
       description: "From credit scoring analysis, application submission, to final verification and disbursal, we guide you at every step.",
-      icon: (
-        <svg className="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
-      ),
+      icon: "Activity",
     },
   ];
 
@@ -182,17 +168,12 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {coreValues.map((value, i) => (
-              <div key={i} className="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm hover:-translate-y-1 hover:border-emerald-300 hover:shadow-xl transition-all duration-300 group">
-                <div className="w-14 h-14 bg-emerald-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-emerald-100 transition-colors">
-                  {value.icon}
-                </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">
-                  {value.title}
-                </h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  {value.description}
-                </p>
-              </div>
+              <ServiceCard
+                key={i}
+                title={value.title}
+                description={value.description}
+                icon={<LucideIcon name={value.icon} size={28} strokeWidth={1.5} />}
+              />
             ))}
           </div>
         </div>
