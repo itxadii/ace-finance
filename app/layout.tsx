@@ -18,7 +18,7 @@ const lato = Lato({
 });
 
 // ─── Constants ────────────────────────────────────────────────────────────────
-const siteUrl = "https://www.acefinancehub.in";
+const siteUrl = "https://www.acecapitalhub.in";
 const siteName = "ACE Financial Services";
 const defaultTitle = "ACE Financial Services | Home, Personal & Business Loans in Dhule";
 const defaultDescription =
