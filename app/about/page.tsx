@@ -115,7 +115,7 @@ export default function AboutPage() {
       <section className="py-24 px-6 bg-white border-b border-slate-100">
         <div className="container mx-auto max-w-[1200px]">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            
+
             {/* Founder Image Column */}
             <div className="lg:col-span-5 relative">
               <div className="relative w-full max-w-[420px] mx-auto aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-100">
@@ -156,7 +156,7 @@ export default function AboutPage() {
               <h2 className="text-[clamp(30px,3.5vw,42px)] font-black text-slate-900 tracking-tight leading-tight mb-6">
                 Led by Nilesh Gindodia — Built on Trust & Excellence
               </h2>
-              
+
               <p className="text-base text-slate-600 leading-relaxed mb-5">
                 ACE Financial Services was founded by <strong>Nilesh Gindodia</strong> with a singular mission: to eliminate the stress, paperwork confusion, and branch delays traditionally associated with securing bank loans in Dhule and across Maharashtra.
               </p>
@@ -193,7 +193,7 @@ export default function AboutPage() {
               Recognized Industry Leadership
             </span>
             <h2 className="text-[clamp(30px,3.5vw,42px)] font-black text-slate-900 tracking-tight mb-4">
-              ICICI Bank Wazir Award & Recognitions
+              Awards & Recognitions
             </h2>
             <p className="text-base text-slate-600 leading-relaxed">
               Honored for outstanding performance and excellence in loan distribution by ICICI Bank and top financial partners.
