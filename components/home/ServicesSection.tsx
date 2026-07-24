@@ -1,7 +1,7 @@
 "use client";
 
 import ServiceCard from "@/components/layout/ServiceCard";
-import { User, Briefcase, Home, Landmark, Car, TrendingUp, Coins } from "lucide-react";
+import { User, Briefcase, Home, Landmark, Car, TrendingUp, Coins, ShieldCheck, BarChart3 } from "lucide-react";
 
 export default function ServicesSection() {
   // Move the array INSIDE the component to prevent SSR hydration issues.
@@ -49,11 +49,25 @@ export default function ServicesSection() {
       href: "/gold-loan",
     },
     {
+      id: "insurance",
+      icon: <ShieldCheck size={28} strokeWidth={1.5} />,
+      title: "Life & Health Insurance",
+      description: "Secure your family's future and health with comprehensive life and health insurance policies from top insurers.",
+      href: "/insurance",
+    },
+    {
       id: "mutual-funds",
       icon: <TrendingUp size={28} strokeWidth={1.5} />,
       title: "Mutual Funds",
       description: "Invest in high-performing mutual funds with expert advice tailored to your financial goals and risk profile.",
       href: "/mutual-funds",
+    },
+    {
+      id: "shares-trading",
+      icon: <BarChart3 size={28} strokeWidth={1.5} />,
+      title: "Shares & Equity Trading",
+      description: "Trade equities, derivatives, and commodities with advanced trading platforms and expert market guidance.",
+      href: "/shares-trading",
     },
   ];
 
