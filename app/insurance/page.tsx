@@ -3,7 +3,7 @@ import LoanPageLayout, { LoanPageData } from "@/components/layout/LoanPageLayout
 export const metadata = {
   title: "Life & Health Insurance in Dhule | ACE Financial Services",
   description:
-    "Secure your family's future and your wealth with comprehensive Life & Health Insurance policies in Dhule. Expert guidance and support at zero fee.",
+    "Secure your family's future and your wealth with comprehensive Life & Health Insurance policies in Dhule. Expert guidance and dedicated claims support.",
   alternates: {
     canonical: "/insurance/",
   },
@@ -96,7 +96,7 @@ const data: LoanPageData = {
   ],
   ctaTitle: "Safeguard Your Family's Health & Wealth",
   ctaDesc:
-    "Get in touch with our insurance advisory experts today. Protect your family's future and compare plans from leading insurers at zero consultation charge.",
+    "Get in touch with our insurance advisory experts today. Protect your family's future and compare plans from leading insurers.",
 };
 
 export default function InsurancePage() {

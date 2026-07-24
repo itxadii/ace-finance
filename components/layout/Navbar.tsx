@@ -30,6 +30,7 @@ export default function Navbar() {
     { label: "Business Loan", href: "/business-loan" },
     { label: "Loan Against Property", href: "/loan-against-property" },
     { label: "Auto Loan", href: "/auto-loan" },
+    { label: "Gold Loan", href: "/gold-loan" },
   ];
 
   const investmentSubLinks = [

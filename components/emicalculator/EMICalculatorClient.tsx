@@ -606,7 +606,7 @@ export default function EMICalculatorClient() {
               {
                 icon: "Zap",
                 title: "Pre-Approval Matching",
-                desc: "We screen your profile details against the approval metrics of 20+ partner banks to maximize odds before you apply.",
+                desc: "We screen your profile details against the approval metrics of all major partner banks to maximize odds before you apply.",
               },
               {
                 icon: "TrendingDown",

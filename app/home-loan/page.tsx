@@ -3,7 +3,7 @@ import LoanPageLayout, { LoanPageData } from "@/components/layout/LoanPageLayout
 export const metadata = {
   title: "Home Loan in Dhule | ACE Financial Services — Low Rates, Quick Approval",
   description:
-    "Get your dream home with ACE Financial Services Home Loans. Attractive interest rates, minimal documentation, and approval within 24–48 hours in Dhule.",
+    "Get your dream home with ACE Financial Services Home Loans. Attractive interest rates, minimal documentation, and approval within 72 hours in Dhule.",
   alternates: {
     canonical: "/home-loan/",
   },
@@ -27,13 +27,13 @@ const data: LoanPageData = {
     { value: "8.5%*", label: "Starting Interest Rate" },
     { value: "30 Yrs", label: "Max Tenure" },
     { value: "₹5 Cr+", label: "Max Loan Amount" },
-    { value: "24 Hrs", label: "Approval Time" },
+    { value: "72 Hrs", label: "Approval Time" },
   ],
   features: [
     {
       icon: "📉",
       title: "Low Interest Rates",
-      desc: "Competitive home loan rates starting from 8.5% p.a. with no hidden charges.",
+      desc: "Competitive home loan rates starting from 8.5% p.a. with transparent lender terms.",
     },
     {
       icon: "📄",
@@ -43,7 +43,7 @@ const data: LoanPageData = {
     {
       icon: "⚡",
       title: "Quick Disbursal",
-      desc: "Loan disbursed directly to the seller/builder's account within 48 hours of approval.",
+      desc: "Loan processed and disbursed efficiently after document verification.",
     },
     {
       icon: "🔁",
@@ -72,7 +72,7 @@ const data: LoanPageData = {
   steps: [
     { num: "1", title: "Apply Online or Visit Us", desc: "Fill out our quick application form or walk into our Dhule office." },
     { num: "2", title: "Document Submission", desc: "Submit your income proof, property papers, and KYC documents." },
-    { num: "3", title: "Loan Processing & Approval", desc: "Our team verifies documents and approves the loan within 24–48 hours." },
+    { num: "3", title: "Loan Processing & Approval", desc: "Our team verifies documents and coordinates approval within 72 hours." },
     { num: "4", title: "Disbursal", desc: "Funds are transferred directly to the seller/builder's account." },
   ],
   faqs: [
@@ -94,7 +94,7 @@ const data: LoanPageData = {
     },
     {
       q: "How long does the entire loan process take?",
-      a: "Once all documents are submitted, the loan is typically approved within 24–48 hours and disbursed within 3–5 working days.",
+      a: "Once all documents are submitted, the loan is typically approved within 72 hours and disbursed promptly.",
     },
   ],
   ctaTitle: "Ready to Move Into Your Dream Home?",

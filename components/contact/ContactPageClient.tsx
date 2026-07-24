@@ -338,25 +338,33 @@ export default function ContactPageClient() {
                 ))}
               </div>
 
-              {/* Styled Visual Map Placeholder */}
-              <div className="bg-white border border-slate-200 rounded-3xl p-5 shadow-sm relative overflow-hidden h-[240px] flex flex-col items-center justify-center text-center">
+              {/* Styled Visual Map Card with Direct Google Maps Link */}
+              <a
+                href="https://maps.app.goo.gl/B5a6bRP4ZrzyNHNG6"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white border border-slate-200 hover:border-emerald-500 rounded-3xl p-6 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden h-[240px] flex flex-col items-center justify-center text-center no-underline group cursor-pointer"
+              >
                 {/* Simulated Grid/Map Background */}
                 <div className="absolute inset-0 opacity-[0.1] bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none" />
 
-                {/* Simulated Location Pin */}
-                <div className="relative z-10 mb-4 animate-bounce">
-                  <div className="w-10 h-10 bg-emerald-600 rounded-full flex items-center justify-center text-white shadow-lg">
-                    <MapPin size={22} />
+                {/* Location Pin */}
+                <div className="relative z-10 mb-3 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center text-white shadow-lg shadow-emerald-600/30">
+                    <MapPin size={24} />
                   </div>
                   <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-4 h-1.5 bg-black/10 rounded-full blur-sm" />
                 </div>
 
-                <h4 className="text-sm font-black text-slate-900 z-10">ACE Financial Services HQ</h4>
-                <p className="text-xs text-slate-500 mt-1 max-w-[200px] leading-relaxed z-10">
-                  Visit us in Dhule for a detailed loan consultation.
+                <h4 className="text-sm font-black text-slate-900 z-10 group-hover:text-emerald-600 transition-colors">ACE Financial Services HQ</h4>
+                <p className="text-xs text-slate-500 mt-1 max-w-[220px] leading-relaxed z-10 mb-3">
+                  S-301-305, 'B' Wing, New Jayshankar Market, Dhule
                 </p>
-              </div>
+                <span className="inline-flex items-center gap-1 text-xs font-extrabold text-emerald-600 bg-emerald-50 border border-emerald-200 px-3.5 py-1.5 rounded-full z-10 group-hover:bg-emerald-600 group-hover:text-white transition-all">
+                  Open in Google Maps ↗
+                </span>
+              </a>
 
             </div>
           </div>

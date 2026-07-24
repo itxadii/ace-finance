@@ -26,7 +26,7 @@ const data: LoanPageData = {
     { value: "11%*", label: "Starting Interest Rate" },
     { value: "7 Yrs", label: "Max Tenure" },
     { value: "₹2 Cr", label: "Max Loan Amount" },
-    { value: "48 Hrs", label: "Approval Time" },
+    { value: "72 Hrs", label: "Approval Time" },
   ],
   features: [
     {
@@ -42,7 +42,7 @@ const data: LoanPageData = {
     {
       icon: "⚡",
       title: "Fast Turnaround",
-      desc: "Business loan approved within 48 hours — so you never miss a growth opportunity.",
+      desc: "Business loan approved within 72 hours — so you never miss a growth opportunity.",
     },
     {
       icon: "🔒",
@@ -72,7 +72,7 @@ const data: LoanPageData = {
     { num: "1", title: "Business Assessment", desc: "Our expert reviews your business profile and assesses the right loan amount." },
     { num: "2", title: "Document Collection", desc: "Submit financials, GST returns, bank statements, and KYC documents." },
     { num: "3", title: "Credit Evaluation", desc: "Rapid credit appraisal of your business financials and collateral (if any)." },
-    { num: "4", title: "Loan Disbursal", desc: "Funds credited to your current account within 48 hours of approval." },
+    { num: "4", title: "Loan Disbursal", desc: "Funds credited to your current account within 72 hours of approval." },
   ],
   faqs: [
     {

@@ -3,7 +3,7 @@ import LoanPageLayout, { LoanPageData } from "@/components/layout/LoanPageLayout
 export const metadata = {
   title: "Auto Loan in Dhule | ACE Financial Services",
   description:
-    "Drive home your dream car with competitive interest rates and up to 100% on-road funding in Dhule. Easy processing and flexible tenures at zero service fees.",
+    "Drive home your dream car with competitive interest rates and up to 100% on-road funding in Dhule. Easy processing and flexible tenures with expert assistance.",
   alternates: {
     canonical: "/auto-loan/",
   },
@@ -24,7 +24,7 @@ const data: LoanPageData = {
     { value: "8.8%*", label: "Starting Interest Rate" },
     { value: "7 Yrs", label: "Max Tenure" },
     { value: "₹1 Cr+", label: "Max Loan Amount" },
-    { value: "24 Hrs", label: "Approval Time" },
+    { value: "72 Hrs", label: "Approval Time" },
   ],
   features: [
     {
@@ -40,7 +40,7 @@ const data: LoanPageData = {
     {
       icon: "⏱️",
       title: "Super Fast Disbursal",
-      desc: "Get your auto loan sanctioned and disbursed in under 24 hours of documentation.",
+      desc: "Get your auto loan sanctioned and disbursed within 72 hours of documentation.",
     },
     {
       icon: "🚘",
@@ -53,9 +53,9 @@ const data: LoanPageData = {
       desc: "Select a repayment tenure ranging from 1 to 7 years to keep your monthly EMIs highly affordable.",
     },
     {
-      icon: "🚫",
-      title: "No Service Fees",
-      desc: "Get expert advice, comparison, and file routing at zero cost to you.",
+      icon: "🤝",
+      title: "End-to-End Assistance",
+      desc: "Get expert advice, comparison, and dedicated relationship desk assistance for your application.",
     },
   ],
   eligibility: [
@@ -96,7 +96,7 @@ const data: LoanPageData = {
   ],
   ctaTitle: "Get Behind the Wheel of Your Dream Car",
   ctaDesc:
-    "Connect with our auto loan specialists. We compare rates across top banks to find you the best loan deals at zero service charges.",
+    "Connect with our auto loan specialists. We compare rates across top banks to find you the best loan deals.",
 };
 
 export default function AutoLoanPage() {

@@ -35,6 +35,8 @@ const EMOJI_MAP: Record<string, string> = {
   "🔧": "Wrench",
   "🌎": "Globe",
   "💎": "Gem",
+  "🪙": "Coins",
+  "🟡": "Coins",
   "🔍": "Search",
   "🔒": "Lock",
 };

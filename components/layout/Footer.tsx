@@ -9,6 +9,7 @@ const serviceLinks = [
   { label: "Business Loan", href: "/business-loan" },
   { label: "Loan Against Property", href: "/loan-against-property" },
   { label: "Auto Loan", href: "/auto-loan" },
+  { label: "Gold Loan", href: "/gold-loan" },
   { label: "Life & Health Insurance", href: "/insurance" },
   { label: "Mutual Funds", href: "/mutual-funds" },
   { label: "Commodity & Currency", href: "/commodity-currency" },
@@ -47,24 +48,8 @@ export default function Footer() {
               </Link>
 
               <p className="text-sm text-slate-600 leading-relaxed max-w-[280px] mb-8">
-                <strong>Universe of Loans & Investments.</strong> Your premier direct selling loan agent in Dhule. We partner with India's leading banks to secure the best loan rates for you at zero service charge.
+                <strong>Universe of Loans & Investments.</strong> Your premier direct selling loan agent in Dhule. We partner with all leading banks to secure the best loan rates and terms for you.
               </p>
-
-              {/* Social icons */}
-              <div className="flex gap-3">
-                {[
-                  { id: "wa", icon: <MessageCircle size={18} />, label: "WhatsApp" },
-                ].map((s) => (
-                  <a
-                    key={s.id}
-                    href="#"
-                    aria-label={s.label}
-                    className="w-10 h-10 bg-white rounded-lg flex items-center justify-center text-slate-500 border border-slate-200 shadow-sm hover:border-emerald-500 hover:text-emerald-600 hover:bg-emerald-50 hover:-translate-y-1 transition-all duration-300"
-                  >
-                    {s.icon}
-                  </a>
-                ))}
-              </div>
             </div>
 
             {/* Services */}
@@ -112,7 +97,7 @@ export default function Footer() {
               </h4>
               <div className="flex flex-col gap-4">
                 {[
-                  { icon: <MapPin size={18} />, text: "S-301-305, 'B' Wing, 2nd Floor, New Jayshankar Market, Opp. Urdu High School, Dhule - 424001" },
+                  { icon: <MapPin size={18} />, text: "S-301-305, 'B' Wing, 2nd Floor, New Jayshankar Market, Opp. Urdu High School, Dhule - 424001", href: "https://maps.app.goo.gl/B5a6bRP4ZrzyNHNG6" },
                   { icon: <Phone size={18} />, text: "+91 99754 94945", href: "tel:+919975494945" },
                   { icon: <Phone size={18} />, text: "02562 - 280033 / 34 / 35", href: "tel:02562280033" },
                   { icon: <Mail size={18} />, text: "priyanka.agrawal@iiflpartner.com", href: "mailto:priyanka.agrawal@iiflpartner.com" },

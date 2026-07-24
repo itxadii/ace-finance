@@ -86,10 +86,10 @@ export default function TermsPage() {
 
             <div>
               <h2 id="terms-fees" className="text-2xl font-black text-slate-900 mb-4 tracking-tight">
-                3. Zero Charges & Free Consultation
+                3. Advisory & Processing Terms
               </h2>
               <p className="text-sm leading-relaxed">
-                Our consultancy, recommendation, and application processing services are <strong>100% free of charge to customers</strong>. ACE Financial Services will never ask you to pay any advisory fee or processing charges directly. Any application or processing fees are charged directly by the issuing bank and are included in the bank's official terms.
+                ACE Financial Services provides consultation, recommendation, and application routing services as an authorized Direct Selling Agent (DSA). Applicable processing fees, valuation charges, stamp duty, or lender charges are governed directly by the respective issuing bank or financial institution.
               </p>
             </div>
 

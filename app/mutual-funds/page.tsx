@@ -3,7 +3,7 @@ import LoanPageLayout, { LoanPageData } from "@/components/layout/LoanPageLayout
 export const metadata = {
   title: "Mutual Funds Investment in Dhule | ACE Financial Services",
   description:
-    "Grow your wealth with top-performing mutual funds in Dhule. Get personalized SIP & lumpsum investment advice at zero service fees.",
+    "Grow your wealth with top-performing mutual funds in Dhule. Get personalized SIP & lumpsum investment advice from certified experts.",
   alternates: {
     canonical: "/mutual-funds/",
   },
@@ -24,7 +24,7 @@ const data: LoanPageData = {
     { value: "12% - 15%*", label: "Historic Returns (CAGR)" },
     { value: "₹500/Mo", label: "Min SIP Investment" },
     { value: "40+", label: "Fund Houses Covered" },
-    { value: "0%", label: "Advisory Consultation Fee" },
+    { value: "100%", label: "Dedicated Guidance" },
   ],
   features: [
     {
@@ -91,12 +91,12 @@ const data: LoanPageData = {
     },
     {
       q: "What charges apply when investing through ACE Financial Services?",
-      a: "Our portfolio consultation, advisory matching, and account setup assistance are 100% free of charge. Mutual fund houses pay commission directly out of the fund's expense ratio.",
+      a: "Mutual fund investments are subject to standard expense ratios charged directly by asset management companies (AMCs) as per SEBI regulations.",
     },
   ],
   ctaTitle: "Start Your Wealth Building Journey",
   ctaDesc:
-    "Get in touch with our certified mutual fund advisors. Let us design a balanced portfolio to secure your future financial freedom at zero service fee.",
+    "Get in touch with our certified mutual fund advisors. Let us design a balanced portfolio to secure your future financial freedom.",
 };
 
 export default function MutualFundsPage() {

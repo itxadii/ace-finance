@@ -122,34 +122,30 @@ const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>((props, ref)
 
   return (
     <motion.span className={cn('relative inline-flex whitespace-nowrap', mainClassName)} {...rest} layout transition={transition}>
-      <span className="sr-only">{texts[currentTextIndex]}</span>
-      <span className="invisible inline-flex whitespace-nowrap" aria-hidden="true">{longestText}</span>
-      <span className="absolute inset-0 flex items-center justify-start pointer-events-none">
-        <AnimatePresence mode={animatePresenceMode} initial={animatePresenceInitial}>
-          <motion.span key={currentTextIndex} className="flex whitespace-nowrap" layout aria-hidden="true">
-            {elements.map((wordObj, wordIndex, array) => {
-              const previousCharsCount = array.slice(0, wordIndex).reduce((sum, word) => sum + word.characters.length, 0);
-              return (
-                <span key={wordIndex} className={cn('inline-flex whitespace-nowrap', splitLevelClassName)}>
-                  {wordObj.characters.map((char, charIndex) => (
-                    <motion.span
-                      key={charIndex}
-                      initial={initial}
-                      animate={animate}
-                      exit={exit}
-                      transition={{ ...transition, delay: getStaggerDelay(previousCharsCount + charIndex, array.reduce((sum, word) => sum + word.characters.length, 0)) }}
-                      className={cn('inline-block whitespace-nowrap', elementLevelClassName)}
-                    >
-                      {char}
-                    </motion.span>
-                  ))}
-                  {wordObj.needsSpace && <span className="whitespace-pre"> </span>}
-                </span>
-              );
-            })}
-          </motion.span>
-        </AnimatePresence>
-      </span>
+      <AnimatePresence mode={animatePresenceMode} initial={animatePresenceInitial}>
+        <motion.span key={currentTextIndex} className="inline-flex whitespace-nowrap" layout aria-hidden="true">
+          {elements.map((wordObj, wordIndex, array) => {
+            const previousCharsCount = array.slice(0, wordIndex).reduce((sum, word) => sum + word.characters.length, 0);
+            return (
+              <span key={wordIndex} className={cn('inline-flex whitespace-nowrap', splitLevelClassName)}>
+                {wordObj.characters.map((char, charIndex) => (
+                  <motion.span
+                    key={charIndex}
+                    initial={initial}
+                    animate={animate}
+                    exit={exit}
+                    transition={{ ...transition, delay: getStaggerDelay(previousCharsCount + charIndex, array.reduce((sum, word) => sum + word.characters.length, 0)) }}
+                    className={cn('inline-block whitespace-nowrap', elementLevelClassName)}
+                  >
+                    {char}
+                  </motion.span>
+                ))}
+                {wordObj.needsSpace && <span className="whitespace-pre"> </span>}
+              </span>
+            );
+          })}
+        </motion.span>
+      </AnimatePresence>
     </motion.span>
   );
 });

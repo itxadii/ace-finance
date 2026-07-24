@@ -8,9 +8,9 @@ import RotatingText from "@/components/RotatingText";
 import CountUp from "@/components/CountUp";
 
 const stats = [
-  { prefix: "", to: 20, suffix: "+", label: "Lender Partners" },
-  { prefix: "", to: 24, suffix: " Hrs", label: "Avg. Approval Time" },
-  { prefix: "₹", to: 500, suffix: "Cr+", label: "Loans Disbursed" },
+  { prefix: "All", to: 0, suffix: " Banks", label: "Lender Network" },
+  { prefix: "", to: 72, suffix: " Hrs", label: "Avg. Approval Time" },
+  { prefix: "₹", to: 750, suffix: "Cr+", label: "Loans Disbursed" },
 ];
 
 export default function HeroSection() {
@@ -40,20 +40,20 @@ export default function HeroSection() {
               {/* Added flex-nowrap to absolutely guarantee words stay on the same line */}
               <span className="flex items-center justify-center lg:justify-start whitespace-nowrap flex-nowrap my-3">
                 <RotatingText
-                  texts={["Home", "Business", "Personal"]}
+                  texts={["Home", "Business", "Personal", "Gold"]}
                   mainClassName="text-emerald-500 inline-flex whitespace-nowrap"
                   staggerDuration={0.08}
                   rotationInterval={4500}
                   transition={{ type: "spring", damping: 30, stiffness: 120 }}
                 />
-                <span className="ml-3 whitespace-nowrap">Loan Offer</span>
+                <span className="ml-2 whitespace-nowrap">Loan Offer</span>
               </span>
               <span className="block text-emerald-600">Tailored for You</span>
             </h1>
 
             <p className="text-lg text-slate-600 leading-relaxed max-w-lg mb-10">
-              As a trusted direct selling agent in Dhule, we compare rates and terms across India's top lenders to find your perfect home, personal, or business loan.
-              <strong className="text-slate-900 block mt-2">Zero fees, 100% bank-direct rates.</strong>
+              As a trusted direct selling agent in Dhule, we compare rates and terms across all major lenders to find your perfect home, personal, business, or gold loan.
+              <strong className="text-slate-900 block mt-2">Competitive, bank-direct rates with end-to-end guidance.</strong>
             </p>
 
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-12">
@@ -68,7 +68,7 @@ export default function HeroSection() {
               {stats.map((stat, i) => (
                 <div key={i} className="flex flex-col items-center lg:items-start">
                   <div className="flex items-baseline font-black text-emerald-600 text-3xl">
-                    {stat.prefix}<CountUp to={stat.to} duration={2} />{stat.suffix}
+                    {stat.prefix}{stat.to > 0 ? <CountUp to={stat.to} duration={2} /> : null}{stat.suffix}
                   </div>
                   <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">{stat.label}</div>
                 </div>
@@ -85,14 +85,14 @@ export default function HeroSection() {
               <div className="w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center text-white font-bold">✓</div>
               <div>
                 <p className="font-extrabold text-sm text-slate-900">Best Rate Approved!</p>
-                <p className="text-[10px] text-slate-500">Across 20+ banks</p>
+                <p className="text-[10px] text-slate-500">Across all major banks</p>
               </div>
             </div>
 
             {/* Second badge */}
             <div className="absolute bottom-[10%] right-0 lg:right-4 bg-white/95 backdrop-blur-md p-3 rounded-2xl shadow-xl border border-emerald-100 flex items-center gap-2.5 animate-[float_4s_ease-in-out_infinite_1.5s] z-30">
               <span className="text-base">⚡</span>
-              <span className="text-[10px] font-bold text-slate-900 tracking-wider uppercase">Zero Agent Charges</span>
+              <span className="text-[10px] font-bold text-slate-900 tracking-wider uppercase">Fast & Transparent Process</span>
             </div>
 
           </div>

@@ -12,33 +12,33 @@ const features = [
     id: "feature-quick-approval",
     icon: <Zap size={24} strokeWidth={1.5} />,
     title: "Quick Approval",
-    description: "Get loan approvals processed within 24–48 hours directly with bank credit teams."
+    description: "Get loan approvals processed within 72 hours directly with bank credit teams."
   },
   {
     id: "feature-secure",
     icon: <ShieldCheck size={24} strokeWidth={1.5} />,
     title: "Secure & Transparent",
-    description: "Zero hidden fees. Complete transparency in interest rates and lender terms."
+    description: "Complete transparency in interest rates, processing terms, and lender guidelines."
   },
   {
     id: "feature-expert",
     icon: <Handshake size={24} strokeWidth={1.5} />,
-    title: "Multiple Bank Partners",
-    description: "Partnered with 20+ top banks and NBFCs, offering you the absolute best market options."
+    title: "All Major Bank Partners",
+    description: "Partnered with all leading banks and NBFCs, offering you the absolute best market options."
   },
   {
     id: "feature-rates",
     icon: <BadgePercent size={24} strokeWidth={1.5} />,
-    title: "No Service Charges",
-    description: "Our expert consultation, eligibility checking, and process guidance are 100% free."
+    title: "Personalized Loan Guidance",
+    description: "Our dedicated loan relationship officers assist you from document preparation to disbursal."
   },
 ];
 
 const stats = [
-  { prefix: "", to: 20, suffix: "+", label: "Partner Lenders" },
+  { prefix: "", to: 100, suffix: "+", label: "Partner Lenders" },
   { prefix: "", to: 98, suffix: "%", label: "Approval Rate" },
-  { prefix: "", to: 24, suffix: " Hrs", label: "Avg. Turnaround" },
-  { prefix: "₹", to: 0, suffix: "", label: "Service Charges" },
+  { prefix: "", to: 72, suffix: " Hrs", label: "Avg. Turnaround" },
+  { prefix: "₹", to: 750, suffix: "Cr+", label: "Loans Disbursed" },
 ];
 
 export default function WhyChooseSection() {
@@ -77,7 +77,7 @@ export default function WhyChooseSection() {
                 Your Direct Selling Agent Partner
               </h2>
               <p className="text-lg text-slate-600 leading-relaxed">
-                Instead of visiting multiple bank branches, wasting weeks, and filling out dozens of forms, we do the heavy lifting. We compare 20+ lenders to secure the lowest rates and highest eligibility for you.
+                Instead of visiting multiple bank branches, wasting weeks, and filling out dozens of forms, we do the heavy lifting. We compare all major lenders to secure the lowest rates and highest eligibility for you.
               </p>
             </div>
 

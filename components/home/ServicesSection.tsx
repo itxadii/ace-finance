@@ -1,7 +1,7 @@
 "use client";
 
 import ServiceCard from "@/components/layout/ServiceCard";
-import { User, Briefcase, Home, Landmark, Car, TrendingUp } from "lucide-react";
+import { User, Briefcase, Home, Landmark, Car, TrendingUp, Coins } from "lucide-react";
 
 export default function ServicesSection() {
   // Move the array INSIDE the component to prevent SSR hydration issues.
@@ -40,6 +40,13 @@ export default function ServicesSection() {
       title: "Used Car Loans",
       description: "Own the pre-owned vehicle you want with our fast-approval used car loans and competitive rates.",
       href: "/auto-loan",
+    },
+    {
+      id: "gold-loan",
+      icon: <Coins size={28} strokeWidth={1.5} />,
+      title: "Gold Loans",
+      description: "Unlock instant cash against your gold ornaments with low interest rates, high LTV, and safe vault storage.",
+      href: "/gold-loan",
     },
     {
       id: "mutual-funds",

@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/business-loan",
     "/loan-against-property",
     "/auto-loan",
+    "/gold-loan",
     "/insurance",
     "/mutual-funds",
     "/commodity-currency",

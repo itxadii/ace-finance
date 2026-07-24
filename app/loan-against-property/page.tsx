@@ -3,7 +3,7 @@ import LoanPageLayout, { LoanPageData } from "@/components/layout/LoanPageLayout
 export const metadata = {
   title: "Loan Against Property in Dhule | ACE Financial Services",
   description:
-    "Unlock the hidden value of your residential or commercial property in Dhule. Get maximum funding, low interest rates, and quick disbursal at zero service charges.",
+    "Unlock the hidden value of your residential or commercial property in Dhule. Get maximum funding, low interest rates, and quick disbursal.",
   alternates: {
     canonical: "/loan-against-property/",
   },
@@ -24,7 +24,7 @@ const data: LoanPageData = {
     { value: "9.0%*", label: "Starting Interest Rate" },
     { value: "15 Yrs", label: "Max Tenure" },
     { value: "₹10 Cr+", label: "Max Loan Amount" },
-    { value: "48 Hrs", label: "Approval Time" },
+    { value: "72 Hrs", label: "Approval Time" },
   ],
   features: [
     {
