@@ -47,9 +47,31 @@ export default function Footer() {
                 </div>
               </Link>
 
-              <p className="text-sm text-slate-600 leading-relaxed max-w-[280px] mb-8">
+              <p className="text-sm text-slate-600 leading-relaxed max-w-[280px] mb-6">
                 <strong>Universe of Loans & Investments.</strong> Your premier direct selling loan agent in Dhule. We partner with all leading banks to secure the best loan rates and terms for you.
               </p>
+
+              {/* Social icons */}
+              <div className="flex gap-2.5">
+                <a
+                  href="https://www.instagram.com/acecapitalhub/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-20 h-9 bg-slate-100 hover:bg-slate-900 hover:text-white rounded-lg flex items-center justify-center text-slate-600 transition-colors no-underline"
+                  title="Instagram"
+                >
+                  <span className="text-xs font-bold">Instagram</span>
+                </a>
+                <a
+                  href="https://x.com/Acapitalhub2469"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 bg-slate-100 hover:bg-slate-900 hover:text-white rounded-lg flex items-center justify-center text-slate-600 transition-colors no-underline"
+                  title="Twitter / X"
+                >
+                  <span className="text-xs font-bold">𝕏</span>
+                </a>
+              </div>
             </div>
 
             {/* Services */}
@@ -100,7 +122,7 @@ export default function Footer() {
                   { icon: <MapPin size={18} />, text: "S-301-305, 'B' Wing, 2nd Floor, New Jayshankar Market, Opp. Urdu High School, Dhule - 424001", href: "https://maps.app.goo.gl/B5a6bRP4ZrzyNHNG6" },
                   { icon: <Phone size={18} />, text: "+91 99754 94945", href: "tel:+919975494945" },
                   { icon: <Phone size={18} />, text: "02562 - 280033 / 34 / 35", href: "tel:02562280033" },
-                  { icon: <Mail size={18} />, text: "priyanka.agrawal@iiflpartner.com", href: "mailto:priyanka.agrawal@iiflpartner.com" },
+                  { icon: <Mail size={18} />, text: "acecapitalhub@gmail.com", href: "mailto:acecapitalhub@gmail.com" },
                   { icon: <Clock size={18} />, text: "Mon–Sat: 9 AM – 6 PM" },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-start gap-3 text-slate-600">

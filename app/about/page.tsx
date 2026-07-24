@@ -131,7 +131,7 @@ export default function AboutPage() {
                   <div className="inline-block bg-emerald-500 text-slate-950 font-black text-[10px] uppercase tracking-widest px-3 py-1 rounded-full mb-2">
                     Founder & Managing Director
                   </div>
-                  <h3 className="text-2xl font-black text-white leading-tight">Nilesh Gindodia</h3>
+                  <h3 className="text-2xl font-black text-white leading-tight">Mr. Nilesh Gindodiya</h3>
                   <p className="text-emerald-300 text-xs font-semibold mt-1">ACE Financial Services — Dhule</p>
                 </div>
               </div>
@@ -151,18 +151,26 @@ export default function AboutPage() {
             {/* Founder Copy Column */}
             <div className="lg:col-span-7 flex flex-col justify-center">
               <span className="text-xs font-extrabold text-emerald-600 tracking-widest uppercase block mb-4">
-                Leadership Spotlight
+                About ACE Financial Services – Dhule
               </span>
               <h2 className="text-[clamp(30px,3.5vw,42px)] font-black text-slate-900 tracking-tight leading-tight mb-6">
-                Led by Nilesh Gindodia — Built on Trust & Excellence
+                Led by Mr. Nilesh Gindodiya — Guidance with Clarity & Confidence
               </h2>
+              
+              <p className="text-base text-slate-600 leading-relaxed mb-4">
+                ACE Financial Services is a well-known financial service provider based in Dhule, offering reliable guidance for all types of loan and investment needs. Led by <strong>Mr. Nilesh Gindodiya</strong>, the firm has built a strong reputation over the years by helping clients choose the right financial solutions with clarity and confidence.
+              </p>
 
-              <p className="text-base text-slate-600 leading-relaxed mb-5">
-                ACE Financial Services was founded by <strong>Nilesh Gindodia</strong> with a singular mission: to eliminate the stress, paperwork confusion, and branch delays traditionally associated with securing bank loans in Dhule and across Maharashtra.
+              <p className="text-base text-slate-600 leading-relaxed mb-4">
+                If you are looking for assistance with a home loan in Dhule, personal loan, business loan, or loan against property, our team ensures a smooth and hassle-free process. We also provide support for auto loans, along with financial products like life and health insurance, mutual funds, and investment services including commodity and share trading.
+              </p>
+
+              <p className="text-base text-slate-600 leading-relaxed mb-4">
+                What sets ACE Financial Services apart is its simple and transparent approach. We understand that financial decisions can often feel confusing, especially when dealing with multiple banks and options. That is why we focus on explaining every step clearly — from selecting the right loan option to completing documentation and final approval.
               </p>
 
               <p className="text-base text-slate-600 leading-relaxed mb-6">
-                Under Nilesh Gindodia's leadership, ACE Financial Services acts as your personal financial advocate. We evaluate your unique profile, leverage direct relationships with credit managers across all top banks, and structure your files to secure maximum loan eligibility at the most competitive interest rates.
+                Over the years, many individuals and families in Dhule have trusted us for their financial needs. A large number of our clients come through referrals, which reflects the confidence and satisfaction they have experienced while working with us. Located at <strong>New Jayshankar Market, Dhule</strong>, we are here to guide you with dependable support.
               </p>
 
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-6 border-t border-slate-100">
@@ -217,7 +225,7 @@ export default function AboutPage() {
                 </span>
                 <h3 className="text-xl font-black text-slate-900 mb-2">ICICI Bank Wazir Award</h3>
                 <p className="text-sm text-slate-600 leading-relaxed mb-4">
-                  Awarded to <strong>Nilesh Gindodia</strong> for outstanding performance in the national <em>Wazir Season 3</em> campaign by ICICI Bank.
+                  Awarded to <strong>Mr. Nilesh Gindodiya</strong> for outstanding performance in the national <em>Wazir Season 3</em> campaign by ICICI Bank.
                 </p>
                 <div className="text-xs font-bold text-emerald-600 uppercase tracking-wider flex items-center gap-1">
                   <span>Presented by ICICI Bank</span>
@@ -229,7 +237,7 @@ export default function AboutPage() {
               <div className="relative w-44 h-56 flex-shrink-0 bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 p-2 shadow-inner">
                 <Image
                   src="/awardholdingpic.png"
-                  alt="Nilesh Gindodia Receiving Wazir Award Trophy"
+                  alt="Mr. Nilesh Gindodiya Receiving Wazir Award Trophy"
                   fill
                   className="object-contain group-hover:scale-105 transition-transform duration-300"
                 />
@@ -240,7 +248,7 @@ export default function AboutPage() {
                 </span>
                 <h3 className="text-xl font-black text-slate-900 mb-2">Wazir Performance Trophy</h3>
                 <p className="text-sm text-slate-600 leading-relaxed mb-4">
-                  <strong>Nilesh Gindodia</strong> receiving the prestigious Wazir Award trophy for retail credit excellence and customer satisfaction.
+                  <strong>Mr. Nilesh Gindodiya</strong> receiving the prestigious Wazir Award trophy for retail credit excellence and customer satisfaction.
                 </p>
                 <div className="text-xs font-bold text-emerald-600 uppercase tracking-wider flex items-center gap-1">
                   <span>ICICI Bank Partner Convention</span>

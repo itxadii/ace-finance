@@ -314,7 +314,8 @@ export default function ContactPageClient() {
                   {
                     icon: <Mail className="text-emerald-600" size={20} />,
                     title: "Email Channels",
-                    lines: ["priyanka.agrawal@iiflpartner.com"]
+                    lines: ["acecapitalhub@gmail.com"],
+                    href: "mailto:acecapitalhub@gmail.com"
                   },
                   {
                     icon: <Clock className="text-emerald-600" size={20} />,
@@ -329,13 +330,42 @@ export default function ContactPageClient() {
                     <div>
                       <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider">{info.title}</h4>
                       {info.lines.map((line, lIdx) => (
-                        <p key={lIdx} className="text-sm font-extrabold text-slate-800 mt-1 leading-normal m-0">
-                          {line}
-                        </p>
+                        info.href ? (
+                          <a key={lIdx} href={info.href} className="text-sm font-extrabold text-slate-800 hover:text-emerald-600 mt-1 leading-normal block no-underline">
+                            {line}
+                          </a>
+                        ) : (
+                          <p key={lIdx} className="text-sm font-extrabold text-slate-800 mt-1 leading-normal m-0">
+                            {line}
+                          </p>
+                        )
                       ))}
                     </div>
                   </div>
                 ))}
+
+                {/* Social Connect */}
+                <div className="pt-4 border-t border-slate-200/80">
+                  <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">Connect With Us</h4>
+                  <div className="flex gap-3">
+                    <a
+                      href="https://www.instagram.com/acecapitalhub/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-white border border-slate-200 hover:border-pink-500 text-slate-700 hover:text-pink-600 px-4 py-2 rounded-xl text-xs font-bold transition-all duration-300 no-underline shadow-xs flex items-center gap-2"
+                    >
+                      <span>Instagram</span>
+                    </a>
+                    <a
+                      href="https://x.com/Acapitalhub2469"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-white border border-slate-200 hover:border-slate-900 text-slate-700 hover:text-slate-900 px-4 py-2 rounded-xl text-xs font-bold transition-all duration-300 no-underline shadow-xs flex items-center gap-2"
+                    >
+                      <span>Twitter</span>
+                    </a>
+                  </div>
+                </div>
               </div>
 
               {/* Styled Visual Map Card with Direct Google Maps Link */}
@@ -362,7 +392,7 @@ export default function ContactPageClient() {
                   S-301-305, 'B' Wing, New Jayshankar Market, Dhule
                 </p>
                 <span className="inline-flex items-center gap-1 text-xs font-extrabold text-emerald-600 bg-emerald-50 border border-emerald-200 px-3.5 py-1.5 rounded-full z-10 group-hover:bg-emerald-600 group-hover:text-white transition-all">
-                  Open in Google Maps ↗
+                  Open in Google Maps
                 </span>
               </a>
 
