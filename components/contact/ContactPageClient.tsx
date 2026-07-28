@@ -44,7 +44,10 @@ export default function ContactPageClient() {
       return;
     }
 
-    const scriptUrl = (process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL || "").trim();
+    const scriptUrl = (
+      process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL ||
+      "https://script.google.com/macros/s/AKfycbwNKTYjvT3SbAw47T24kMQvuZ5AFALE25WS1hNh3e6bMLa2QFGknjtdC5nFRIqGNSD4/exec"
+    ).trim();
 
     if (!scriptUrl || !scriptUrl.startsWith("http")) {
       setError("Form submission endpoint is not configured. Please contact us directly via Phone or Email.");
