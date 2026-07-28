@@ -44,6 +44,13 @@ export default function ContactPageClient() {
       return;
     }
 
+    const scriptUrl = (process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL || "").trim();
+
+    if (!scriptUrl || !scriptUrl.startsWith("http")) {
+      setError("Form submission endpoint is not configured. Please contact us directly via Phone or Email.");
+      return;
+    }
+
     setIsSending(true);
     try {
       const payload = {
@@ -53,8 +60,6 @@ export default function ContactPageClient() {
         subject: formData.subject || "Contact Inquiry",
         message: formData.message
       };
-
-      const scriptUrl = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL || "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL";
 
       const response = await fetch(scriptUrl, {
         method: "POST",
